@@ -13,8 +13,8 @@
     <title>Welcome</title>
     <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
-    <script type="text/javascript" src="/lib/grecaptcha/grecaptcha.js"></script>
-    <link rel="stylesheet" href="/lib/grecaptcha/grecaptcha.css">
+    <script type="text/javascript" src="../lib/grecaptcha/grecaptcha.js"></script>
+    <link rel="stylesheet" href="../lib/grecaptcha/grecaptcha.css">
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function() {
         grecaptcha_init();
@@ -23,6 +23,11 @@
             grecaptcha_init();
           }, (60*3)*1000)
         );
+      });
+      window.addEventListener('focus', function(){
+        grecaptcha_init();
+      });
+      window.addEventListener('blur', function(){
       });
     </script>
     <style media="screen">
@@ -36,6 +41,11 @@
         background: linear-gradient(45deg, aliceblue, azure, white);
         background-repeat: no-repeat;
         height: 100%;
+      }
+      header
+      {
+        height: 50px;
+        background: linear-gradient(to bottom left, lightskyblue, dodgerblue);
       }
       footer
       {
@@ -55,9 +65,120 @@
           opacity: 0.5;
         }
       }
+      section
+      {
+        display: none;
+      }
     </style>
+    <style media="screen">
+      #menu_0
+      {
+        float: left;
+        border-right: 3px double navy;
+        padding-right: 10px;
+        margin-right: 30px;
+        height: calc(50vmax);
+      }
+    </style>
+    <style media="screen">
+      .forTwpf
+      {
+        font-family: azuki;
+      }
+      .forTwpf img
+      {
+        width: 3em;
+      }
+      .forTwpf .meta
+      {
+        font-size: 8pt;
+        text-align: right;
+      }
+    </style>
+    <style media="screen">
+      @font-face {
+        font-family: "azuki";
+        src: url("/lib/font/azuki.ttf") format("TrueType");
+        /* http://fonts.web.fc2.com/ */
+      }
+    </style>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        console.log(location.search);
+        console.log((location.search).lastIndexOf('src=twitter.com'));
+        console.log((location.search).lastIndexOf('src=twitter.com') > 0);
+        if ((location.search).lastIndexOf('src=twitter.com') > 0) {
+          document.getElementsByClassName('forTwpf')[0].style.display = 'block';
+        }
+      });
+    </script>
   </head>
   <body>
+    <header>
+
+    </header>
+    <menu>
+      <div id="menu_0">
+        <a href="https://github.com/n138-kz/">github</a>
+      </div>
+    </menu>
+    <section class="forTwpf">
+      <h1>
+        <img
+        src="https://pbs.twimg.com/profile_images/1423660465624813571/cUYKyfIM_400x400.png"
+        alt="@yu_n138_lol1" /> ユウ(@yu_n138_lol1)
+      </h1>
+
+      <h2>原神プロフィール</h2>
+      <p class="meta">(modified at Aug 23 3:00 2021)</p>
+      <table>
+        <tr>
+          <th>プレイヤー名</th>
+          <td>ハルカ</td>
+        </tr>
+        <tr>
+          <th>アイコン</th>
+          <td>クレーちゃん</td>
+        </tr>
+        <tr>
+          <th>冒険ランク(AR)</th>
+          <td>56</td>
+        </tr>
+        <tr>
+          <th>世界ランク(WR)</th>
+          <td>8</td>
+        </tr>
+        <tr>
+          <th>ID</th>
+          <td>基本非公開</td>
+        </tr>
+        <tr>
+          <th>プレイ端末</th>
+          <td>スマホ(iPhone), タブレット(iPad), PC</td>
+        </tr>
+        <tr>
+          <th>ボイスチャット(VC)</th>
+          <td>Twitterでよく話す旅人限定</td>
+        </tr>
+        <tr>
+          <th>推しキャラ</th>
+          <td>クレーちゃん ・ 七七ちゃん ・ ディオナちゃん ・ 早柚ちゃん ・ 瑶瑶ちゃん ・ パイモンちゃん</td>
+        </tr>
+        <tr>
+          <th>性別</th>
+          <td>♂</td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>
+            <blockquote class="twitter-tweet">
+              <a href="https://twitter.com/yu_n138_lol1/status/1381999907528052739?ref_src=twsrc%5Etfw">April 13, 2021</a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </td>
+        </tr>
+      </table>
+    </section>
     <footer>
       Copyright(c) n138.nws. <wbr />
       All right reserved. <wbr />
