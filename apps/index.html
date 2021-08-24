@@ -2,7 +2,7 @@
 <html lang="ja" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=520" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Cache-Control" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -73,11 +73,29 @@
     <style media="screen">
       #menu_0
       {
-        float: left;
         border-right: 3px double navy;
         padding-right: 10px;
         margin-right: 30px;
         height: calc(50vmax);
+        list-style: none;
+      }
+      @media screen and (min-width: 720px)
+      {
+        #menu_0
+        {
+          float: left;
+        }
+      }
+    </style>
+    <style media="screen">
+      .items>.itemTitle
+      {
+        font-size: 16pt;
+        font-weight: bold;
+      }
+      .items>.itemContent
+      {
+        padding-left: 180px;
       }
     </style>
     <style media="screen">
@@ -119,12 +137,8 @@
     </header>
     <menu>
       <div id="menu_0">
-        <li>
-          <a href="https://github.com/n138-kz/">github</a>
-        </li>
-        <li>
-          <a href="https://labs.n138.jp/idaas/apps">ログイン</a>
-        </li>
+        <li><a href="https://github.com/n138-kz/">github</a></li>
+        <li><a href="https://labs.n138.jp/idaas/apps">ログイン</a></li>
       </div>
     </menu>
     <section class="forTwpf">
@@ -135,54 +149,52 @@
       </h1>
 
       <h2>原神プロフィール</h2>
-      <p class="meta">(modified at Aug 23 3:00 2021)</p>
-      <table>
-        <tr>
-          <th>プレイヤー名</th>
-          <td>ハルカ</td>
-        </tr>
-        <tr>
-          <th>アイコン</th>
-          <td>クレーちゃん</td>
-        </tr>
-        <tr>
-          <th>冒険ランク(AR)</th>
-          <td>56</td>
-        </tr>
-        <tr>
-          <th>世界ランク(WR)</th>
-          <td>8</td>
-        </tr>
-        <tr>
-          <th>ID</th>
-          <td>基本非公開</td>
-        </tr>
-        <tr>
-          <th>プレイ端末</th>
-          <td>スマホ(iPhone), タブレット(iPad), PC</td>
-        </tr>
-        <tr>
-          <th>ボイスチャット(VC)</th>
-          <td>Twitterでよく話す旅人限定</td>
-        </tr>
-        <tr>
-          <th>推しキャラ</th>
-          <td>クレーちゃん ・ 七七ちゃん ・ ディオナちゃん ・ 早柚ちゃん ・ 瑶瑶ちゃん ・ パイモンちゃん</td>
-        </tr>
-        <tr>
-          <th>性別</th>
-          <td>♂</td>
-        </tr>
-        <tr>
-          <th></th>
-          <td>
-            <blockquote class="twitter-tweet">
-              <a href="https://twitter.com/yu_n138_lol1/status/1381999907528052739?ref_src=twsrc%5Etfw">April 13, 2021</a>
-            </blockquote>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </td>
-        </tr>
-      </table>
+      <p class="meta">(modified at Aug 24 20:45 2021)</p>
+      <div class="items">
+        <span class="itemTitle">プレイヤー名</span>
+        <div class="itemContent">ハルカ
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">アイコン</span>
+        <div class="itemContent">クレーちゃん
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">冒険ランク(AR)</span>
+        <div class="itemContent">56
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">世界ランク(WR)</span>
+        <div class="itemContent">8
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">ID</span>
+        <div class="itemContent">基本非公開
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">プレイ端末</span>
+        <div class="itemContent">スマホ(iPhone), タブレット(iPad), PC
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">ボイスチャット(VC)</span>
+        <div class="itemContent">Twitterでよく話す旅人限定
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">推しキャラ</span>
+        <div class="itemContent">クレーちゃん ・ 七七ちゃん ・ ディオナちゃん ・ 早柚ちゃん ・ 瑶瑶ちゃん ・ パイモンちゃん
+        </div>
+      </div>
+      <div class="items">
+        <span class="itemTitle">性別</span>
+        <div class="itemContent">♂
+        </div>
+      </div>
     </section>
     <footer>
       Copyright(c) n138.nws. <wbr />
