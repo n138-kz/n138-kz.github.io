@@ -1,0 +1,40 @@
+@charset "UTF-8";
+html
+{
+  padding-top: 10px;
+  height: 100%;
+}
+body
+{
+  background: linear-gradient(45deg, aliceblue, azure, white);
+  background-repeat: no-repeat;
+  height: 100%;
+}
+header
+{
+  height: 50px;
+  background: linear-gradient(to bottom left, lightskyblue, dodgerblue);
+}
+footer
+{
+  display: block;
+  position: fixed;
+  bottom: 0;
+  line-height: 3em;
+  width: 100%;
+  padding: 0 5ex;
+  background-color: aliceblue;
+  white-space: nowrap;
+}
+@media screen and (max-height: 100px)
+{
+  footer
+  {
+    margin-top: 5em;
+    opacity: 0.5;
+  }
+}
+section
+{
+  display: none;
+}
