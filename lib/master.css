@@ -31,8 +31,7 @@ img {
 }
 
 @media screen and (max-height: 100px) {
-  footer
-  {
+  footer {
     margin-top: 5em;
     opacity: 0.5;
   }
