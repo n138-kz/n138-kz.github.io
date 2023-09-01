@@ -30,6 +30,10 @@ img {
   max-width: 350px;
 }
 
+hr {
+  margin: 10px;
+}
+
 @media screen and (max-height: 100px) {
   footer {
     margin-top: 5em;
