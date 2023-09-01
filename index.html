@@ -13,69 +13,9 @@
     <title>Top | n138.jp</title>
     <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
-    <script type="text/javascript" src="../lib/grecaptcha/grecaptcha.js"></script>
-    <link rel="stylesheet" href="../lib/grecaptcha/grecaptcha.css">
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function() {
-        grecaptcha_init();
-        sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA_timeout',
-          setInterval(function(e){
-            grecaptcha_init();
-          }, (60*3)*1000)
-        );
-      });
-      window.addEventListener('focus', function(){
-        grecaptcha_init();
-      });
-      window.addEventListener('blur', function(){
-      });
-    </script>
-    <link rel="stylesheet" href="/lib/master.css">
-    <style media="screen">
-      #menu_0
-      {
-        border-right: 3px double navy;
-        padding-right: 10px;
-        margin-right: 30px;
-        height: calc(50vmax);
-        list-style: none;
-      }
-      @media screen and (min-width: 720px)
-      {
-        #menu_0
-        {
-          float: left;
-        }
-      }
-    </style>
-    <style media="screen">
-      .items>.itemTitle
-      {
-        font-size: 16pt;
-        font-weight: bold;
-      }
-      .items>.itemContent
-      {
-        padding-left: 10%;
-      }
-    </style>
-    <style media="screen">
-      @font-face {
-        font-family: "azuki";
-        src: url("/lib/font/azuki.ttf") format("TrueType");
-        /* http://fonts.web.fc2.com/ */
-      }
-    </style>
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function() {
-        console.log(location.search);
-        console.log((location.search).lastIndexOf('src=twitter.com'));
-        console.log((location.search).lastIndexOf('src=twitter.com') > 0);
-        if ((location.search).lastIndexOf('src=twitter.com') > 0) {
-          document.getElementsByClassName('forTwpf')[0].style.display = 'block';
-        }
-      });
-    </script>
+    <script type="text/javascript" src="./lib/grecaptcha/grecaptcha.js"></script>
+    <link rel="stylesheet" href="./lib/grecaptcha/grecaptcha.css">
+    <link rel="stylesheet" href="./lib/master.css">
   </head>
   <body>
     <header>
@@ -84,18 +24,8 @@
     <menu>
       <div id="menu_0">
         <li><a href="https://github.com/n138-kz/">github</a></li>
-        <li><a href="https://labs.n138.jp/idaas/apps">ログイン</a></li>
       </div>
     </menu>
-
-    <section>
-      <iframe src="https://discord.com/widget?id=1022776959522062347&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-      <div>
-        <a href="https://discord.gg/frXgrheJAf" title="https://discord.com/">
-          <img src="https://www.alucare.fr/wp-content/uploads/2022/07/Logo-de-discord.jpg" alt="discord" />
-        </a>
-      </div>
-    </section>
 
     <footer>
       Copyright(c) n138.nws. <wbr />
