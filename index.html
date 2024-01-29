@@ -14,10 +14,17 @@
 		<script src="./lib/grecaptcha.js"></script>
 		<style>
 			:root {
-				
+				--default-font-size: 16pt;
+				--default-margin-padding-size: 0;
+				--default-background-color: #F0FFFFFF;
+				--default-text-color: #000000FF;
 			}
-			:read-only {
-				font-size: 16pt;
+			html {
+				margin: var(--default-margin-padding-size);
+				padding: var(--default-margin-padding-size);
+				background-color: var(--default-background-color);
+				color: var(--default-text-color);
+				font-size: var(--default-font-size);
 			}
 		</style>
 		<style>
