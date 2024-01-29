@@ -36,27 +36,53 @@
 				display: flex;
 			}
 		</style>
+		<script>
+			window.addEventListener('DOMContentLoaded', (e1)=>{
+				let sections = [
+					{
+						name: 'GitHub',
+						href: 'https://github.com/n138-kz/',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://github.com/',
+					},
+					{
+						name: 'YouTube',
+						href: 'https://youtube.com/channel/UCOX8Iv1r0V18lbOnohE7lWQ/',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://youtube.com',
+					},
+					{
+						name: 'X(Twitter)',
+						href: 'https://x.com/yu_n138_lol1',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://x.com/',
+					},
+					{
+						name: 'Qiita',
+						href: 'https://qiita.com/YuuT_38',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/',
+					},
+				];
+				let dom_item = [];
+				sections.forEach((e2)=>{
+					dom_item[0] = document.createElement('div');
+					dom_item[0].classList.add('flex');
+					dom_item[1] = document.createElement('a');
+					dom_item[1].classList.add('icon');
+					dom_item[1].href = e2.href;
+					dom_item[2] = document.createElement('img');
+					dom_item[2].alt = '';
+					dom_item[2].src = e2.favicon;
+					dom_item[1].appendChild( dom_item[2] );
+					dom_item[2] = document.createTextNode( e2.name );
+					dom_item[1].appendChild( dom_item[2] );
+					dom_item[0].appendChild( dom_item[1] );
+					document.querySelectorAll('body').item(0).appendChild( dom_item[0] );
+				});
+				dom_item = [];
+				dom_item[0] = document.createElement('footer');
+				dom_item[1] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.' );
+				dom_item[0].appendChild( dom_item[1] );
+				document.querySelectorAll('body').item(0).appendChild( dom_item[0] );
+			});
+		</script>
 	</head>
-	<body>
-		<div class="flex">
-			<a href="https://github.com/n138-kz/" class="icon svg">
-			<img alt="" src="https://www.google.com/s2/favicons?size=64&domain=https://github.com/">GitHub</a>
-		</div>
-		<div class="flex">
-			<a href="https://youtube.com/channel/UCOX8Iv1r0V18lbOnohE7lWQ/" class="icon svg">
-			<img alt="" src="https://www.google.com/s2/favicons?size=64&domain=https://youtube.com">YouTube</a>
-		</div>
-		<div class="flex">
-			<a href="https://x.com/yu_n138_lol1" class="icon svg">
-			<img alt="" src="https://www.google.com/s2/favicons?size=64&domain=https://x.com/">X(Twitter)</a>
-		</div>
-		<div class="flex">
-			<a href="https://qiita.com/YuuT_38" class="icon svg">
-			<img alt="" src="https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/">Qiita</a>
-		</div>
-		<footer>
-			Copyright(c) 2024, n138.nws. All right reserved.
-		</footer>
-		
-	</body>
+	<body></body>
 </html>
