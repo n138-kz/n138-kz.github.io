@@ -76,6 +76,6 @@ n138.nws（以下，「当社」といいます。）は，本ウェブサイト
 本ポリシーに関するお問い合わせは，下記の窓口までお願いいたします。
 
 - Eメールアドレス：n138-app-oauth★googlegroups.com (★=>＠)
-- Discord：[Invite to DISCORD](https://discord.gg/dEjvyYkCwf)
+- Discord：[![discord](https://www.google.com/s2/favicons?size=64&domain=https://discord.gg)Invite to DISCORD](https://discord.gg/dEjvyYkCwf)
 
 以上
