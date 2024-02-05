@@ -42,6 +42,11 @@
 				}
 			}
 		</style>
+		<style>
+			footer span {
+				display: inline-flex;
+			}
+		</style>
 		<script>
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				let sections = [
@@ -84,8 +89,20 @@
 				});
 				dom_item = [];
 				dom_item[0] = document.createElement('footer');
-				dom_item[1] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.' );
+				dom_item[1] = document.createElement('span');
+				dom_item[2] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws.' );
+				dom_item[1].appendChild( dom_item[2] );
 				dom_item[0].appendChild( dom_item[1] );
+
+				dom_item[1] = document.createElement('wbr');
+				dom_item[2] = null;
+				dom_item[0].appendChild( dom_item[1] );
+
+				dom_item[1] = document.createElement('span');
+				dom_item[2] = document.createTextNode( 'All right reserved.' );
+				dom_item[1].appendChild( dom_item[2] );
+				dom_item[0].appendChild( dom_item[1] );
+
 				document.querySelectorAll('body').item(0).appendChild( dom_item[0] );
 			});
 		</script>
