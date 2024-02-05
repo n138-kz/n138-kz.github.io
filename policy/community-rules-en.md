@@ -1,5 +1,7 @@
-Discord Community Rules and Expectations
-----------------------------------------------------
+# Discord Community Rules and Expectations
+
+---
+
 1. Be courteous and respectful to the community. We are welcoming of everyone regardless of age, race, gender identity, or sexual orientation.
 
 1. Do not use derogatory language or engage in harassing behavior. We have no tolerance for slurs or targeted attacks against individuals or groups.
