@@ -169,27 +169,6 @@
 					dom_item[0].classList.add('flex');
 				
 					dom_item[1] = document.createElement('code');
-					dom_item[2] = document.createTextNode( 'Math.round(parseInt(new Date().getTime()/1000) / 10) * 10' );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createTextNode( ':' );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createElement('code');
-					dom_item[1].id = 'unixtimestamp_10r';
-					dom_item[2] = document.createTextNode( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-					document.body.appendChild( dom_item[0] );
-					setInterval(()=>{
-						document.querySelector('#unixtimestamp_10r').innerText = Math.round(parseInt(new Date().getTime()/1000) / 10) * 10;
-					}, 500);
-				/*  */
-				
-				/*  */
-					dom_item[0] = document.createElement('div');
-					dom_item[0].classList.add('flex');
-				
-					dom_item[1] = document.createElement('code');
 					dom_item[2] = document.createTextNode( 'Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10' );
 					dom_item[1].appendChild( dom_item[2] );
 					dom_item[0].appendChild( dom_item[1] );
@@ -203,6 +182,27 @@
 					document.body.appendChild( dom_item[0] );
 					setInterval(()=>{
 						document.querySelector('#unixtimestamp_10c').innerText = Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10;
+					}, 500);
+				/*  */
+				
+				/*  */
+					dom_item[0] = document.createElement('div');
+					dom_item[0].classList.add('flex');
+				
+					dom_item[1] = document.createElement('code');
+					dom_item[2] = document.createTextNode( 'Math.round(parseInt(new Date().getTime()/1000) / 10) * 10' );
+					dom_item[1].appendChild( dom_item[2] );
+					dom_item[0].appendChild( dom_item[1] );
+					dom_item[1] = document.createTextNode( ':' );
+					dom_item[0].appendChild( dom_item[1] );
+					dom_item[1] = document.createElement('code');
+					dom_item[1].id = 'unixtimestamp_10r';
+					dom_item[2] = document.createTextNode( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 );
+					dom_item[1].appendChild( dom_item[2] );
+					dom_item[0].appendChild( dom_item[1] );
+					document.body.appendChild( dom_item[0] );
+					setInterval(()=>{
+						document.querySelector('#unixtimestamp_10r').innerText = Math.round(parseInt(new Date().getTime()/1000) / 10) * 10;
 					}, 500);
 				/*  */
 				
