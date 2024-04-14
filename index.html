@@ -116,8 +116,9 @@
 					dom_item[0].appendChild( dom_item[1] );
 					document.body.appendChild( dom_item[0] );
 				});
-				dom_item = [];
 			}
+			function function2(){
+				let dom_item = [];
 				dom_item[0] = document.createElement('footer');
 				dom_item[1] = document.createElement('span');
 				dom_item[2] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws.' );
@@ -134,10 +135,12 @@
 				dom_item[0].appendChild( dom_item[1] );
 
 				document.body.appendChild( dom_item[0] );
+			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
 				insertFavicon();
 				function1();
+				function2();
 			});
 		</script>
 	</head>
