@@ -55,6 +55,10 @@
 				html_top.name='_';
 				document.head.prepend(html_top);
 			}
+			async function getServicesLinkJSON(){
+				const resource = './lib/services-link.json';
+				resource = await fetch(resource, {method: 'GET'});
+			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
 				let sections = [
