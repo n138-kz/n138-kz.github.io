@@ -73,6 +73,7 @@
 				const resource_file = './lib/services-link.json';
 				const resource_data = await fetch(resource_file, {method: 'GET'});
 				const resource_json = await resource_data.json();
+				console.debug(resource_json);
 				return resource_json;
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
