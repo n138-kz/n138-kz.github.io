@@ -119,7 +119,7 @@
 					dom_item[2] = document.createTextNode( e2.name );
 					dom_item[1].appendChild( dom_item[2] );
 					dom_item[0].appendChild( dom_item[1] );
-					document.querySelectorAll('body').item(0).appendChild( dom_item[0] );
+					document.body.appendChild( dom_item[0] );
 				});
 				dom_item = [];
 				dom_item[0] = document.createElement('footer');
