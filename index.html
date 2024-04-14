@@ -67,6 +67,7 @@
 					document.head.prepend(favicon);
 				});
 			}
+			function function1(){
 				let sections = [
 					{
 						name: 'GitHub',
@@ -116,6 +117,7 @@
 					document.body.appendChild( dom_item[0] );
 				});
 				dom_item = [];
+			}
 				dom_item[0] = document.createElement('footer');
 				dom_item[1] = document.createElement('span');
 				dom_item[2] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws.' );
@@ -135,6 +137,7 @@
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
 				insertFavicon();
+				function1();
 			});
 		</script>
 	</head>
