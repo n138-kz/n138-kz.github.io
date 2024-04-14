@@ -56,8 +56,10 @@
 				document.head.prepend(html_top);
 			}
 			async function getServicesLinkJSON(){
-				const resource = './lib/services-link.json';
-				resource = await fetch(resource, {method: 'GET'});
+				const resource_file = './lib/services-link.json';
+				const resource_data = await fetch(resource, {method: 'GET'});
+				const resource_json = await resource_data.json();
+				return resource_json;
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
