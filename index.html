@@ -50,7 +50,13 @@
 			}
 		</style>
 		<script>
+			function insertTopMaker(){
+				const html_top = document.createElement('a');
+				html_top.name='_';
+				document.head.prepend(html_top);
+			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
+				insertTopMaker();
 				let sections = [
 					{
 						name: 'GitHub',
