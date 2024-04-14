@@ -1,42 +1,42 @@
 @charset "UTF-8";
 html {
-  padding-top: 10px;
-  height: 100%;
-  background-color: azure;
-  background-repeat: no-repeat;
+	padding-top: 10px;
+	height: 100%;
+	background-color: azure;
+	background-repeat: no-repeat;
 }
 
 body {
-  background-color: transparent;
-  min-height: 3em;
+	background-color: transparent;
+	min-height: 3em;
 }
 
 header {
-  background-color: aliceblue;
+	background-color: aliceblue;
 }
 
 footer {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  line-height: 3em;
-  width: 100%;
-  padding: 0 5ex;
-  background: linear-gradient(to bottom left, lightskyblue, dodgerblue);
-  white-space: nowrap;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	line-height: 3em;
+	width: 100%;
+	padding: 0 5ex;
+	background: linear-gradient(to bottom left, lightskyblue, dodgerblue);
+	white-space: nowrap;
 }
 
 img {
-  max-width: 350px;
+	max-width: 350px;
 }
 
 hr {
-  margin: 10px;
+	margin: 10px;
 }
 
 @media screen and (max-height: 100px) {
-  footer {
-    margin-top: 5em;
-    opacity: 0.5;
-  }
+	footer {
+		margin-top: 5em;
+		opacity: 0.5;
+	}
 }
