@@ -61,7 +61,7 @@
 					favicon.rel = `${e}`;
 					favicon.href = (location.origin) + '/lib/favicon.webp';
 					favicon.type = 'image/webp';
-					document.querySelectorAll('head').forEach((e)=>e.prepend(favicon));
+					document.head.prepend(favicon);
 				});
 			}
 			async function getServicesLinkJSON(){
@@ -72,6 +72,7 @@
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
+				insertFavicon();
 				let sections = [
 					{
 						name: 'GitHub',
