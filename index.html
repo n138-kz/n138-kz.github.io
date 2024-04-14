@@ -65,6 +65,11 @@
 				});
 			}
 			async function getServicesLinkJSON(){
+				/* 
+				 * awaitでfetchを書く、promiseでfetchを書く
+				 * https://zenn.dev/kawaxumax/articles/0044a0e30536e2
+				 *
+				*/
 				const resource_file = './lib/services-link.json';
 				const resource_data = await fetch(resource_file, {method: 'GET'});
 				const resource_json = await resource_data.json();
