@@ -38,6 +38,9 @@
 				display: inline-flex;
 			}
 		</style>
+		<noscript>
+			<link rel="icon" type="image/webp" href="https://www.google.com/s2/favicons?size=64&domain=https://n138-kz.github.io/">
+		</noscript>
 		<script>
 			function insertFavicon(){
 				['icon', 'apple-touch-icon', 'favicon'].forEach((e)=>{
@@ -48,11 +51,16 @@
 					document.head.prepend(favicon);
 				});
 			}
+			function page404Action() {
+				location.replace('https://n138-kz.github.io');
+			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertFavicon();
+				page404Action();
 			});
 		</script>
 	</head>
 	<body>
+		<a href="#_" name="_"></a>
 	</body>
 </html>
