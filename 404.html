@@ -1,1 +1,58 @@
-
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<title>n138-kz.github.io</title>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="https://accounts.google.com/gsi/client" async defer></script>
+		<script src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
+		<style>
+			:root {
+				--default-font-size: 16pt;
+				--default-margin-padding-size: 0;
+				--default-background-color: #F0FFFFFF;
+				--default-text-color: #000000FF;
+			}
+			html, body {
+				margin: var(--default-margin-padding-size);
+				padding: var(--default-margin-padding-size);
+			}
+			html {
+				background-color: var(--default-background-color);
+				color: var(--default-text-color);
+				font-size: var(--default-font-size);
+			}
+			code {
+				background-color: silver;
+				vertical-align: middle;
+				font-family: "Myrica M", "Myrica N", "Myrica P", monospace;
+			}
+		</style>
+		<style>
+			footer span {
+				display: inline-flex;
+			}
+		</style>
+		<script>
+			function insertFavicon(){
+				['icon', 'apple-touch-icon', 'favicon'].forEach((e)=>{
+					let favicon = document.createElement('link');
+					favicon.rel = `${e}`;
+					favicon.href = (location.origin) + '/lib/favicon.webp';
+					favicon.type = 'image/webp';
+					document.head.prepend(favicon);
+				});
+			}
+			window.addEventListener('DOMContentLoaded', (e1)=>{
+				insertFavicon();
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
