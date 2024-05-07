@@ -203,6 +203,21 @@
 			}
 			function getListOfGithubPublicRepos () {
 				let github_public_repos = [];
+				github_public_repos.push('https://github.com/n138-kz/' + '_pc-setup-manuals');
+				
+				let dom_item = [];
+				dom_item[0] = document.createElement('div');
+				dom_item[0].classList.add('flex');
+
+				github_public_repos.map((item)=>{
+					dom_item[1] = document.createElement('list');
+					dom_item[2] = document.createElement('a');
+					dom_item[2].href = item;
+					dom_item[2].name = ( item.split('/').pop() ) + '_' + getRandomLowerString(8);
+					dom_item[2].dataset.href = dom_item[2].href;
+					dom_item[1].appendChild( dom_item[2] );
+					dom_item[0].appendChild( dom_item[1] );
+				});
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
