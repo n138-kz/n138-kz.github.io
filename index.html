@@ -218,6 +218,8 @@
 					dom_item[1].appendChild( dom_item[2] );
 					dom_item[0].appendChild( dom_item[1] );
 				});
+
+				document.body.appendChild( dom_item[0] );
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
