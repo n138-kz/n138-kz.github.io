@@ -210,7 +210,7 @@
 				dom_item[0].classList.add('flex');
 
 				github_public_repos.map((item)=>{
-					dom_item[1] = document.createElement('list');
+					dom_item[1] = document.createElement('li');
 					dom_item[2] = document.createElement('a');
 					dom_item[2].href = item;
 					dom_item[2].name = ( item.split('/').pop() ) + '_' + getRandomLowerString(8);
