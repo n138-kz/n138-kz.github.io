@@ -96,8 +96,12 @@
 				const response = await fetch(location.href);
 				const rawdata = await response.text();
 				const hashdata = await hash_encode(algos, rawdata);
-				await console.log({timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: hashdata});
+				await console.debug({timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: hashdata});
 			}
+			setInterval(()=>{
+				const selfhash = getSelfHash();
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash', selfhash); // something going wrong
+			}, 10000)
 		</script>
 		<script>
 			function function1(){
