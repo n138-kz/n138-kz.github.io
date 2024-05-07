@@ -199,12 +199,16 @@
 					document.querySelector('#unixtimestamp_10c').innerText = Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10;
 				}, 500);
 			}
+			function getListOfGithubPublicRepos () {
+				let github_public_repos = [];
+			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
 				insertFavicon();
 				function1();
 				function2();
 				//function3();
+				getListOfGithubPublicRepos();
 			});
 		</script>
 	</head>
