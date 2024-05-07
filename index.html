@@ -241,6 +241,8 @@
 					dom_item[2].href = item;
 					dom_item[2].name = ( item.split('/').pop() ) + '_' + getRandomLowerString(8);
 					dom_item[2].dataset.href = dom_item[2].href;
+					dom_item[3] = document.createTextNode( dom_item[2].name );
+					dom_item[2].appendChild( dom_item[3] );
 					dom_item[1].appendChild( dom_item[2] );
 					dom_item[0].appendChild( dom_item[1] );
 				});
