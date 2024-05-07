@@ -227,6 +227,19 @@
 					document.querySelector('#unixtimestamp_10c').innerText = Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10;
 				}, 500);
 			}
+			async function fetch_get_data(params) {
+				const response = await fetch(params, {
+					method: 'GET',
+					mode: 'cors',
+					cache: 'no-cache',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer',
+				});
+				return response.json();
+			}
 			function getListOfGithubPublicRepos () {
 				let github_public_repos = [];
 				github_public_repos.push('https://github.com/n138-kz/' + '_pc-setup-manuals');
