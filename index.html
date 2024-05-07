@@ -243,6 +243,11 @@
 			function getListOfGithubPublicRepos () {
 				let github_public_repos = [];
 				github_public_repos.push('https://github.com/n138-kz/' + '_pc-setup-manuals');
+				/*
+				 * https://api.github.com/users/n138-kz/repos?sort=asc
+				 * json -> {*} -> html_url
+				 fetch_get_data('https://api.github.com/users/n138-kz/repos?sort=asc');
+				 */
 				
 				let dom_item = [];
 				dom_item[0] = document.createElement('div');
