@@ -92,6 +92,12 @@
 					document.head.prepend(favicon);
 				});
 			}
+			async function getSelfHash(algos='SHA-1') {
+				const response = await fetch(location.href);
+				const rawdata = await response.text();
+				const hashdata = await hash_encode(algos, rawdata);
+				await console.log({timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: hashdata});
+			}
 		</script>
 		<script>
 			function function1(){
