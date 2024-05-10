@@ -256,36 +256,6 @@
 				let loadGithub = 0; /* 0: false, 1: true */
 				loadGithub = Number(!githubPubRepos); /* When succeeded load the storage then set 0. */
 				loadGithub = 0;
-				try {
-					if (!Boolean(loadGithub)) {
-						loadGithub = ( parseInt(new Date().getTime()/1000) - githubPubRepos.timestamp ) > 1800
-					}
-				} catch (error) {
-				}
-				if (false && loadGithub) {
-					/*
-					* https://api.github.com/users/n138-kz/repos?sort=asc
-					* json -> {*} -> html_url
-					fetch_get_data('https://api.github.com/users/n138-kz/repos?sort=asc');
-					*/
-					const response = await fetch('https://api.github.com/users/n138-kz/repos?sort=asc', {
-						method: 'GET',
-						mode: 'cors',
-						cache: 'no-cache',
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						redirect: 'follow',
-						referrerPolicy: 'no-referrer',
-					});
-					const rawjson = await response.json();
-					await console.log(rawjson);
-					await Promise.all(rawjson.map(async (item)=>{
-						await github_public_repos.push(item.html_url);
-					}));
-				} else {
-				}
-				github_public_repos.push('https://github.com/n138-kz/' + '_pc-setup-manuals');
 
 				let dom_item = [];
 				dom_item[0] = document.createElement('div');
