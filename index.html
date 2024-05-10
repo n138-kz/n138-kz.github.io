@@ -257,6 +257,23 @@
 				loadGithub = Number(!githubPubRepos); /* When succeeded load the storage then set 0. */
 				loadGithub = 0;
 
+				fetch('https://api.github.com/users/n138-kz/repos?sort=asc', {
+					method: 'GET',
+					mode: 'cors',
+					cache: 'no-cache',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer',
+				})
+				.then((r)=>r.json())
+				.then((r)=>{
+					r.map( (item)=>{
+						github_public_repos.push(item.html_url);
+					} )
+				})
+
 				let dom_item = [];
 				dom_item[0] = document.createElement('div');
 				dom_item[0].classList.add('flex');
