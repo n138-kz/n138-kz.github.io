@@ -102,7 +102,7 @@
 					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: r};
 				})
 				.then((r)=>{
-					const prev_selfhash = sessionStorage.getItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash');
+					const prev_selfhash = JSON.parse(sessionStorage.getItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash'));
 					console.debug(prev_selfhash.hashdata);
 					console.debug(r.hashdata);
 					console.debug(r);
