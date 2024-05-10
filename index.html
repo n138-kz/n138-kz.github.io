@@ -92,11 +92,22 @@
 					document.head.prepend(favicon);
 				});
 			}
-			async function getSelfHash(algos='SHA-1') {
-				const response = await fetch(location.href);
-				const rawdata = await response.text();
-				const hashdata = await hash_encode(algos, rawdata);
-				await console.debug({timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: hashdata});
+			async function getSelfHashThenSetStorage(algos='SHA-1') {
+				fetch(location.href)
+				.then((r)=>text())
+				.then((r)=>{
+					return hash_encode(algos, r);
+				})
+				.then((r)=>{
+					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: hashdata};
+				})
+				.then((r)=>{
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash', r);
+					console.debug(r);
+				})
+				.catch((e)=>{
+					console.error(e);
+				})
 			}
 			setInterval(()=>{
 				const selfhash = getSelfHash();
