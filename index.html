@@ -110,7 +110,7 @@
 				})
 			}
 			setInterval(()=>{
-				const selfhash = getSelfHash();
+				const selfhash = getSelfHashThenSetStorage();
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash', selfhash); // something going wrong
 				/*
 				Todo:
