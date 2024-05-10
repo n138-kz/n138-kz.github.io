@@ -99,7 +99,7 @@
 					return hash_encode(algos, r);
 				})
 				.then((r)=>{
-					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: hashdata};
+					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: r};
 				})
 				.then((r)=>{
 					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash', r);
