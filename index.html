@@ -237,7 +237,7 @@
 					document.querySelector('#unixtimestamp_10c').innerText = Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10;
 				}, 500);
 			}
-			async function getListOfGithubPublicRepos () {
+			function getListOfGithubPublicRepos () {
 				let github_public_repos = [];
 
 				const githubPubRepos = sessionStorage.getItem( (btoa(location.href)).slice(0, 16) + '.'+'githubPubRepos');
