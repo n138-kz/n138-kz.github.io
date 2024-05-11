@@ -69,7 +69,7 @@
 			}
 		</style>
 		<script>
-			async function hash_encode(encode='SHA-256', text=''){
+			async function hash_encode(encode='SHA-256', text='') {
 				/**
 				* @docs
 					https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
@@ -87,12 +87,12 @@
 			}
 		</script>
 		<script>
-			function insertTopMaker(){
+			function insertTopMaker() {
 				const html_top = document.createElement('a');
 				html_top.name='_';
 				document.head.prepend(html_top);
 			}
-			function insertFavicon(){
+			function insertFavicon() {
 				['icon', 'apple-touch-icon', 'favicon'].forEach((e)=>{
 					let favicon = document.createElement('link');
 					favicon.rel = `${e}`;
@@ -100,6 +100,11 @@
 					favicon.type = 'image/webp';
 					document.head.prepend(favicon);
 				});
+			}
+			function insertLastElement() {
+				const domLastElement = document.createElement('div');
+				domLastElement.style.height="150px";
+				document.body.appendChild(domLastElement);
 			}
 			async function getSelfHashThenSetStorage(algos='SHA-1') {
 				fetch(location.href)
