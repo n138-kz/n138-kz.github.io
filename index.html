@@ -106,7 +106,11 @@
 					if ( prev_selfhash.hashdata === r.hashdata ) {
 						return prev_selfhash;
 					} else {
-						location.reload();
+						if ( ! typeof reload !== 'undefined' && window.confirm('更新があります。再読込みしますか？') ) {
+							location.reload();
+						} else {
+							let reload;
+						}
 						return r;
 					}
 				})
