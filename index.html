@@ -258,7 +258,6 @@
 					} )
 				})
 			}
-			function3();
 			function getListOfGithubPublicRepos () {
 				let github_public_repos = [];
 
@@ -322,6 +321,8 @@
 				function2();
 				function3();
 				getListOfGithubPublicRepos();
+			});
+			window.addEventListener('load', (e1)=>{
 				insertLastElement();
 			});
 		</script>
