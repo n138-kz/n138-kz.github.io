@@ -59,6 +59,12 @@
 				display: inline-flex;
 			}
 		</style>
+		<style>
+			#GithubPublicRepos {
+				width: 85%;
+				margin: 0 auto;
+			}
+		</style>
 		<script>
 			async function hash_encode(encode='SHA-256', text=''){
 				/**
@@ -203,64 +209,51 @@
 
 				document.body.appendChild( dom_item[0] );
 			}
-			function function3(){
-				let dom_item = [];
-				dom_item[0] = document.createElement('div');
-				dom_item[0].classList.add('flex');
+			function function3() {
+				fetch('https://api.github.com/users/n138-kz/repos?sort=name', {
+					method: 'GET',
+					mode: 'cors',
+					cache: 'no-cache',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer',
+				})
+				.then((r)=>r.json())
+				.then((r)=>{
+					r.map( (item)=>{
+						console.log([
+							item.name,
+							item.html_url,
+						]);
+					} )
+					return r;
+				})
+				.then((r)=>{
+					let dom_item = [];
+					dom_item[0] = document.createElement('div');
+					dom_item[0].id = 'GithubPublicRepos';
+					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+						console.log(item);
+						item.remove();
+					} )
+					document.body.appendChild(dom_item[0]);
 					
-				/*  */
-					dom_item[1] = document.createElement('span');
-					dom_item[2] = document.createTextNode( 'Timestamp' );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createTextNode( ':' );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createElement('code');
-					dom_item[1].id = 'unixtimestamp_1';
-					dom_item[2] = document.createTextNode( parseInt(new Date().getTime()/1000) );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-				/*  */
-				
-				/*  */
-					dom_item[1] = document.createTextNode( ':' );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createElement('code');
-					dom_item[1].id = 'unixtimestamp_10f';
-					dom_item[2] = document.createTextNode( Math.floor(parseInt(new Date().getTime()/1000) / 10) * 10 );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-				/*  */
-				
-				/*  */
-					dom_item[1] = document.createTextNode( ':' );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createElement('code');
-					dom_item[1].id = 'unixtimestamp_10r';
-					dom_item[2] = document.createTextNode( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-				/*  */
-				
-				/*  */
-					dom_item[1] = document.createTextNode( ':' );
-					dom_item[0].appendChild( dom_item[1] );
-					dom_item[1] = document.createElement('code');
-					dom_item[1].id = 'unixtimestamp_10c';
-					dom_item[2] = document.createTextNode( Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10 );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-				/*  */
-
-				document.body.appendChild( dom_item[0] );
-				
-				setInterval(()=>{
-					document.querySelector('#unixtimestamp_1').innerText = parseInt(new Date().getTime()/1000);
-					document.querySelector('#unixtimestamp_10f').innerText = Math.floor(parseInt(new Date().getTime()/1000) / 10) * 10;
-					document.querySelector('#unixtimestamp_10r').innerText = Math.round(parseInt(new Date().getTime()/1000) / 10) * 10;
-					document.querySelector('#unixtimestamp_10c').innerText = Math.ceil(parseInt(new Date().getTime()/1000) / 10) * 10;
-				}, 500);
+					r.map( (item)=>{
+						dom_item[1] = document.createElement('li');
+						dom_item[2] = document.createElement('a');
+						dom_item[3] = document.createTextNode( item.name );
+						dom_item[2].href = item.html_url;
+						dom_item[2].appendChild( dom_item[3] );
+						dom_item[1].appendChild( dom_item[2] );
+						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+							item.appendChild(dom_item[1]);
+						} )
+					} )
+				})
 			}
+			function3();
 			function getListOfGithubPublicRepos () {
 				let github_public_repos = [];
 
@@ -281,7 +274,7 @@
 				loadGithub = Number(!githubPubRepos); /* When succeeded load the storage then set 0. */
 				loadGithub = 0;
 
-				fetch('https://api.github.com/users/n138-kz/repos?sort=asc', {
+				fetch('https://api.github.com/users/n138-kz/repos?sort=name', {
 					method: 'GET',
 					mode: 'cors',
 					cache: 'no-cache',
@@ -322,7 +315,7 @@
 				insertFavicon();
 				function1();
 				function2();
-				//function3();
+				function3();
 				getListOfGithubPublicRepos();
 			});
 		</script>
