@@ -237,6 +237,7 @@
 					let dom_item = [];
 					dom_item[0] = document.createElement('div');
 					dom_item[0].id = 'GithubPublicRepos';
+					dom_item[0].dataset.id = getRandomLowerString(16);
 					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 						console.log(item);
 						item.remove();
