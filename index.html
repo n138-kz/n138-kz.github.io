@@ -134,15 +134,13 @@
 					console.error(e);
 				})
 			}
-			setInterval(()=>{
-				getSelfHashThenSetStorage();
-				/*
-				Todo:
-				10秒ごとにリソースの更新確認実施
-				更新有無：hash(sha1)値を確認し、違ったら更新されていると判断
-				更新されている場合はページをリロードする
-				*/
-			}, 10000)
+			/*
+			Todo:
+			10秒ごとにリソースの更新確認実施
+			更新有無：hash(sha1)値を確認し、違ったら更新されていると判断
+			更新されている場合はページをリロードする
+			*/
+			setInterval( getSelfHashThenSetStorage, 10000 );
 		</script>
 		<script>
 			function function1() {
