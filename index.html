@@ -128,6 +128,11 @@
 				dom_item[0].appendChild( dom_item[1] );
 
 				document.body.appendChild( dom_item[0] );
+
+				setInterval(()=>{
+					jstClock=new Date();
+					document.querySelector('#jstClock').innerText=` ${jstClock.getHours()}:${jstClock.getMinutes()}:${jstClock.getSeconds()}(${jstClock.getTime()}) `;
+				}, 1000);
 			}
 			function insertLastElement() {
 				const domLastElement = document.createElement('div');
