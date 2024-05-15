@@ -173,7 +173,7 @@
 			setInterval( getSelfHashThenSetStorage, 10000 );
 		</script>
 		<script>
-			function function1() {
+			function insertNavigation() {
 				let sections = [
 					{
 						name: 'GitHub',
@@ -296,7 +296,7 @@
 				insertFavicon();
 				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
 				document.body.appendChild(createNLevelHeader(1, location.host));
-				function1();
+				insertNavigation();
 				insertSignature();
 				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
