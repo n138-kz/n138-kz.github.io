@@ -272,61 +272,6 @@
 					insertLastElement();
 				})
 			}
-			function getListOfGithubPublicRepos () {
-				let github_public_repos = [];
-
-				const githubPubRepos = sessionStorage.getItem( (btoa(location.href)).slice(0, 16) + '.'+'githubPubRepos');
-				/*
-				*
-				{
-					timestamp: 0,
-					[
-						'https://github.com/n138-kz/_pc-setup-manuals',
-						'https://github.com/n138-kz/_pc-setup-manuals',
-						...
-						'https://github.com/n138-kz/_pc-setup-manuals'
-					]
-				}
-				*/
-				let loadGithub = 0; /* 0: false, 1: true */
-				loadGithub = Number(!githubPubRepos); /* When succeeded load the storage then set 0. */
-				loadGithub = 0;
-
-				fetch('https://api.github.com/users/n138-kz/repos?sort=name', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((r)=>r.json())
-				.then((r)=>{
-					r.map( (item)=>{
-						github_public_repos.push(item.html_url);
-					} )
-				})
-
-				let dom_item = [];
-				dom_item[0] = document.createElement('div');
-				dom_item[0].classList.add('flex');
-
-				github_public_repos.map((item)=>{
-					dom_item[1] = document.createElement('li');
-					dom_item[2] = document.createElement('a');
-					dom_item[3] = document.createTextNode( item.split('/').pop() );
-					dom_item[2].href = item;
-					dom_item[2].name = ( item.split('/').pop() ) + '_' + getRandomLowerString(8);
-					dom_item[2].dataset.href = dom_item[2].href;
-					dom_item[2].appendChild( dom_item[3] );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-				});
-
-				document.body.appendChild( dom_item[0] );
-			}
 			function getApiRateOfGithub() {
 				fetch('https://api.github.com/rate_limit', {
 					method: 'GET',
@@ -354,7 +299,6 @@
 				function1();
 				insertSignature();
 				function3();
-				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
 			});
 			window.addEventListener('load', (e1)=>{
