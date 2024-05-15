@@ -131,14 +131,14 @@
 
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
 				document.addEventListener('focus', function (event) {
-					if (e.target.className ==='footer') {
-						console.debug(event);
+					console.debug([event, event.target, event.target.className]);
+					if (event.target.className ==='footer') {
 						clearInterval( sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock' ) );
 					}
 				});
 				document.addEventListener('blur', function (event) {
-					if (e.target.className ==='footer') {
-						console.debug(event);
+					console.debug([event, event.target, event.target.className]);
+					if (event.target.className ==='footer') {
 						sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
 					}
 				});
