@@ -94,7 +94,7 @@
 					favicon.rel = `${e}`;
 					favicon.href = (location.origin) + '/lib/favicon.webp';
 					favicon.type = 'image/webp';
-					document.head.prepend(favicon);
+					document.head.appendChild(favicon);
 				});
 			}
 			const isNumber = function(value) {
