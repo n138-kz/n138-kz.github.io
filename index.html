@@ -207,23 +207,6 @@
 						favicon: 'https://n138-kz.github.io/lib/favicon.webp',
 					},
 				];
-				let dom_item = [];
-				sections.forEach((e2)=>{
-					dom_item[0] = document.createElement('div');
-					dom_item[0].classList.add('flex');
-					dom_item[0].classList.add('navi');
-					dom_item[1] = document.createElement('a');
-					dom_item[1].classList.add('icon');
-					dom_item[1].href = e2.href;
-					dom_item[2] = document.createElement('img');
-					dom_item[2].alt = '';
-					dom_item[2].src = e2.favicon;
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[2] = document.createTextNode( e2.name );
-					dom_item[1].appendChild( dom_item[2] );
-					dom_item[0].appendChild( dom_item[1] );
-					document.body.appendChild( dom_item[0] );
-				});
 			}
 			function getListOfGithubPublicRepos() {
 				document.body.appendChild(createNLevelHeader(2, 'Github Public Repos'));
