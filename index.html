@@ -131,7 +131,11 @@
 
 				setInterval(()=>{
 					jstClock=new Date();
-					document.querySelector('#jstClock').innerText=` ${jstClock.getHours()}:${jstClock.getMinutes()}:${jstClock.getSeconds()}(${jstClock.getTime()}) `;
+					timeStr='';
+					timeStr+='';
+					timeStr+=`${jstClock.getHours()}:${jstClock.getMinutes()}:${jstClock.getSeconds()}`;
+					timeStr+='('+parseInt(jstClock.getHours()/1000)+')';
+					document.querySelector('#jstClock').innerText=`${timeStr}`;
 				}, 1000);
 			}
 			function insertLastElement() {
