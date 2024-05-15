@@ -174,7 +174,6 @@
 		</script>
 		<script>
 			function insertNavigation() {
-				document.body.appendChild(createNLevelHeader(2, 'Navi'));
 				let sections = [
 					{
 						name: 'GitHub',
@@ -215,6 +214,7 @@
 					console.log(item);
 					item.remove();
 				} )
+				dom_item[0].appendChild(createNLevelHeader(2, 'Navi'));
 				document.body.appendChild(dom_item[0]);
 				
 				sections.map( (item)=>{
