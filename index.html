@@ -134,7 +134,7 @@
 					timeStr='';
 					timeStr+='';
 					timeStr+=`${jstClock.getHours()}:${jstClock.getMinutes()}:${jstClock.getSeconds()}`;
-					timeStr+='('+parseInt(jstClock.getHours()/1000)+')';
+					timeStr+='('+parseInt(jstClock.getTime()/1000)+')';
 					document.querySelector('#jstClock').innerText=`${timeStr}`;
 				}, 1000);
 			}
