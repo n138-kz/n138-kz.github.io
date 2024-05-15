@@ -131,12 +131,12 @@
 
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
 				Array.from( document.querySelectorAll( 'footer' ) ).map( (item)=>{
-					item.addEventListener('focus'), (event) => {
+					item.addEventListener('focus', (event) => {
 						clearInterval( sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock' ) );
-					}
-					item.addEventListener('blur'), (event) => {
+					});
+					item.addEventListener('blur', (event) => {
 						sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
-					}
+					});
 				} )
 
 			}
