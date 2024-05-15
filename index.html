@@ -223,7 +223,7 @@
 					document.body.appendChild( dom_item[0] );
 				});
 			}
-			function function3() {
+			function getListOfGithubPublicRepos() {
 				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
 					method: 'GET',
 					mode: 'cors',
@@ -298,7 +298,7 @@
 				document.body.appendChild(createNLevelHeader(1, location.host));
 				function1();
 				insertSignature();
-				function3();
+				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
 			});
 			window.addEventListener('load', (e1)=>{
