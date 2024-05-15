@@ -237,7 +237,6 @@
 				} )
 			}
 			function getListOfGithubPublicRepos() {
-				document.body.appendChild(createNLevelHeader(2, 'Github Public Repos'));
 				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
 					method: 'GET',
 					mode: 'cors',
@@ -267,6 +266,7 @@
 						console.log(item);
 						item.remove();
 					} )
+					dom_item[0].appendChild(createNLevelHeader(2, 'Github Public Repos'));
 					document.body.appendChild(dom_item[0]);
 					
 					r.map( (item)=>{
