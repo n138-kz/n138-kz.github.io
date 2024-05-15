@@ -100,6 +100,15 @@
 			const isNumber = function(value) {
 				return ((typeof value === 'number') && (isFinite(value)));
 			};
+			function createNLevelHeader(level=2, text='') {
+				if ( ! isNumber(level) ) { level=2; }
+				if ( level<1 ) { level=2; }
+				if ( level>6 ) { level=6; }
+				const domobject=document.createElement('h'+level);
+				const innerText=document.createTextNode(text);
+				domobject.appendChild(innerText);
+				return domobject; /* <-- i.e. document.body.appendChild( createNLevelHeader() ); */
+			}
 			function insertSignature() {
 				let dom_item = [];
 				dom_item[0] = document.createElement('footer');
@@ -341,6 +350,7 @@
 				insertTopMaker();
 				insertFavicon();
 				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
+				document.body.appendChild(createNLevelHeader(1, location.host));
 				function1();
 				insertSignature();
 				function3();
