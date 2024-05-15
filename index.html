@@ -309,7 +309,7 @@
 				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
 				document.body.appendChild(createNLevelHeader(1, location.host));
 				insertNavigation();
-				insertSignature();
+				setTimeout( insertSignature(), 1000);
 				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
 			});
