@@ -205,7 +205,6 @@
 				dom_item[0] = document.createElement('div');
 				dom_item[0].id = 'n138kzNavigationLinks';
 				dom_item[0].dataset.id = getRandomLowerString(16);
-				dom_item[0].style.paddingLeft = '5ex';
 				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 					console.log(item);
 					item.remove();
@@ -215,6 +214,7 @@
 				
 				sections.map( (item)=>{
 					dom_item[1] = document.createElement('div');
+					dom_item[1].style.paddingLeft = '5ex';
 					dom_item[1].classList.add('flex');
 					dom_item[1].classList.add('navi');
 					dom_item[2] = document.createElement('a');
@@ -258,7 +258,6 @@
 					dom_item[0] = document.createElement('div');
 					dom_item[0].id = 'GithubPublicRepos';
 					dom_item[0].dataset.id = getRandomLowerString(16);
-					dom_item[0].style.paddingLeft = '5ex';
 					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 						console.log(item);
 						item.remove();
@@ -268,6 +267,7 @@
 					
 					r.map( (item)=>{
 						dom_item[1] = document.createElement('li');
+						dom_item[1].style.paddingLeft = '5ex';
 						dom_item[2] = document.createElement('a');
 						dom_item[3] = document.createTextNode( item.name );
 						dom_item[2].href = item.html_url;
