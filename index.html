@@ -236,7 +236,7 @@
 				dom_item[0].id = 'n138kzNavigationLinks';
 				dom_item[0].dataset.id = getRandomLowerString(16);
 				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-					console.log(item);
+					console.debug(item);
 					item.remove();
 				} )
 				dom_item[0].appendChild(createNLevelHeader(2, 'Navi'));
@@ -289,7 +289,7 @@
 					dom_item[0].id = 'GithubPublicRepos';
 					dom_item[0].dataset.id = getRandomLowerString(16);
 					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-						console.log(item);
+						console.debug(item);
 						item.remove();
 					} )
 					dom_item[0].appendChild(createNLevelHeader(2, 'Github Public Repos'));
