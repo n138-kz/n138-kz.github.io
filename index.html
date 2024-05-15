@@ -207,6 +207,34 @@
 						favicon: 'https://n138-kz.github.io/lib/favicon.webp',
 					},
 				];
+				let dom_item = [];
+				dom_item[0] = document.createElement('div');
+				dom_item[0].id = 'n138kzNavigationLinks';
+				dom_item[0].dataset.id = getRandomLowerString(16);
+				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+					console.log(item);
+					item.remove();
+				} )
+				document.body.appendChild(dom_item[0]);
+				
+				sections.map( (item)=>{
+					dom_item[1] = document.createElement('div');
+					dom_item[1].classList.add('flex');
+					dom_item[1].classList.add('navi');
+					dom_item[2] = document.createElement('a');
+					dom_item[2].classList.add('icon');
+					dom_item[2].href = item.href;
+					dom_item[3] = document.createElement('img');
+					dom_item[3].alt = '';
+					dom_item[3].src = item.favicon;
+					dom_item[2].appendChild( dom_item[3] );
+					dom_item[3] = document.createTextNode( item.name );
+					dom_item[2].appendChild( dom_item[3] );
+					dom_item[1].appendChild( dom_item[2] );
+					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+						item.appendChild(dom_item[1]);
+					} )
+				} )
 			}
 			function getListOfGithubPublicRepos() {
 				document.body.appendChild(createNLevelHeader(2, 'Github Public Repos'));
