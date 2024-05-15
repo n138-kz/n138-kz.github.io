@@ -337,6 +337,7 @@
 				getSelfHashThenSetStorage();
 				insertTopMaker();
 				insertFavicon();
+				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
 				function1();
 				function2();
 				function3();
