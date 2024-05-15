@@ -97,6 +97,9 @@
 					document.head.prepend(favicon);
 				});
 			}
+			const isNumber = function(value) {
+				return ((typeof value === 'number') && (isFinite(value)));
+			};
 			function insertLastElement() {
 				const domLastElement = document.createElement('div');
 				domLastElement.style.height="150px";
