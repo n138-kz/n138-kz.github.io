@@ -59,11 +59,6 @@
 				display: inline-flex;
 			}
 		</style>
-		<style>
-			#GithubPublicRepos {
-				padding-left: 5ex;
-			}
-		</style>
 		<script>
 			async function hash_encode(encode='SHA-256', text='') {
 				/**
@@ -210,6 +205,7 @@
 				dom_item[0] = document.createElement('div');
 				dom_item[0].id = 'n138kzNavigationLinks';
 				dom_item[0].dataset.id = getRandomLowerString(16);
+				dom_item[0].style.paddingLeft = '5ex';
 				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 					console.log(item);
 					item.remove();
@@ -262,6 +258,7 @@
 					dom_item[0] = document.createElement('div');
 					dom_item[0].id = 'GithubPublicRepos';
 					dom_item[0].dataset.id = getRandomLowerString(16);
+					dom_item[0].style.paddingLeft = '5ex';
 					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 						console.log(item);
 						item.remove();
