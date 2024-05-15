@@ -125,6 +125,12 @@
 				dom_item[2] = null;
 				dom_item[0].appendChild( dom_item[1] );
 
+				dom_item[1] = document.createElement('a');
+				dom_item[1].href = 'https://github.com/n138-kz/n138-kz.github.io/edit/master/index.html';
+				dom_item[2] = document.createTextNode( 'Improve this page.' );
+				dom_item[1].appendChild( dom_item[2] );
+				dom_item[0].appendChild( dom_item[1] );
+
 				document.body.appendChild( dom_item[0] );
 			}
 			function insertLastElement() {
