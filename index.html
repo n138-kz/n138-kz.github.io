@@ -132,10 +132,10 @@
 				setInterval(()=>{
 					jstClock1=new Date();
 					jstClock2={
-						hours  : ('00' + jstClock.getHours()  ).substr(-2),
-						minutes: ('00' + jstClock.getMinutes()).substr(-2),
-						seconds: ('00' + jstClock.getSeconds()).substr(-2),
-						times  : parseInt(jstClock.getTime()/1000),
+						hours  : ('00' + jstClock1.getHours()  ).substr(-2),
+						minutes: ('00' + jstClock1.getMinutes()).substr(-2),
+						seconds: ('00' + jstClock1.getSeconds()).substr(-2),
+						times  : parseInt(jstClock1.getTime()/1000),
 					}
 
 					timeStr =`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}(${jstClock2.times})`;
