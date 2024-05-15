@@ -130,16 +130,18 @@
 				document.body.appendChild( dom_item[0] );
 
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
-				Array.from( document.querySelectorAll( 'footer' ) ).map( (item)=>{
-					item.addEventListener('focus', (event) => {
+				document.addEventListener('focus', function (event) {
+					if (e.target.className ==='footer') {
 						console.debug(event);
 						clearInterval( sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock' ) );
-					});
-					item.addEventListener('blur', (event) => {
+					}
+				});
+				document.addEventListener('blur', function (event) {
+					if (e.target.className ==='footer') {
 						console.debug(event);
 						sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
-					});
-				} )
+					}
+				});
 
 			}
 			function jstClock_set() {
