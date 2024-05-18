@@ -301,6 +301,11 @@
 						dom_item[1] = document.createElement('li');
 						dom_item[1].style.paddingLeft = '5ex';
 						dom_item[2] = document.createElement('a');
+						dom_item[3] = document.createTextNode( '【GithubPages】' );
+						dom_item[2].href = item.homepage;
+						dom_item[2].appendChild( dom_item[3] );
+						dom_item[1].appendChild( dom_item[2] );
+						dom_item[2] = document.createElement('a');
 						dom_item[3] = document.createTextNode( item.name );
 						dom_item[2].href = item.html_url;
 						dom_item[2].appendChild( dom_item[3] );
