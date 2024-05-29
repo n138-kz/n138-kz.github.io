@@ -1,0 +1,32 @@
+[
+  {
+    "name": "GitHub",
+    "href": "https://github.com/n138-kz/",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://github.com/"
+  },
+  {
+    "name": "YouTube",
+    "href": "https://youtube.com/channel/UCOX8Iv1r0V18lbOnohE7lWQ/",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://youtube.com"
+  },
+  {
+    "name": "Twitter(X)",
+    "href": "https://twitter.com/n138kz",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://x.com/"
+  },
+  {
+    "name": "Qiita",
+    "href": "https://qiita.com/YuuT_38",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/"
+  },
+  {
+    "name": "Bluesky",
+    "href": "https://bsky.app/profile/n138-kz.bsky.social",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://bsky.app"
+  },
+  {
+    "name": "Policies",
+    "href": "policy/",
+    "favicon": "https://n138-kz.github.io/lib/favicon.webp"
+  }
+]
