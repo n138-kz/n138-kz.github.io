@@ -213,40 +213,68 @@
 				})
 				.then((res)=>res.json())
 				.then((res)=>{ console.log(res); return res; })
-				.then((res)=>{
-					console.log(res);
-					let dom_item = [];
-					dom_item[0] = document.createElement('div');
-					dom_item[0].id = 'n138kzNavigationLinks';
-					dom_item[0].dataset.id = getRandomLowerString(16);
+				let sections = [
+					{
+						name: 'GitHub',
+						href: 'https://github.com/n138-kz/',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://github.com/',
+					},
+					{
+						name: 'YouTube',
+						href: 'https://youtube.com/channel/UCOX8Iv1r0V18lbOnohE7lWQ/',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://youtube.com',
+					},
+					{
+						name: 'Twitter(X)',
+						href: 'https://twitter.com/n138kz',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://x.com/',
+					},
+					{
+						name: 'Qiita',
+						href: 'https://qiita.com/YuuT_38',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/',
+					},
+					{
+						name: 'Bluesky',
+						href: 'https://bsky.app/profile/n138-kz.bsky.social',
+						favicon: 'https://www.google.com/s2/favicons?size=64&domain=https://bsky.app',
+					},
+					{
+						name: 'Policies',
+						href: 'policy/',
+						favicon: 'https://n138-kz.github.io/lib/favicon.webp',
+					},
+				];
+				let dom_item = [];
+				dom_item[0] = document.createElement('div');
+				dom_item[0].id = 'n138kzNavigationLinks';
+				dom_item[0].dataset.id = getRandomLowerString(16);
+				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+					console.debug(item);
+					item.remove();
+				} )
+				dom_item[0].appendChild(createNLevelHeader(2, 'Navi'));
+				document.body.appendChild(dom_item[0]);
+				
+				sections.map( (item)=>{
+					dom_item[1] = document.createElement('div');
+					dom_item[1].style.paddingLeft = '5ex';
+					dom_item[1].classList.add('flex');
+					dom_item[1].classList.add('navi');
+					dom_item[2] = document.createElement('a');
+					dom_item[2].classList.add('icon');
+					dom_item[2].href = item.href;
+					dom_item[3] = document.createElement('img');
+					dom_item[3].alt = '';
+					dom_item[3].src = item.favicon;
+					dom_item[2].appendChild( dom_item[3] );
+					dom_item[3] = document.createTextNode( item.name );
+					dom_item[2].appendChild( dom_item[3] );
+					dom_item[1].appendChild( dom_item[2] );
 					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-						console.debug(item);
-						item.remove();
+						item.appendChild(dom_item[1]);
 					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'Navi'));
-					document.body.appendChild(dom_item[0]);
-					
-					sections.map( (item)=>{
-						dom_item[1] = document.createElement('div');
-						dom_item[1].style.paddingLeft = '5ex';
-						dom_item[1].classList.add('flex');
-						dom_item[1].classList.add('navi');
-						dom_item[2] = document.createElement('a');
-						dom_item[2].classList.add('icon');
-						dom_item[2].href = item.href;
-						dom_item[3] = document.createElement('img');
-						dom_item[3].alt = '';
-						dom_item[3].src = item.favicon;
-						dom_item[2].appendChild( dom_item[3] );
-						dom_item[3] = document.createTextNode( item.name );
-						dom_item[2].appendChild( dom_item[3] );
-						dom_item[1].appendChild( dom_item[2] );
-						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-							item.appendChild(dom_item[1]);
-						} )
-					} )
-					return res;
-				})
+				} )
 			}
 			function getListOfGithubPublicRepos() {
 				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
