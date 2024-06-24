@@ -25,6 +25,11 @@
     "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://bsky.app"
   },
   {
+    "name": "photo ac",
+    "href": "https://www.photo-ac.com/profile/26068273",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://www.photo-ac.com"
+  },
+  {
     "name": "Policies",
     "href": "policy/",
     "favicon": "https://n138-kz.github.io/lib/favicon.webp"
