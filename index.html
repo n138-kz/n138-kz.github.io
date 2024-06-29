@@ -130,6 +130,12 @@
 				document.body.appendChild( dom_item[0] );
 
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
+				document.addEventListener('click', function (event) {
+					console.debug([event, event.target, event.target.className]);
+					if (event.target.className ==='footer') {
+						clearInterval( sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock' ) );
+					}
+				});
 				document.addEventListener('focus', function (event) {
 					console.debug([event, event.target, event.target.className]);
 					if (event.target.className ==='footer') {
