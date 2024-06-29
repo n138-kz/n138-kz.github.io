@@ -280,7 +280,7 @@
 						console.debug(item);
 						item.remove();
 					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'Github Public Repos'));
+					dom_item[0].appendChild(createNLevelHeader(2, 'Github Public Repos'+(Math.floor(document.body.clientWidth/10)*10)));
 					document.body.appendChild(dom_item[0]);
 					
 					r.map( (item)=>{
