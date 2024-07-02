@@ -122,8 +122,9 @@
 				dom_item[1].appendChild( dom_item[2] );
 				dom_item[0].appendChild( dom_item[1] );
 				
-				dom_item[1] = document.createElement('span');
+				dom_item[1] = document.createElement('a');
 				dom_item[1].id = 'jstClock'
+				dom_item[1].href = 'javascript:void(0)'
 				dom_item[2] = null;
 				dom_item[0].appendChild( dom_item[1] );
 
