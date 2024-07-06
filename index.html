@@ -345,7 +345,7 @@
 						console.debug(item);
 						item.remove();
 					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'Github Public Repos'));
+					dom_item[0].appendChild(createNLevelHeader(2, 'GitHub Public Repos'));
 					document.body.appendChild(dom_item[0]);
 					
 					r.map( (item)=>{
@@ -353,7 +353,7 @@
 						dom_item[1] = document.createElement('li');
 						dom_item[1].style.paddingLeft = '5ex';
 						dom_item[2] = document.createElement('a');
-						dom_item[3] = document.createTextNode( '【Github】' );
+						dom_item[3] = document.createTextNode( '【GitHub】' );
 						dom_item[2].target = 'sw' + (new Date().getTime());
 						dom_item[2].href = item.html_url;
 						if ( (!!item.homepage || item.homepage != 'null') && (Math.floor(document.body.clientWidth/10)*10) > 500 ) {
