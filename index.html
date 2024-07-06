@@ -186,7 +186,7 @@
 					minutes: ('00' + jstClock1.getMinutes()).substr(-2),
 					seconds: ('00' + jstClock1.getSeconds()).substr(-2),
 					year   : ('00' + jstClock1.getFullYear()  ).substr(-4),
-					month  : jstClock1.toLocaleString('default', { month: 'long' }),
+					month  : jstClock1.toLocaleString('en-us', { month: 'long' }),
 					date   : ('00' + jstClock1.getDate()).substr(-2),
 					times  : parseInt(jstClock1.getTime()/1000),
 				}
