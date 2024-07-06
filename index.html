@@ -376,6 +376,56 @@
 					insertLastElement();
 				})
 			}
+			function buildDebugField() {
+				dom_item = [];
+				dom_item[0] = document.createElement('div');
+				dom_item[0].id = 'DebugInfoArea';
+				dom_item[0].dataset.id = getRandomLowerString(16);
+				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+					console.debug(item);
+					item.remove();
+				} )
+				dom_item[0].appendChild(createNLevelHeader(2, 'Debug info'));
+				document.body.appendChild(dom_item[0]);
+
+				dom_item[1] = document.createElement('div');
+				dom_item[1].style.paddingLeft = '5ex';
+				dom_item[1].classList.add('debug');
+				dom_item[1].classList.add('font_azuki');
+
+				dom_item[2] = document.createElement('table');
+				dom_item[2].border = 1;
+					dom_item[3] = document.createElement('thead');
+						dom_item[4] = document.createElement('tr');
+							dom_item[5] = document.createElement('th');
+								dom_item[6] = document.createTextNode( 'Item name' );
+							dom_item[5].appendChild( dom_item[6] );
+						dom_item[4].appendChild( dom_item[5] );
+							dom_item[5] = document.createElement('th');
+								dom_item[6] = document.createTextNode( 'Value' );
+							dom_item[5].appendChild( dom_item[6] );
+						dom_item[4].appendChild( dom_item[5] );
+					dom_item[3].appendChild( dom_item[4] );
+				dom_item[2].appendChild( dom_item[3] );
+					dom_item[3] = document.createElement('tbody');
+						dom_item[4] = document.createElement('tr');
+							dom_item[5] = document.createElement('td');
+								dom_item[6] = document.createTextNode( 'Item name' );
+							dom_item[5].appendChild( dom_item[6] );
+						dom_item[4].appendChild( dom_item[5] );
+							dom_item[5] = document.createElement('td');
+								dom_item[6] = document.createTextNode( 'Value' );
+							dom_item[5].appendChild( dom_item[6] );
+						dom_item[4].appendChild( dom_item[5] );
+					dom_item[3].appendChild( dom_item[4] );
+				dom_item[2].appendChild( dom_item[3] );
+				dom_item[1].appendChild( dom_item[2] );
+				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
+					item.appendChild(dom_item[1]);
+				} )
+
+				insertLastElement();
+			}
 			function getApiRateOfGithub() {
 				fetch('https://api.github.com/rate_limit', {
 					method: 'GET',
