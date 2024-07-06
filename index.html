@@ -185,11 +185,16 @@
 					hours  : ('00' + jstClock1.getHours()  ).substr(-2),
 					minutes: ('00' + jstClock1.getMinutes()).substr(-2),
 					seconds: ('00' + jstClock1.getSeconds()).substr(-2),
+					year   : ('00' + jstClock1.getFullYear()  ).substr(-4),
+					month  : jstClock1.toLocaleString('default', { month: 'long' }),
+					date   : ('00' + jstClock1.getDate()).substr(-2),
 					times  : parseInt(jstClock1.getTime()/1000),
 				}
 
 				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}`;
 				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds;
+				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds
+					+ 
 			}
 			function insertLastElement() {
 				const domLastElement = document.createElement('div');
