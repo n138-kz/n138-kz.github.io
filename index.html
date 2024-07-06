@@ -194,7 +194,7 @@
 				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}`;
 				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds;
 				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds
-					+ ', ' + jstClock2.month + ' ' + jstClock2.date + ' ' + jstClock2.year;
+					+ ', ' + jstClock2.date + '/' + jstClock2.month + '/' + jstClock2.year;
 			}
 			function insertLastElement() {
 				const domLastElement = document.createElement('div');
