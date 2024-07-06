@@ -411,23 +411,11 @@
 					dom_item[3] = document.createElement('tbody');
 						dom_item[4] = document.createElement('tr');
 							dom_item[5] = document.createElement('td');
-								dom_item[6] = document.createTextNode( 'Screen-width' );
+								dom_item[6] = document.createTextNode( 'Screen width/length' );
 							dom_item[5].appendChild( dom_item[6] );
 						dom_item[4].appendChild( dom_item[5] );
 							dom_item[5] = document.createElement('td');
-								dom_item[6] = document.createTextNode( document.body.clientWidth + 'px' );
-							dom_item[5].appendChild( dom_item[6] );
-						dom_item[4].appendChild( dom_item[5] );
-					dom_item[3].appendChild( dom_item[4] );
-
-						dom_item[4] = document.createElement('tr');
-							dom_item[5] = document.createElement('td');
-								dom_item[6] = document.createTextNode( 'Screen-length' );
-							dom_item[5].appendChild( dom_item[6] );
-						dom_item[4].appendChild( dom_item[5] );
-							dom_item[5] = document.createElement('td');
-								dom_item[6] = document.createTextNode( document.body.clientHeight + 'px' );
-							dom_item[5].appendChild( dom_item[6] );
+							dom_item[5].innerHTML  = `Remaining: ${document.body.clientWidth}x${document.body.clientHeight} px^2<br />`;
 						dom_item[4].appendChild( dom_item[5] );
 					dom_item[3].appendChild( dom_item[4] );
 
