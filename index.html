@@ -377,6 +377,18 @@
 						dom_item[3] = document.createTextNode( '【GitHub】' );
 						dom_item[2].target = 'sw' + (new Date().getTime());
 						dom_item[2].href = item.html_url;
+						console.debug(
+							[
+								(!!item.homepage || item.homepage != 'null'),
+								item.homepage,
+								!!item.homepage,
+								item.homepage != 'null',
+							],
+							[
+								(Math.floor(document.body.clientWidth/10)*10) > 500,
+								Math.floor(document.body.clientWidth/10)*10,
+							]
+						);
 						if ( (!!item.homepage || item.homepage != 'null') && (Math.floor(document.body.clientWidth/10)*10) > 500 ) {
 							dom_item[2].appendChild( dom_item[3] );
 							dom_item[1].appendChild( dom_item[2] );
