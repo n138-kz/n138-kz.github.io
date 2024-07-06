@@ -447,11 +447,11 @@
 							console.log(r);
 							dom_item[4] = document.createElement('tr');
 								dom_item[5] = document.createElement('td');
-									dom_item[6] = document.createTextNode( 'Github API Remaining' );
+									dom_item[6] = document.createTextNode( 'GitHub API' );
 								dom_item[5].appendChild( dom_item[6] );
 							dom_item[4].appendChild( dom_item[5] );
 								dom_item[5] = document.createElement('td');
-								dom_item[5].innerHTML  = `rate:  ${r.remaining} / ${r.limit}<br />`;
+								dom_item[5].innerHTML  = `Remaining: ${r.remaining} / ${r.limit}<br />`;
 								dom_item[6] = new Date(r.reset*1000);
 								dom_item[7] = [
 									(''   +  dom_item[6].getFullYear()  ),
@@ -461,7 +461,7 @@
 									('00' +  dom_item[6].getMinutes()   ).substr(-2),
 									('00' +  dom_item[6].getSeconds()   ).substr(-2),
 								];
-								dom_item[5].innerHTML += `reset: ${dom_item[7][0]}/${dom_item[7][1]}/${dom_item[7][2]} ${dom_item[7][3]}:${dom_item[7][4]}:${dom_item[7][5]}<br />`;
+								dom_item[5].innerHTML += `Reset: ${dom_item[7][0]}/${dom_item[7][1]}/${dom_item[7][2]} ${dom_item[7][3]}:${dom_item[7][4]}:${dom_item[7][5]}<br />`;
 							dom_item[4].appendChild( dom_item[5] );
 						dom_item[3].appendChild( dom_item[4] );
 							return r;
