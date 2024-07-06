@@ -216,7 +216,12 @@
 			}
 			function insertLastElement() {
 				const domLastElement = document.createElement('div');
+				domLastElement.id='lastElement';
 				domLastElement.style.height="150px";
+				Array.from( document.querySelectorAll( '#' + domLastElement.id ) ).map( (item)=>{
+					console.debug(item);
+					item.remove();
+				} )
 				document.body.appendChild(domLastElement);
 			}
 			async function getSelfHashThenSetStorage(algos='SHA-1') {
