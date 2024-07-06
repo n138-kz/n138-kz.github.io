@@ -456,10 +456,10 @@
 								dom_item[7] = [
 									(''   + dom_item[6].getFullYear() ),
 									('00' + dom_item[6].getMonth() + 1).substr(-2),
-									('00' + dom_item[6].Date()        ).substr(-2),
-									('00' + dom_item[6].Hours()       ).substr(-2),
-									('00' + dom_item[6].Minutes()     ).substr(-2),
-									('00' + dom_item[6].Seconds()     ).substr(-2),
+									('00' + dom_item[6].getDate()     ).substr(-2),
+									('00' + dom_item[6].getHours()    ).substr(-2),
+									('00' + dom_item[6].getMinutes()  ).substr(-2),
+									('00' + dom_item[6].getSeconds()  ).substr(-2),
 								];
 								dom_item[5].innerHTML += `reset: ${dom_item[7][0]}/${dom_item[7][1]}/${dom_item[7][2]} ${dom_item[7][3]}:${dom_item[7][4]}:${dom_item[7][5]}<br />`;
 								dom_item[5].appendChild( dom_item[6] );
