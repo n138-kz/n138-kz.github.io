@@ -145,7 +145,7 @@
 				return domobject; /* <-- i.e. document.body.appendChild( createNLevelHeader() ); */
 			}
 			function insertSignature() {
-				let dom_item = [];
+				dom_item = [];
 				dom_item[0] = document.createElement('footer');
 				dom_item[1] = document.createElement('span');
 				dom_item[2] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.' );
@@ -276,7 +276,7 @@
 					console.log(res);
 					let sections = res;
 
-					let dom_item = [];
+					dom_item = [];
 					dom_item[0] = document.createElement('div');
 					dom_item[0].id = 'n138kzNavigationLinks';
 					dom_item[0].dataset.id = getRandomLowerString(16);
@@ -332,7 +332,7 @@
 					return r;
 				})
 				.then((r)=>{
-					let dom_item = [];
+					dom_item = [];
 					dom_item[0] = document.createElement('div');
 					dom_item[0].id = 'GithubPublicRepos';
 					dom_item[0].dataset.id = getRandomLowerString(16);
