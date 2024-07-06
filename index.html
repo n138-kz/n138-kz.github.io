@@ -451,7 +451,7 @@
 								dom_item[5].appendChild( dom_item[6] );
 							dom_item[4].appendChild( dom_item[5] );
 								dom_item[5] = document.createElement('td');
-								dom_item[5].innerHTML  = `Remaining: ${r.remaining} / ${r.limit}<br />`;
+								dom_item[5].innerHTML  = `Remaining: ${r.remaining} / ${r.limit} (Use: ${r.used})<br />`;
 								dom_item[6] = new Date(r.reset*1000);
 								dom_item[7] = [
 									(''   +  dom_item[6].getFullYear()  ),
