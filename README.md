@@ -1,4 +1,4 @@
-# n138-kz.github.io
+# [n138-kz.github.io](https://github.com/n138-kz/n138-kz.github.io)
 
 Site ID(URL) is [`https://n138-kz.github.io/`](https://n138-kz.github.io/)
 
@@ -9,4 +9,4 @@ Site ID(URL) is [`https://n138-kz.github.io/`](https://n138-kz.github.io/)
 
 ## Common Policy Notes
 
-- [Policy Notes](authz/)
+- [Policy Notes](policy/)
