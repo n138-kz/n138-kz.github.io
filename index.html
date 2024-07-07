@@ -375,7 +375,7 @@
 						dom_item[1] = document.createElement('li');
 						dom_item[1].style.paddingLeft = '5ex';
 						dom_item[2] = document.createElement('a');
-						dom_item[2].target = 'sw' + (new Date().getTime());
+						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
 						dom_item[2].href = item.html_url;
 						dom_item[3] = document.createTextNode( '【GitHub】' );
 						console.debug(
@@ -395,7 +395,7 @@
 							dom_item[1].appendChild( dom_item[2] );
 						}
 						dom_item[2] = document.createElement('a');
-						dom_item[2].target = 'sw' + (new Date().getTime());
+						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
 						dom_item[2].href = item.homepage;
 						item.name = (item.name.length > 30) ? item.name.substr(0, 30)+'...' : item.name;
 						dom_item[3] = document.createTextNode( item.name );
