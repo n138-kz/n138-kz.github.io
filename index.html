@@ -398,20 +398,6 @@
 						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
 						dom_item[1].appendChild( dom_item[2] );
 						
-						dom_item[2] = document.createElement('br');
-						dom_item[1].appendChild( dom_item[2] );
-						
-						dom_item[2] = document.createElement('span');
-						dom_item[2].innerText = item.html_url;
-						dom_item[1].appendChild( dom_item[2] );
-						
-						dom_item[2] = document.createElement('br');
-						dom_item[1].appendChild( dom_item[2] );
-						
-						dom_item[2] = document.createElement('span');
-						dom_item[2].innerText = item.homepage;
-						dom_item[1].appendChild( dom_item[2] );
-						
 						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 							item.appendChild(dom_item[1]);
 						} )
