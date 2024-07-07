@@ -402,6 +402,7 @@
 						dom_item[3] = document.createTextNode( item.name );
 						dom_item[2].appendChild( dom_item[3] );
 						dom_item[1].appendChild( dom_item[2] );
+						
 						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
 							item.appendChild(dom_item[1]);
 						} )
