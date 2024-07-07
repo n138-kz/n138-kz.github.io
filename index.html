@@ -390,10 +390,8 @@
 								Math.floor(document.body.clientWidth/10)*10,
 							]
 						);
-						if ( (!!item.homepage || item.homepage != 'null') && (Math.floor(document.body.clientWidth/10)*10) > 500 ) {
-							dom_item[2].appendChild( dom_item[3] );
-							dom_item[1].appendChild( dom_item[2] );
-						}
+						dom_item[2].appendChild( dom_item[3] );
+						dom_item[1].appendChild( dom_item[2] );
 						
 						dom_item[2] = document.createElement('a');
 						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
