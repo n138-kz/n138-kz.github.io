@@ -378,6 +378,17 @@
 						dom_item[2].innerText = '【GitHub】';
 						dom_item[2].href = item.html_url;
 						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
+						dom_item[2].dataset.url.github = item.html_url;
+						dom_item[2].dataset.url.pages = item.homepage;
+						dom_item[2].dataset.date.updated = item.updated_at;
+						dom_item[2].dataset.date.updated = item.updated_at;
+						dom_item[2].dataset.repos.node_id = item.node_id;
+						dom_item[2].dataset.repos.id = item.id;
+						dom_item[2].dataset.repos.size = item.size;
+						dom_item[2].dataset.repos.language = item.language;
+						dom_item[2].dataset.repos.hooks_url = item.hooks_url;
+						dom_item[2].dataset.repos.open_issues = item.open_issues_count;
+
 						dom_item[1].appendChild( dom_item[2] );
 						
 						item.name = (item.name.length > 30) ? item.name.substr(0, 30)+'...' : item.name;
