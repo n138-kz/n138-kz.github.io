@@ -1,186 +1,67 @@
-<!DOCTYPE html>
-<html lang="ja" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Cache-Control" content="no-cache">
-		<meta http-equiv="Expires" content="0">
-		<meta http-equiv="refresh" content="300;URL=/">
-		<link rel="stylesheet" type="text/css" href="./lib/master.css" />
-		<title>n138-kz.github.io</title>
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-		<script src="https://accounts.google.com/gsi/client" async defer></script>
-		<script src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
-		<script src="./lib/grecaptcha.js"></script>
-		<script src="./lib/random.js"></script>
-		<script>
-			function UserException(message) {
-				this.iat = new Date().getTime()/1000;
-				this.message = message;
-				/*
-				/* throw new UserException('test'); * /
-				console.error(e);
-				object = document.createElement('p');
-				object.innerText  = ''
-				object.innerText += JSON.stringify(e);
-				object.style.color = '#fff';
-				object.style.backgroundColor = '#f00';
-				object.style.marginTop = '0';
-				object.style.marginBottom = '0';
-				document.body.appendChild(object);
-				*/
-			}
-		</script>
-		<style>
-			@font-face {
-				font-family: "Uzura font";
-				src: 
-					local("うずらフォント"),
-					local("uzura_font"),
-					url("https://n138-kz.github.io/lib/uzura.ttf") format("truetype");
-			}
-			@font-face {
-				font-family: "Azuki font";
-				src: 
-					local("あずきフォント"),
-					local("azuki_font"),
-					url("https://n138-kz.github.io/lib/azuki.ttf") format("truetype");
-			}
-			@font-face {
-				font-family: "Myrica font";
-				src: 
-					local("Myrica M"),
-					local("Myrica N"),
-					local("Myrica P"),
-					url("https://n138-kz.github.io/lib/Myrica.ttc") format("truetype");
-			}
+<!DOCTYPE html><html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<title>n138-kz.github.io</title>
+	<style>
+		@font-face {
+			font-family: "Uzura font";
+			src: 
+				local("うずらフォント"),
+				local("uzura_font"),
+				url("https://n138-kz.github.io/lib/uzura.ttf") format("truetype");
+		}
+		@font-face {
+			font-family: "Azuki font";
+			src: 
+				local("あずきフォント"),
+				local("azuki_font"),
+				url("https://n138-kz.github.io/lib/azuki.ttf") format("truetype");
+		}
+		@font-face {
+			font-family: "Myrica font";
+			src: 
+				local("Myrica M"),
+				local("Myrica N"),
+				local("Myrica P"),
+				url("https://n138-kz.github.io/lib/Myrica.ttc") format("truetype");
+		}
+		@media screen {
 			:root {
-				--default-font-size: 16pt;
-				--default-margin-padding-size: 0;
-				--default-background-color: #F0FFFFFF;
-				--default-text-color: #000000FF;
+				font-family: "Uzura font";
 			}
 			html {
-				background-color: var(--default-background-color);
-				color: var(--default-text-color);
-				font-size: var(--default-font-size);
+				background-color: azure;
+				font-size: 12pt;
 			}
-			html, body {
-				margin: var(--default-margin-padding-size);
-				padding: var(--default-margin-padding-size);
-			}
-		</style>
-		<style>
 			h1, h2, h3, h4, h5, h6 {
-				font-family: "Uzura font";
-				margin-top: 10px;
-				margin-bottom: 0;
+				margin-top: 0;
+				margin-bottom: 10px;
 			}
-			code {
-				background-color: silver;
-				vertical-align: middle;
-				font-family: "Myrica font", monospace;
-			}
-			li {
+			a {
 				font-family: "Azuki font";
+				font-size: xx-large;
 			}
-			footer {
-				font-family: "Azuki font";
+			noscript {
+				display: block;
+				text-align: center;
 			}
-			footer span {
-				display: inline-flex;
+		}
+		@media not screen {
+			:root {
+				display: none;
 			}
-		</style>
-		<style>
-			.icon img {
-				height: 1em;
-				margin-right: 1ex;
-			}
-			.flex {
-				display: flex;
-			}
-			@media screen and (max-width: 560px) and (orientation: portrait) {
-				.flex {
-					display: flex;
-					text-align: center;
-				}
-			}
-			.font_azuki {
-				font-family: "Azuki font";
-			}
-			.font_uzura {
-				font-family: "Uzura font";
-			}
-			.font_myrica {
-				font-family: "Myrica font";
-			}
-			body>div[class] {
-				font-size: 24pt;
-			}
-		</style>
-		<script>
-			async function hash_encode(encode='SHA-256', text='') {
-				/**
-				* @docs
-					https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
-				* @args encode::text
-					- SHA-1
-					- *SHA-256
-					- SHA-384
-					- SHA-512
-				* @args text::text
-					.*
-				*/
-				const uint8  = new TextEncoder().encode(text)
-				const digest = await crypto.subtle.digest(encode, uint8)
-				return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('')
-			}
-		</script>
-		<script>
-			function insertTopMaker() {
-				const html_top = document.createElement('a');
-				html_top.name='_';
-				document.head.prepend(html_top);
-			}
-			function insertFavicon() {
-				['icon', 'apple-touch-icon', 'favicon'].forEach((e)=>{
-					let favicon = document.createElement('link');
-					favicon.rel = `${e}`;
-					favicon.href = (location.origin) + '/lib/favicon.webp';
-					favicon.type = 'image/webp';
-					document.head.appendChild(favicon);
-				});
-			}
-			const isNumber = function(value) {
-				return ((typeof value === 'number') && (isFinite(value)));
-			};
-			function createNLevelHeader(level=2, text='') {
-				if ( ! isNumber(level) ) { level=2; }
-				if ( level<1 ) { level=2; }
-				if ( level>6 ) { level=6; }
-				const domobject=document.createElement('h'+level);
-				const innerText=document.createTextNode(text);
-				domobject.appendChild(innerText);
-				return domobject; /* <-- i.e. document.body.appendChild( createNLevelHeader() ); */
-			}
-			function page404Action() {
-				location.replace('/');
-			}
-			window.addEventListener('DOMContentLoaded', (e1)=>{
-				insertTopMaker();
-				insertFavicon();
-				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
-				document.body.appendChild(createNLevelHeader(1, location.host));
-				page404Action();
-			});
-			window.addEventListener('load', (e1)=>{
-			});
-		</script>
-	</head>
-	<body>
-		<a href="#_" name="_"></a>
-		<h1></h1>
-	</body>
+		}
+	</style>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="refresh" content="3;https://n138-kz.github.io/">
+</head><body>
+<div>
+	<h1>404 Not Found</h1>
+	<p>Redirecting to <a href="n138-kz.github.io" target="_self">n138-kz.github.io</a></p>
+</div>
+</body>
 </html>
