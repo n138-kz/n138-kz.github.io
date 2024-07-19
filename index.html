@@ -456,7 +456,7 @@
 								'00' + ( dom_item[6].getMinutes() ).substr(-2),
 								'00' + ( dom_item[6].getSeconds() ).substr(-2),
 							]
-							dom_item[5].innerHTML  = `${document.body.clientWidth}x${document.body.clientHeight} px<sup>2</sup><br />`;
+							dom_item[5].innerText  = `${dom_item[7][0]}:${dom_item[7][1}:${dom_item[7][2]}`;
 						dom_item[4].appendChild( dom_item[5] );
 					dom_item[3].appendChild( dom_item[4] );
 
