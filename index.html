@@ -300,7 +300,6 @@
 					return res;
 				})
 			}
-			function getListOfGithubPublicRepos() {
 			async function getListOfGithubPublicReposList(url) {
 				/*
 				* @inspire: {
@@ -325,6 +324,9 @@
 				*/
 				return await res;
 			}
+			async function getListOfGithubPublicRepos() {
+				const res = await getListOfGithubPublicReposList('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100');
+				console.debug(res);
 
 				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
 					method: 'GET',
