@@ -190,24 +190,6 @@
 
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
 			}
-			document.addEventListener('click', function (event) {
-				console.debug([event, event.target, event.target.className]);
-				if (event.target.className ==='footer') {
-					clearInterval( sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock' ) );
-				}
-			});
-			document.addEventListener('focus', function (event) {
-				console.debug([event, event.target, event.target.className]);
-				if (event.target.className ==='footer') {
-					clearInterval( sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock' ) );
-				}
-			});
-			document.addEventListener('blur', function (event) {
-				console.debug([event, event.target, event.target.className]);
-				if (event.target.className ==='footer') {
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
-				}
-			});
 			function jstClock_set() {
 				jstClock1=new Date();
 				jstClock2={
