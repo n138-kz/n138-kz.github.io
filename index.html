@@ -514,7 +514,9 @@
 				setTimeout( insertSignature(), 1000);
 				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
-				buildDebugField();
+				setTimeout( ()=>{
+					setInterval( buildDebugField(), 1000);
+				}, 5*1000);
 			});
 			window.addEventListener('load', (e1)=>{
 			});
