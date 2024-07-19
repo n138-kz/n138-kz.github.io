@@ -301,6 +301,31 @@
 				})
 			}
 			function getListOfGithubPublicRepos() {
+			async function getListOfGithubPublicReposList(url) {
+				/*
+				* @inspire: {
+				- https://zenn.dev/kawaxumax/articles/0044a0e30536e2
+				}
+				*/
+				const opt = {
+					method: 'GET',
+					mode: 'cors',
+					cache: 'no-cache',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer',
+				}
+				const xml = await fetch(url);
+				const res = await xml.json();
+				/*
+				console.log(xml); // => Response
+				console.log(new Date().getTime(),res); // => json
+				*/
+				return await res;
+			}
+
 				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
 					method: 'GET',
 					mode: 'cors',
