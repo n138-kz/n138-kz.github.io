@@ -533,7 +533,7 @@
 				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
 				setTimeout( ()=>{
-					setInterval( buildDebugField(), 1000);
+					setInterval( buildDebugField, 1000);
 				}, 5*1000);
 			});
 			window.addEventListener('load', (e1)=>{
