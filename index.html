@@ -145,24 +145,8 @@
 				return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('')
 			}
 		</script>
+		<script src="./lib/master.js"></script>
 		<script>
-			function insertTopMaker() {
-				const html_top = document.createElement('a');
-				html_top.name='_';
-				document.head.prepend(html_top);
-			}
-			function insertFavicon() {
-				['icon', 'apple-touch-icon', 'favicon'].forEach((e)=>{
-					let favicon = document.createElement('link');
-					favicon.rel = `${e}`;
-					favicon.href = (location.origin) + '/lib/favicon.webp';
-					favicon.type = 'image/webp';
-					document.head.appendChild(favicon);
-				});
-			}
-			const isNumber = function(value) {
-				return ((typeof value === 'number') && (isFinite(value)));
-			};
 			function createNLevelHeader(level=2, text='') {
 				if ( ! isNumber(level) ) { level=2; }
 				if ( level<1 ) { level=2; }
