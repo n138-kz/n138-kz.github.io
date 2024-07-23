@@ -95,44 +95,6 @@
 
 				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}, ${jstClock2.month}/${jstClock2.date} ${jstClock2.year}`;
 			}
-			async function getSelfHashThenSetStorage(algos='SHA-1') {
-				fetch(location.href)
-				.then((r)=>r.text())
-				.then((r)=>{
-					return hash_encode(r, algos);
-				})
-				.then((r)=>{
-					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: r};
-				})
-				.then((r)=>{
-					const prev_selfhash = JSON.parse(sessionStorage.getItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash'));
-					if ( ! prev_selfhash ) { return r; }
-					if ( prev_selfhash.hashdata === r.hashdata ) {
-						return prev_selfhash;
-					} else {
-						if ( ! typeof reload !== 'undefined' ) {
-							location.replace(location.href);
-						} else {
-							let reload;
-						}
-						return r;
-					}
-				})
-				.then((r)=>{
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash', JSON.stringify(r));
-					console.debug(r);
-				})
-				.catch((e)=>{
-					console.error(e);
-				})
-			}
-			/*
-			Todo:
-			10秒ごとにリソースの更新確認実施
-			更新有無：hash(sha1)値を確認し、違ったら更新されていると判断
-			更新されている場合はページをリロードする
-			*/
-			setInterval( getSelfHashThenSetStorage, 10000 );
 		</script>
 		<script>
 			function insertNavigation() {
@@ -373,7 +335,6 @@
 				insertLastElement();
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
-				getSelfHashThenSetStorage();
 				insertTopMaker();
 				insertFavicon();
 				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
