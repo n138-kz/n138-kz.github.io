@@ -62,38 +62,23 @@
 		</style>
 		<script>
 			function insertSignature() {
-				dom_item = [];
-				dom_item[0] = document.createElement('footer');
-				dom_item[1] = document.createElement('span');
-				dom_item[2] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.' );
-				dom_item[1].appendChild( dom_item[2] );
-				dom_item[0].appendChild( dom_item[1] );
+				const footer = document.querySelector('footer');
+				let wrap = null;
+				let line = null;
+				wrap = document.createElement('div');
+				line = document.createElement('div');
+				line.innerText = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.' );
+				wrap.appendChild(line);
 
-				dom_item[1] = document.createElement('br');
-				dom_item[2] = null;
-				dom_item[0].appendChild( dom_item[1] );
+				line = document.createElement('div');
+				let link = document.createElement('a');
+				link.id = 'jstClock';
+				link.href = 'javascript:void(0)';
+				link.href = '//' + location.host;
+				link.innerText = '';
+				wrap.appendChild(line);
 
-				/*
-				dom_item[1] = document.createElement('a');
-				dom_item[1].href = 'https://github.com/n138-kz/n138-kz.github.io/edit/master/index.html';
-				dom_item[2] = document.createTextNode( 'Improve this page.' );
-				dom_item[1].appendChild( dom_item[2] );
-				dom_item[0].appendChild( dom_item[1] );
-    			*/
-				
-				dom_item[1] = document.createElement('a');
-				dom_item[1].id = 'jstClock'
-				dom_item[1].href = 'javascript:void(0)'
-				dom_item[1].href = 'https://www.n138.jp/'
-				dom_item[1].href = '//' + location.host
-				dom_item[1].href = 'javascript:buildDebugField();'
-				dom_item[1].innerText = ''
-				dom_item[2] = null;
-				dom_item[0].appendChild( dom_item[1] );
-
-				document.body.appendChild( dom_item[0] );
-
-				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
+				footer.appendChild(wrap);
 			}
 			function jstClock_set() {
 				jstClock1=new Date();
@@ -424,5 +409,7 @@
 			});
 		</script>
 	</head>
-	<body></body>
+	<body>
+		<footer></footer>
+	</body>
 </html>
