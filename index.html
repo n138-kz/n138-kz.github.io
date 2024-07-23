@@ -47,6 +47,9 @@
 					text-align: center;
 				}
 			}
+			.navigation {
+				padding-left: 5px;
+			}
 			.font_azuki {
 				font-family: "Azuki font";
 			}
@@ -107,56 +110,41 @@
 			}
 		</script>
 		<script>
-			function insertNavigation() {
-				fetch('./sections.json', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((res)=>res.json())
-				.then((res)=>{ console.log(res); return res; })
-				.then((res)=>{
-					console.log(res);
-					let sections = res;
+			async function insertNavigation() {
+				const json = await http_get_json('./sections.json');
+				console.log(await json);
 
-					dom_item = [];
-					dom_item[0] = document.createElement('div');
-					dom_item[0].id = 'n138kzNavigationLinks';
-					dom_item[0].dataset.id = getRandomLowerString(16);
-					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-						console.debug(item);
-						item.remove();
-					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'Navi'));
-					document.body.appendChild(dom_item[0]);
-					
-					sections.map( (item)=>{
-						dom_item[1] = document.createElement('div');
-						dom_item[1].style.paddingLeft = '5ex';
-						dom_item[1].classList.add('flex');
-						dom_item[1].classList.add('navi');
-						dom_item[1].classList.add('font_azuki');
-						dom_item[2] = document.createElement('a');
-						dom_item[2].classList.add('icon');
-						dom_item[2].href = item.href;
-						dom_item[3] = document.createElement('img');
-						dom_item[3].alt = '';
-						dom_item[3].src = item.favicon;
-						dom_item[2].appendChild( dom_item[3] );
-						dom_item[3] = document.createTextNode( item.name );
-						dom_item[2].appendChild( dom_item[3] );
-						dom_item[1].appendChild( dom_item[2] );
-						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-							item.appendChild(dom_item[1]);
-						} )
-					} )
-					return res;
-				})
+				const wrap = document.querySelector('#n138kzNavigationLinks');
+				wrap.dataset.id = getRandomLowerString(16);
+
+				let line = null;
+				let link = null;
+				let object = null;
+
+				line = document.createElement('h2');
+				line.innerText = 'Navi';
+				wrap.appendChild(line);
+
+				await json.map( (item)=>{
+					line = document.createElement('div');
+					line.classList.add('flex');
+					line.classList.add('navigation');
+					line.classList.add('font_azuki');
+
+					link = createElement('a');
+					link.classList.add('icon');
+					link.href = item.href;
+
+					object = document.createElement('img');
+					object.alt = '';
+					object.src = item.favicon;
+					link.appendChild(object);
+
+					object = document.createTextNode( item.name );
+					link.appendChild(object);
+					line.appendChild(link);
+					wrap.appendChild(line);
+				} );
 			}
 			async function getListOfGithubPublicReposList(url) {
 				/*
@@ -358,6 +346,7 @@
 	</head>
 	<body>
 		<header></header>
+		<div id="n138kzNavigationLinks"></div>
 		<footer></footer>
 	</body>
 </html>
