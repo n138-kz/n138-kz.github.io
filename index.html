@@ -47,6 +47,9 @@
 					text-align: center;
 				}
 			}
+			.navigation {
+				padding-left: 50px;
+			}
 			.font_azuki {
 				font-family: "Azuki font";
 			}
@@ -61,48 +64,35 @@
 			}
 		</style>
 		<script>
-			function createNLevelHeader(level=2, text='') {
-				if ( ! isNumber(level) ) { level=2; }
-				if ( level<1 ) { level=2; }
-				if ( level>6 ) { level=6; }
-				const domobject=document.createElement('h'+level);
-				const innerText=document.createTextNode(text);
-				domobject.appendChild(innerText);
-				return domobject; /* <-- i.e. document.body.appendChild( createNLevelHeader() ); */
+			function setHeader() {
+				const header = document.querySelector('header');
+				let wrap = null;
+				let line = null;
+				wrap = document.createElement('div');
+				line = document.createElement('div');
+				line.innerText = location.host;
+				wrap.appendChild(line);
+				header.appendChild(wrap);
 			}
-			function insertSignature() {
-				dom_item = [];
-				dom_item[0] = document.createElement('footer');
-				dom_item[1] = document.createElement('span');
-				dom_item[2] = document.createTextNode( 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.' );
-				dom_item[1].appendChild( dom_item[2] );
-				dom_item[0].appendChild( dom_item[1] );
+			function setFooter() {
+				const footer = document.querySelector('footer');
+				let wrap = null;
+				let line = null;
+				wrap = document.createElement('div');
+				line = document.createElement('div');
+				line.innerText = 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.';
+				wrap.appendChild(line);
 
-				dom_item[1] = document.createElement('br');
-				dom_item[2] = null;
-				dom_item[0].appendChild( dom_item[1] );
+				line = document.createElement('div');
+				let link = document.createElement('a');
+				link.id = 'jstClock';
+				link.href = 'javascript:void(0)';
+				link.href = '//' + location.host;
+				link.innerText = '';
+				line.appendChild(link);
+				wrap.appendChild(line);
 
-				/*
-				dom_item[1] = document.createElement('a');
-				dom_item[1].href = 'https://github.com/n138-kz/n138-kz.github.io/edit/master/index.html';
-				dom_item[2] = document.createTextNode( 'Improve this page.' );
-				dom_item[1].appendChild( dom_item[2] );
-				dom_item[0].appendChild( dom_item[1] );
-    			*/
-				
-				dom_item[1] = document.createElement('a');
-				dom_item[1].id = 'jstClock'
-				dom_item[1].href = 'javascript:void(0)'
-				dom_item[1].href = 'https://www.n138.jp/'
-				dom_item[1].href = '//' + location.host
-				dom_item[1].href = 'javascript:buildDebugField();'
-				dom_item[1].innerText = ''
-				dom_item[2] = null;
-				dom_item[0].appendChild( dom_item[1] );
-
-				document.body.appendChild( dom_item[0] );
-
-				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'setInterval' + '.' + 'jstClock', setInterval( jstClock_set, 1000 ) );
+				footer.appendChild(wrap);
 			}
 			function jstClock_set() {
 				jstClock1=new Date();
@@ -115,323 +105,195 @@
 					date   : ('00' + jstClock1.getDate()).substr(-2),
 					times  : parseInt(jstClock1.getTime()/1000),
 				}
+				jstClock2.hours = parseInt(jstClock2.hours);
 
-				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}`;
-				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds;
-				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds
-					+ ', ' + jstClock2.date + '/' + jstClock2.month + '/' + jstClock2.year;
-				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds
-					+ ', ' + jstClock2.month + '/' + jstClock2.date + ' ' + jstClock2.year;
+				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}, ${jstClock2.month}/${jstClock2.date} ${jstClock2.year}`;
 			}
-			async function getSelfHashThenSetStorage(algos='SHA-1') {
-				fetch(location.href)
-				.then((r)=>r.text())
-				.then((r)=>{
-					return hash_encode(r, algos);
-				})
-				.then((r)=>{
-					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: r};
-				})
-				.then((r)=>{
-					const prev_selfhash = JSON.parse(sessionStorage.getItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash'));
-					if ( ! prev_selfhash ) { return r; }
-					if ( prev_selfhash.hashdata === r.hashdata ) {
-						return prev_selfhash;
-					} else {
-						if ( ! typeof reload !== 'undefined' ) {
-							location.replace(location.href);
-						} else {
-							let reload;
-						}
-						return r;
-					}
-				})
-				.then((r)=>{
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'selfhash', JSON.stringify(r));
-					console.debug(r);
-				})
-				.catch((e)=>{
-					console.error(e);
-				})
-			}
-			/*
-			Todo:
-			10秒ごとにリソースの更新確認実施
-			更新有無：hash(sha1)値を確認し、違ったら更新されていると判断
-			更新されている場合はページをリロードする
-			*/
-			setInterval( getSelfHashThenSetStorage, 10000 );
 		</script>
 		<script>
-			function insertNavigation() {
-				fetch('./sections.json', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((res)=>res.json())
-				.then((res)=>{ console.log(res); return res; })
-				.then((res)=>{
-					console.log(res);
-					let sections = res;
+			async function insertNavigation() {
+				const wrap = document.querySelector('#n138kzNavigationLinks');
+				wrap.dataset.id = getRandomLowerString(16);
 
-					dom_item = [];
-					dom_item[0] = document.createElement('div');
-					dom_item[0].id = 'n138kzNavigationLinks';
-					dom_item[0].dataset.id = getRandomLowerString(16);
-					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-						console.debug(item);
-						item.remove();
-					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'Navi'));
-					document.body.appendChild(dom_item[0]);
-					
-					sections.map( (item)=>{
-						dom_item[1] = document.createElement('div');
-						dom_item[1].style.paddingLeft = '5ex';
-						dom_item[1].classList.add('flex');
-						dom_item[1].classList.add('navi');
-						dom_item[1].classList.add('font_azuki');
-						dom_item[2] = document.createElement('a');
-						dom_item[2].classList.add('icon');
-						dom_item[2].href = item.href;
-						dom_item[3] = document.createElement('img');
-						dom_item[3].alt = '';
-						dom_item[3].src = item.favicon;
-						dom_item[2].appendChild( dom_item[3] );
-						dom_item[3] = document.createTextNode( item.name );
-						dom_item[2].appendChild( dom_item[3] );
-						dom_item[1].appendChild( dom_item[2] );
-						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-							item.appendChild(dom_item[1]);
-						} )
-					} )
-					return res;
-				})
-			}
-			async function getListOfGithubPublicReposList(url) {
-				/*
-				* @inspire: {
-				- https://zenn.dev/kawaxumax/articles/0044a0e30536e2
-				}
-				*/
-				const opt = {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				}
-				const xml = await fetch(url);
-				const res = await xml.json();
-				/*
-				console.log(xml); // => Response
-				console.log(new Date().getTime(),res); // => json
-				*/
-				return await res;
+				let line = null;
+				let link = null;
+				let object = null;
+
+				line = document.createElement('h2');
+				line.innerText = 'Navigation';
+				wrap.appendChild(line);
+
+				let url = null;
+				url = './sections.json';
+				const json = await http_get_json(url);
+				console.log(await json);
+				await json.map( (item)=>{
+					line = document.createElement('div');
+					line.classList.add('flex');
+					line.classList.add('navigation');
+					line.classList.add('font_azuki');
+
+					link = document.createElement('a');
+					link.classList.add('icon');
+					link.target = '_blank';
+					link.href = item.href;
+
+					object = document.createElement('img');
+					object.alt = '';
+					object.src = item.favicon;
+					link.appendChild(object);
+
+					object = document.createTextNode( item.name );
+					link.appendChild(object);
+					line.appendChild(link);
+					wrap.appendChild(line);
+				} );
 			}
 			async function getListOfGithubPublicRepos() {
-				const res = await getListOfGithubPublicReposList('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100');
-				console.debug(res);
+				const wrap = document.querySelector('#GithubPublicRepos');
+				wrap.dataset.id = getRandomLowerString(16);
 
-				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((r)=>r.json())
-				.then((r)=>{
-					r.map( (item)=>{
-						console.debug([
-							item.name,
-							item.html_url,
-						]);
-					} )
-					return r;
-				})
-				.then((r)=>{
-					dom_item = [];
-					dom_item[0] = document.createElement('div');
-					dom_item[0].id = 'GithubPublicRepos';
-					dom_item[0].dataset.id = getRandomLowerString(16);
-					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-						console.debug(item);
-						item.remove();
-					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'GitHub Public Repos'));
-					document.body.appendChild(dom_item[0]);
-					
-					r.map( (item)=>{
-						console.debug(item);
-						dom_item[1] = document.createElement('li');
-						dom_item[1].style.paddingLeft = '5ex';
-						dom_item[2] = document.createElement('a');
-						dom_item[2].innerText = '【GitHub】';
-						dom_item[2].href = item.html_url;
-						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
-						dom_item[2].dataset.url_github = item.html_url;
-						dom_item[2].dataset.url_pages = item.homepage;
-						dom_item[2].dataset.date_created = item.created_at;
-						dom_item[2].dataset.date_updated = item.updated_at;
-						dom_item[2].dataset.repos_node_id = item.node_id;
-						dom_item[2].dataset.repos_id = item.id;
-						dom_item[2].dataset.repos_size = item.size;
-						dom_item[2].dataset.repos_language = item.language;
-						dom_item[2].dataset.repos_hooks_url = item.hooks_url;
-						dom_item[2].dataset.repos_open_issues = item.open_issues_count;
+				let line = null;
+				let link = null;
+				let object = null;
 
-						dom_item[1].appendChild( dom_item[2] );
-						
-						item.name = (item.name.length > 30) ? item.name.substr(0, 30)+'...' : item.name;
-						dom_item[2] = document.createElement('a');
-						dom_item[2].innerText = item.name;
-						dom_item[2].href = item.homepage;
-						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
-						dom_item[1].appendChild( dom_item[2] );
-						
-						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-							item.appendChild(dom_item[1]);
-						} )
-					} )
-					return r;
-				})
-				.then((r)=>{
-					insertLastElement();
-				})
+				line = document.createElement('h2');
+				line.innerText = 'GitHub Public Repos';
+				wrap.appendChild(line);
+
+				let url = null;
+				url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
+				const json = await http_get_json(url);
+				console.log(await json);
+				await json.map( (item)=>{
+					line = document.createElement('div');
+					line.classList.add('flex');
+					line.classList.add('navigation');
+					line.classList.add('font_azuki');
+
+					link = document.createElement('a');
+					link.target = '_blank';
+					link.href = item.html_url;
+					link.innerText = '【GitHub】';
+					link.dataset.url_github = item.html_url;
+					link.dataset.url_pages = item.homepage;
+					link.dataset.date_created = item.created_at;
+					link.dataset.date_updated = item.updated_at;
+					link.dataset.repos_node_id = item.node_id;
+					link.dataset.repos_id = item.id;
+					link.dataset.repos_size = item.size;
+					link.dataset.repos_language = item.language;
+					link.dataset.repos_hooks_url = item.hooks_url;
+					link.dataset.repos_open_issues = item.open_issues_count;
+					line.appendChild(link);
+
+					item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name;
+					link = document.createElement('a');
+					link.target = '_blank';
+					link.href = item.homepage;
+					link.innerText = item.name;
+					line.appendChild(link);
+					wrap.appendChild(line);
+				} );
 			}
-			function buildDebugField() {
-				dom_item = [];
-				dom_item[0] = document.createElement('div');
-				dom_item[0].id = 'DebugInfoArea';
-				dom_item[0].dataset.id = getRandomLowerString(16);
-				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-					console.debug(item);
-					item.remove();
-				} )
-				dom_item[0].appendChild(createNLevelHeader(2, 'Debug info'));
-				document.body.appendChild(dom_item[0]);
+			async function buildDebugField() {
+				const wrap = document.querySelector('#DebugInfoArea');
+				wrap.dataset.id = getRandomLowerString(16);
 
-				dom_item[1] = document.createElement('div');
-				dom_item[1].style.paddingLeft = '5ex';
-				dom_item[1].classList.add('debug');
-				dom_item[1].classList.add('font_azuki');
+				let line = null;
+				let link = null;
+				let object = null;
+				let temp = null;
 
-				dom_item[2] = document.createElement('table');
-				dom_item[2].border = 1;
-				dom_item[2].style.maxWidth = '500px';
-					dom_item[3] = document.createElement('thead');
-						dom_item[4] = document.createElement('tr');
-							dom_item[5] = document.createElement('th');
-								dom_item[6] = document.createTextNode( 'Item name' );
-							dom_item[5].appendChild( dom_item[6] );
-						dom_item[4].appendChild( dom_item[5] );
-							dom_item[5] = document.createElement('th');
-								dom_item[6] = document.createTextNode( 'Value' );
-							dom_item[5].appendChild( dom_item[6] );
-						dom_item[4].appendChild( dom_item[5] );
-					dom_item[3].appendChild( dom_item[4] );
+				line = document.createElement('h2');
+				line.innerText = 'Debug info';
+				wrap.appendChild(line);
 
-					dom_item[2].appendChild( dom_item[3] );
-					dom_item[3] = document.createElement('tbody');
-						dom_item[4] = document.createElement('tr');
-							dom_item[5] = document.createElement('td');
-								dom_item[6] = document.createTextNode( 'Screen width/length' );
-							dom_item[5].appendChild( dom_item[6] );
-						dom_item[4].appendChild( dom_item[5] );
-							dom_item[5] = document.createElement('td');
-							dom_item[5].innerHTML  = `${document.body.clientWidth}x${document.body.clientHeight} px<sup>2</sup><br />`;
-						dom_item[4].appendChild( dom_item[5] );
-					dom_item[3].appendChild( dom_item[4] );
+				line = document.createElement('div');
+				line.classList.add('flex');
+				line.classList.add('navigation');
+				line.classList.add('font_azuki');
 
-						fetch('https://api.github.com/rate_limit', {
-							method: 'GET',
-							mode: 'cors',
-							cache: 'no-cache',
-							headers: {
-								'Content-Type': 'application/json'
-							},
-							redirect: 'follow',
-							referrerPolicy: 'no-referrer',
-						})
-						.then((r)=>r.json())
-						.then((r)=>{ return r.rate; })
-						.then((r)=>{
-							console.log(r);
-							dom_item[4] = document.createElement('tr');
-								dom_item[5] = document.createElement('td');
-									dom_item[6] = document.createTextNode( 'GitHub API' );
-								dom_item[5].appendChild( dom_item[6] );
-							dom_item[4].appendChild( dom_item[5] );
-								dom_item[5] = document.createElement('td');
-								dom_item[5].innerHTML  = `Remaining: ${r.remaining}/${r.limit} (Use: ${r.used})<br />`;
-								dom_item[6] = new Date(r.reset*1000);
-								dom_item[7] = [
-									(''   +  dom_item[6].getFullYear()  ),
-									('00' + (dom_item[6].getMonth() + 1)).substr(-2),
-									('00' +  dom_item[6].getDate()      ).substr(-2),
-									('00' +  dom_item[6].getHours()     ).substr(-2),
-									('00' +  dom_item[6].getMinutes()   ).substr(-2),
-									('00' +  dom_item[6].getSeconds()   ).substr(-2),
-								];
-								dom_item[5].innerHTML += `Reset: ${dom_item[7][0]}/${dom_item[7][1]}/${dom_item[7][2]} ${dom_item[7][3]}:${dom_item[7][4]}:${dom_item[7][5]}<br />`;
-							dom_item[4].appendChild( dom_item[5] );
-						dom_item[3].appendChild( dom_item[4] );
-							return r;
-						})
+				object = [document.createElement('table')];
+				object[0].border = 1;
+				object[0].style.maxWidth = '500px';
+				
+				object[1] = document.createElement('thead');
 
-					dom_item[2].appendChild( dom_item[3] );
-				dom_item[1].appendChild( dom_item[2] );
-				Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-					item.appendChild(dom_item[1]);
-				} )
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
+				object[3].innerText = 'Item name';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('th');
+				object[3].innerText = 'Value';
+				object[2].appendChild(object[3]);
 
-				insertLastElement();
-			}
-			function getApiRateOfGithub() {
-				fetch('https://api.github.com/rate_limit', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((r)=>r.json())
-				.then((r)=>{ return r.rate; })
-				.then((r)=>{
-					console.log(r);
-					return r;
-				})
+				object[1].appendChild(object[2]);
+				object[0].appendChild(object[1]);
+
+				object[1] = document.createElement('tbody');
+				
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
+				object[3].innerText = 'Screen width/length';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('td');
+				object[3].innerHTML  = `${document.body.clientWidth}x${document.body.clientHeight} px<sup>2</sup><br />`;
+				object[2].appendChild(object[3]);
+
+				object[1].appendChild(object[2]);
+
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
+				object[3].innerText = 'GitHub API';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('td');
+				let url = null;
+				url = 'https://api.github.com/rate_limit';
+				const json = await http_get_json(url);
+				console.log(await json);
+				temp = [new Date((await json.rate.reset)*1000)];
+				temp[1] = [
+					(''   +  temp[0].getFullYear()  ),
+					('00' + (temp[0].getMonth() + 1)).substr(-2),
+					('00' +  temp[0].getDate()      ).substr(-2),
+					('00' +  temp[0].getHours()     ).substr(-2),
+					('00' +  temp[0].getMinutes()   ).substr(-2),
+					('00' +  temp[0].getSeconds()   ).substr(-2),
+				];
+				object[3].innerHTML  = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
+				object[3].innerHTML += `Reset: ${temp[1][0]}/${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
+				object[2].appendChild(object[3]);
+
+				object[1].appendChild(object[2]);
+				object[0].appendChild(object[1]);
+				
+				line.appendChild(object[0]);
+				wrap.appendChild(line);
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
-				getSelfHashThenSetStorage();
 				insertTopMaker();
 				insertFavicon();
-				setInterval( ()=>{ console.log( Math.round(parseInt(new Date().getTime()/1000) / 10) * 10 ); }, 1000);
-				document.body.appendChild(createNLevelHeader(1, location.host));
-				insertNavigation();
-				setTimeout( insertSignature(), 1000);
-				getListOfGithubPublicRepos();
-				setInterval( getApiRateOfGithub, 10000);
+				setHeader();
+				try { insertNavigation(); } catch (error) { console.error(error); }
+				try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }
+				try { buildDebugField(); } catch (error) { console.error(error); }
+				setInterval(()=>{
+					insertLastElement();
+					jstClock_set();
+				}, 1000);
+
+				setTimeout( setFooter(), 1000);
 			});
 			window.addEventListener('load', (e1)=>{
 			});
 		</script>
 	</head>
-	<body></body>
+	<body>
+		<header></header>
+		<div id="n138kzNavigationLinks"></div>
+		<div id="GithubPublicRepos"></div>
+		<div id="DebugInfoArea"></div>
+		<footer></footer>
+	</body>
 </html>
