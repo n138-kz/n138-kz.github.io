@@ -148,103 +148,52 @@
 					wrap.appendChild(line);
 				} );
 			}
-			async function getListOfGithubPublicReposList(url) {
-				/*
-				* @inspire: {
-				- https://zenn.dev/kawaxumax/articles/0044a0e30536e2
-				}
-				*/
-				const opt = {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				}
-				const xml = await fetch(url);
-				const res = await xml.json();
-				/*
-				console.log(xml); // => Response
-				console.log(new Date().getTime(),res); // => json
-				*/
-				return await res;
-			}
 			async function getListOfGithubPublicRepos() {
-				const res = await getListOfGithubPublicReposList('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100');
-				console.debug(res);
+				const wrap = document.querySelector('#GithubPublicRepos');
+				wrap.dataset.id = getRandomLowerString(16);
 
-				fetch('https://api.github.com/users/n138-kz/repos?sort=name&per_page=100', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((r)=>r.json())
-				.then((r)=>{
-					r.map( (item)=>{
-						console.debug([
-							item.name,
-							item.html_url,
-						]);
-					} )
-					return r;
-				})
-				.then((r)=>{
-					dom_item = [];
-					dom_item[0] = document.createElement('div');
-					dom_item[0].id = 'GithubPublicRepos';
-					dom_item[0].dataset.id = getRandomLowerString(16);
-					Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-						console.debug(item);
-						item.remove();
-					} )
-					dom_item[0].appendChild(createNLevelHeader(2, 'GitHub Public Repos'));
-					document.body.appendChild(dom_item[0]);
-					
-					r.map( (item)=>{
-						console.debug(item);
-						dom_item[1] = document.createElement('li');
-						dom_item[1].style.paddingLeft = '5ex';
-						dom_item[2] = document.createElement('a');
-						dom_item[2].innerText = '【GitHub】';
-						dom_item[2].href = item.html_url;
-						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
-						dom_item[2].dataset.url_github = item.html_url;
-						dom_item[2].dataset.url_pages = item.homepage;
-						dom_item[2].dataset.date_created = item.created_at;
-						dom_item[2].dataset.date_updated = item.updated_at;
-						dom_item[2].dataset.repos_node_id = item.node_id;
-						dom_item[2].dataset.repos_id = item.id;
-						dom_item[2].dataset.repos_size = item.size;
-						dom_item[2].dataset.repos_language = item.language;
-						dom_item[2].dataset.repos_hooks_url = item.hooks_url;
-						dom_item[2].dataset.repos_open_issues = item.open_issues_count;
+				let line = null;
+				let link = null;
+				let object = null;
 
-						dom_item[1].appendChild( dom_item[2] );
-						
-						item.name = (item.name.length > 30) ? item.name.substr(0, 30)+'...' : item.name;
-						dom_item[2] = document.createElement('a');
-						dom_item[2].innerText = item.name;
-						dom_item[2].href = item.homepage;
-						dom_item[2].target = 'sw' + (new Date().getTime()) + (Math.random() * 65536);
-						dom_item[1].appendChild( dom_item[2] );
-						
-						Array.from( document.querySelectorAll( '#' + dom_item[0].id ) ).map( (item)=>{
-							item.appendChild(dom_item[1]);
-						} )
-					} )
-					return r;
-				})
-				.then((r)=>{
-					insertLastElement();
-				})
+				line = document.createElement('h2');
+				line.innerText = 'GitHub Public Repos';
+				wrap.appendChild(line);
+
+				let url = null;
+				url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
+				const json = await http_get_json(url);
+				console.log(await json);
+				await json.map( (item)=>{
+					line = document.createElement('div');
+					line.classList.add('flex');
+					line.classList.add('navigation');
+					line.classList.add('font_azuki');
+
+					link = document.createElement('a');
+					link.target = '_blank';
+					link.href = item.html_url;
+					link.innerText = '【GitHub】';
+					link.dataset.url_github = item.html_url;
+					link.dataset.url_pages = item.homepage;
+					link.dataset.date_created = item.created_at;
+					link.dataset.date_updated = item.updated_at;
+					link.dataset.repos_node_id = item.node_id;
+					link.dataset.repos_id = item.id;
+					link.dataset.repos_size = item.size;
+					link.dataset.repos_language = item.language;
+					link.dataset.repos_hooks_url = item.hooks_url;
+					link.dataset.repos_open_issues = item.open_issues_count;
+					line.appendChild(link);
+
+					item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name;
+					link = document.createElement('a');
+					link.target = '_blank';
+					link.href = item.homepage;
+					link.innerText = item.name;
+					line.appendChild(link);
+					wrap.appendChild(line);
+				} );
 			}
 			function buildDebugField() {
 				dom_item = [];
@@ -339,6 +288,8 @@
 				insertFavicon();
 				setHeader();
 				try { insertNavigation(); } catch (error) { console.error(error); }
+				try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }
+
 				setTimeout( setFooter(), 1000);
 			});
 			window.addEventListener('load', (e1)=>{
