@@ -77,24 +77,6 @@
 				font-size: 24pt;
 			}
 		</style>
-		<script>
-			async function hash_encode(encode='SHA-256', text='') {
-				/**
-				* @docs
-					https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
-				* @args encode::text
-					- SHA-1
-					- *SHA-256
-					- SHA-384
-					- SHA-512
-				* @args text::text
-					.*
-				*/
-				const uint8  = new TextEncoder().encode(text)
-				const digest = await crypto.subtle.digest(encode, uint8)
-				return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('')
-			}
-		</script>
 		<script src="./lib/master.js"></script>
 		<script>
 			function createNLevelHeader(level=2, text='') {
@@ -163,7 +145,7 @@
 				fetch(location.href)
 				.then((r)=>r.text())
 				.then((r)=>{
-					return hash_encode(algos, r);
+					return hash_encode(r, algos);
 				})
 				.then((r)=>{
 					return {timestamp: parseInt(new Date().getTime()/1000, 10), hashdata: r};
