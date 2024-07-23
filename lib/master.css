@@ -31,15 +31,35 @@
 	--color-preset-yellow: #FFa000FF;
 	--color-preset-green: #008000FF;
 }
+
 :root[theme=dark] {
 	--default-background-color: #000000FF;
 	--default-text-color: #F00000FF;
 }
+
+@media not screen {
+	:root {
+		display: none;
+	}
+}
+
+html, body {
+	margin: var(--default-margin-padding-size);
+	padding: var(--default-margin-padding-size);
+}
+
 html {
 	padding-top: 10px;
 	height: 100%;
-	background-color: azure;
 	background-repeat: no-repeat;
+	background-color: var(--default-background-color);
+	color: var(--default-text-color);
+	font-size: var(--default-font-size);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 
 body {
@@ -74,4 +94,10 @@ hr {
 		margin-top: 5em;
 		opacity: 0.5;
 	}
+}
+
+code {
+	background-color: silver;
+	vertical-align: middle;
+	font-family: monospace;
 }
