@@ -61,7 +61,7 @@
 			}
 		</style>
 		<script>
-			function insertSignature() {
+			function setFooter() {
 				const footer = document.querySelector('footer');
 				let wrap = null;
 				let line = null;
@@ -339,7 +339,7 @@
 				insertFavicon();
 				document.body.appendChild(createNLevelHeader(1, location.host));
 				insertNavigation();
-				setTimeout( insertSignature(), 1000);
+				setTimeout( setFooter(), 1000);
 				getListOfGithubPublicRepos();
 				setInterval( getApiRateOfGithub, 10000);
 			});
