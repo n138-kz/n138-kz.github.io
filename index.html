@@ -111,9 +111,6 @@
 		</script>
 		<script>
 			async function insertNavigation() {
-				const json = await http_get_json('./sections.json');
-				console.log(await json);
-
 				const wrap = document.querySelector('#n138kzNavigationLinks');
 				wrap.dataset.id = getRandomLowerString(16);
 
@@ -125,6 +122,10 @@
 				line.innerText = 'Navi';
 				wrap.appendChild(line);
 
+				let url = null;
+				url = './sections.json';
+				const json = await http_get_json(url);
+				console.log(await json);
 				await json.map( (item)=>{
 					line = document.createElement('div');
 					line.classList.add('flex');
@@ -336,9 +337,8 @@
 				insertTopMaker();
 				insertFavicon();
 				setHeader();
-				insertNavigation();
+				try { insertNavigation(); } catch (error) { console.error(error); }
 				setTimeout( setFooter(), 1000);
-				getListOfGithubPublicRepos();
 			});
 			window.addEventListener('load', (e1)=>{
 			});
@@ -347,6 +347,7 @@
 	<body>
 		<header></header>
 		<div id="n138kzNavigationLinks"></div>
+		<div id="GithubPublicRepos"></div>
 		<footer></footer>
 	</body>
 </html>
