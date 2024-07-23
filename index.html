@@ -89,6 +89,7 @@
 				link.href = 'javascript:void(0)';
 				link.href = '//' + location.host;
 				link.innerText = '';
+				line.appendChild(link);
 				wrap.appendChild(line);
 
 				footer.appendChild(wrap);
@@ -279,6 +280,7 @@
 				try { buildDebugField(); } catch (error) { console.error(error); }
 				setInterval(()=>{
 					insertLastElement();
+					jstClock_set();
 				}, 1000);
 
 				setTimeout( setFooter(), 1000);
