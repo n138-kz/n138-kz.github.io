@@ -61,6 +61,16 @@
 			}
 		</style>
 		<script>
+			function setHeader() {
+				const header = document.querySelector('header');
+				let wrap = null;
+				let line = null;
+				wrap = document.createElement('div');
+				line = document.createElement('div');
+				line.innerText = location.host;
+				wrap.appendChild(line);
+				header.appendChild(wrap);
+			}
 			function setFooter() {
 				const footer = document.querySelector('footer');
 				let wrap = null;
@@ -337,7 +347,7 @@
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
 				insertFavicon();
-				document.body.appendChild(createNLevelHeader(1, location.host));
+				setHeader();
 				insertNavigation();
 				setTimeout( setFooter(), 1000);
 				getListOfGithubPublicRepos();
@@ -348,6 +358,7 @@
 		</script>
 	</head>
 	<body>
+		<header></header>
 		<footer></footer>
 	</body>
 </html>
