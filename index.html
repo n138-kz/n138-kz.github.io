@@ -277,6 +277,9 @@
 				try { insertNavigation(); } catch (error) { console.error(error); }
 				try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }
 				try { buildDebugField(); } catch (error) { console.error(error); }
+				setInterval(()=>{
+					insertLastElement();
+				}, 1000);
 
 				setTimeout( setFooter(), 1000);
 			});
