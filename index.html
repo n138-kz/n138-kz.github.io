@@ -61,15 +61,6 @@
 			}
 		</style>
 		<script>
-			function createNLevelHeader(level=2, text='') {
-				if ( ! isNumber(level) ) { level=2; }
-				if ( level<1 ) { level=2; }
-				if ( level>6 ) { level=6; }
-				const domobject=document.createElement('h'+level);
-				const innerText=document.createTextNode(text);
-				domobject.appendChild(innerText);
-				return domobject; /* <-- i.e. document.body.appendChild( createNLevelHeader() ); */
-			}
 			function insertSignature() {
 				dom_item = [];
 				dom_item[0] = document.createElement('footer');
