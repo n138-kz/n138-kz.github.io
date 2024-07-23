@@ -69,8 +69,9 @@
 				let wrap = null;
 				let line = null;
 				wrap = document.createElement('div');
-				line = document.createElement('div');
+				line = document.createElement('h1');
 				line.innerText = location.host;
+				line.id = 'title';
 				wrap.appendChild(line);
 				header.appendChild(wrap);
 			}
