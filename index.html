@@ -249,6 +249,7 @@
 				object[3].innerText = 'GitHub API';
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
+				object[3].style.whiteSpace = 'no-wrap';
 				let url = null;
 				url = 'https://api.github.com/rate_limit';
 				const json = await http_get_json(url);
