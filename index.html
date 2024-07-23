@@ -376,24 +376,6 @@
 
 				insertLastElement();
 			}
-			function getApiRateOfGithub() {
-				fetch('https://api.github.com/rate_limit', {
-					method: 'GET',
-					mode: 'cors',
-					cache: 'no-cache',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-				})
-				.then((r)=>r.json())
-				.then((r)=>{ return r.rate; })
-				.then((r)=>{
-					console.log(r);
-					return r;
-				})
-			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				getSelfHashThenSetStorage();
 				insertTopMaker();
