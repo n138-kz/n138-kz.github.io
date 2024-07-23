@@ -91,13 +91,9 @@
 					date   : ('00' + jstClock1.getDate()).substr(-2),
 					times  : parseInt(jstClock1.getTime()/1000),
 				}
+				jstClock2.hours = parseInt(jstClock2.hours);
 
-				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}`;
-				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds;
-				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds
-					+ ', ' + jstClock2.date + '/' + jstClock2.month + '/' + jstClock2.year;
-				document.querySelector('#jstClock').innerText=parseInt(jstClock2.hours) + ':' + jstClock2.minutes + ':' + jstClock2.seconds
-					+ ', ' + jstClock2.month + '/' + jstClock2.date + ' ' + jstClock2.year;
+				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}, ${jstClock2.month}/${jstClock2.date} ${jstClock2.year}`;
 			}
 			async function getSelfHashThenSetStorage(algos='SHA-1') {
 				fetch(location.href)
