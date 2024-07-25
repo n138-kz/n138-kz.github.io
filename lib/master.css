@@ -101,3 +101,7 @@ code {
 	vertical-align: middle;
 	font-family: monospace;
 }
+
+th {
+	text-align: center;
+}
