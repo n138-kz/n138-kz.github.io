@@ -56,8 +56,8 @@ jobs:
 
     - name: Github Repository info
       run: |
-        curl -H 'Content-Type: Application/json' https://api.github.com/rate_limit | jq .name
-        curl -H 'Content-Type: Application/json' https://api.github.com/rate_limit | jq .description
+        curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .name
+        curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .description
         
     - name: php
       run: php -r "var_dump(json_decode(file_get_contents('./lib/manifest.json'), TRUE));"
