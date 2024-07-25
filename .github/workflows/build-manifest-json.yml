@@ -55,10 +55,4 @@ jobs:
         git status
         
     - name: php
-      run: apt install php
-    - name: test env
-      run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-    - name: test env
-      run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-    - name: test env
-      run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      run: php -v
