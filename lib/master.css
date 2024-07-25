@@ -64,6 +64,9 @@ h1, h2, h3, h4, h5, h6 {
 body {
 	background-color: transparent;
 	min-height: 3em;
+}
+
+body>div[id] {
 	padding: 0 10px;
 }
 
