@@ -27,21 +27,25 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/stale@v5
+    
     - name: Github Repository info
       run: |
         echo "Github repository:             $GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
         echo "Github repository runner-id:   $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
         echo "Github repository runner-name: $RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
         echo "Github API URL:                $GITHUB_API_URL/repos/$GITHUB_REPOSITORY"
+        
     - name: "[GithubAPI] Remaining API Rate"
       run: |
         curl -H 'Content-Type: Application/json' https://api.github.com/rate_limit | jq
+        
     - name: local repository update
       run: |
         set -x
         git fetch
         git pull
         git status
+        
     - name: Create Branch
       run: |
         set -x
@@ -49,8 +53,9 @@ jobs:
         git branch ${{ env.alt-branch-name }}
         git checkout ${{ env.alt-branch-name }}
         git status
-    - name: test env
-      run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+        
+    - name: php
+      run: apt install php
     - name: test env
       run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: test env
