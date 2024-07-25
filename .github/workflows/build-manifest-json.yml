@@ -15,7 +15,7 @@ env:
 
 jobs:
 
-  env:
+  build:
 
     permissions:
       contents: write
@@ -71,21 +71,6 @@ jobs:
     - name: Check git status
       run: git status
 
-
-  pr:
-    needs: env
-
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/stale@v5
-
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
@@ -95,3 +80,4 @@ jobs:
         base: ${{ env.alt-branch-name }}
         branch: master
         delete-branch: true
+
