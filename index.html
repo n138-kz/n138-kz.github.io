@@ -289,6 +289,9 @@
 				
 				line.appendChild(object[0]);
 				wrap.appendChild(line);
+
+				setInterval(()=>{
+				}, 500);
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
@@ -296,9 +299,7 @@
 				setHeader();
 				try { insertNavigation(); } catch (error) { console.error(error); }
 				try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }
-				setInterval(()=>{
-					try { buildDebugField(); } catch (error) { console.error(error); }
-				}, 500);
+				try { buildDebugField(); } catch (error) { console.error(error); }
 				setInterval(()=>{
 					insertLastElement();
 					jstClock_set();
