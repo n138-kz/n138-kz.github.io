@@ -65,7 +65,7 @@ jobs:
         curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .name
         curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .description
         
-    - name: php
+    - name: Update Manifest file
       run: php .github/workflows/build-manifest-json.php
         
     - name: Check git status
