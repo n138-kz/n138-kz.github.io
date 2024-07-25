@@ -41,8 +41,8 @@ jobs:
     - name: Create Branch
       run: |
         git branch -r
-        git branch $(date +%s)
-        git checkout
+        git branch ${{ env.alt-branch-name }}
+        git checkout ${{ env.alt-branch-name }}
     - name: test env
       run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: test env
