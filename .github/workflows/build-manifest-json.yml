@@ -34,11 +34,13 @@ jobs:
         echo "Github repository runner-name: $RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
     - name: local repository update
       run: |
+        set -x
         git fetch
         git pull
         git status
     - name: Create Branch
       run: |
+        set -x
         git branch -r
         git branch ${{ env.alt-branch-name }}
         git checkout ${{ env.alt-branch-name }}
