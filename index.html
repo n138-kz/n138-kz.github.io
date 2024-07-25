@@ -242,6 +242,7 @@
 				object[2] = document.createElement('tr');
 				object[3] = document.createElement('th');
 				object[3].innerText = 'Screen width/length';
+				object[3].id = 'debug_screen';
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
 				object[3].innerHTML  = `${document.body.clientWidth}x${document.body.clientHeight} px<sup>2</sup><br />`;
@@ -257,6 +258,7 @@
 				url = location.href;
 				temp = await http_ping(url);
 				console.log(await temp);
+				object[3].id = 'debug_ping';
 				object[3].innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
 				object[2].appendChild(object[3]);
 
@@ -265,6 +267,7 @@
 				object[2] = document.createElement('tr');
 				object[3] = document.createElement('th');
 				object[3].innerText = 'GitHub API';
+				object[3].id = 'debug_githubapi';
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
 				object[3].style.whiteSpace = 'nowrap';
