@@ -74,8 +74,6 @@ jobs:
     - name: Commit manifest-json
       run: |
         git add ./lib/manifest.json
-        git commit -m "auto-update: $(date)"
-        git push -u origin master
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
