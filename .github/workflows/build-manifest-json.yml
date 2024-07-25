@@ -30,8 +30,8 @@ jobs:
       run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
     - name: Runner info
       run: echo "$RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
-    - name: test env
-      run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+    - name: git fetch
+      run: git fetch
     - name: test env
       run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: test env
