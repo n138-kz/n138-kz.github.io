@@ -50,7 +50,6 @@ html, body {
 
 html {
 	padding-top: 10px;
-	height: 100%;
 	background-repeat: no-repeat;
 	background-color: var(--default-background-color);
 	color: var(--default-text-color);
