@@ -55,4 +55,4 @@ jobs:
         git status
         
     - name: php
-      run: php -v
+      run: php -r "<?php var_dump(json_decode(file_get_contents('./lib/manifest.json'), TRUE));"
