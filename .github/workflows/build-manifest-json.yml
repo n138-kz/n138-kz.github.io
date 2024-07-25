@@ -33,6 +33,9 @@ jobs:
         echo "Github repository runner-id:   $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
         echo "Github repository runner-name: $RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
         echo "Github API URL:                $GITHUB_API_URL/$GITHUB_REPOSITORY"
+    - name: "[GithubAPI] Remaining API Rate"
+      run: |
+        curl -H 'Content-Type: Application/json' https://api.github.com/rate_limit
     - name: local repository update
       run: |
         set -x
