@@ -71,10 +71,6 @@ jobs:
     - name: Check git status
       run: git status
 
-    - name: Commit manifest-json
-      run: |
-        git add ./lib/manifest.json
-
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
