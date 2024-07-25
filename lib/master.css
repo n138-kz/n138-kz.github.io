@@ -105,3 +105,7 @@ code {
 th {
 	text-align: center;
 }
+
+td {
+	text-align: left;
+}
