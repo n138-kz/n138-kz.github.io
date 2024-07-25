@@ -60,4 +60,4 @@ jobs:
         curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .description
         
     - name: php
-      run: php -r "var_dump(json_decode(file_get_contents('./lib/manifest.json'), TRUE));"
+      run: php -r "var_dump(json_encode(array_merge(json_decode(file_get_contents('./lib/manifest.json'), TRUE), time()));"
