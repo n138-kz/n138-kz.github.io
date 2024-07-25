@@ -11,7 +11,6 @@ $html = file_get_contents($url, false, $context);
 
 $github = json_decode($html, TRUE);
 $manifest = __FILE__ . '/../../lib/manifest.json';
-echo "\$manifest(__LINE__): $manifest";
 $manifest = realpath($manifest);
 echo "\$manifest(__LINE__): $manifest";
 $manifest = json_decode(file_get_contents( $manifest ), TRUE);
