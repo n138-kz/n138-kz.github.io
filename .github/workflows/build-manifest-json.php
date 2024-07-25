@@ -10,5 +10,7 @@ $context = stream_context_create($options);
 $html = file_get_contents($url, false, $context);
 
 $github = json_decode($html, TRUE);
-$manifest = json_decode(file_get_contents( realpath(__FILE__ . '/../../lib/manifest.json') ), TRUE);
+$manifest = __FILE__ . '/../../lib/manifest.json';
+echo $manifest;
+$manifest = json_decode(file_get_contents( realpath($manifest) ), TRUE);
 var_dump(json_encode(array_merge($manifest, ['updated_at'=>time()])));
