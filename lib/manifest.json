@@ -1,0 +1,32 @@
+{
+    "name": "n138-kz.github.io",
+    "short_name": "n138-kz.github.io",
+    "description": "n138-kz.github.io",
+    "display": "standalone",
+    "background_color": "#F0FFFF",
+    "theme_color": "#F0FFFF",
+    "orientation": "landscape",
+    "start_url": "/?load=prepare",
+    "icons": [
+        {
+            "sizes": "64x64",
+            "type": "image/webp",
+            "src": "/lib/favicon.webp"
+        },
+        {
+            "sizes": "128x128",
+            "type": "image/webp",
+            "src": "/lib/favicon.webp"
+        },
+        {
+            "sizes": "192x192",
+            "type": "image/webp",
+            "src": "/lib/favicon.webp"
+        },
+        {
+            "sizes": "256x256",
+            "type": "image/webp",
+            "src": "/lib/favicon.webp"
+        }
+    ]
+}
