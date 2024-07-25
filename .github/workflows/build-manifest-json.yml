@@ -54,6 +54,11 @@ jobs:
         git checkout ${{ env.alt-branch-name }}
         git status
 
+    - name: git config
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "github-actions[bot]"
+
     - name: Github Repository info
       run: |
         curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .name
