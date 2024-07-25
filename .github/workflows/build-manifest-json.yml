@@ -69,3 +69,13 @@ jobs:
       run: |
         git add ./lib/manifest.json
         git commit -m 'auto-update: '$(date)
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        commit-message: Update Manifest file
+        title: Auto PR - Update Manifest file
+        body: Auto PR - Update Manifest file
+        base: master
+        branch: ${{ env.alt-branch-name }}
+        delete-branch: true
