@@ -61,3 +61,7 @@ jobs:
         
     - name: php
       run: php .github/workflows/build-manifest-json.php
+        
+    - name: Check git status
+      run: git status
+
