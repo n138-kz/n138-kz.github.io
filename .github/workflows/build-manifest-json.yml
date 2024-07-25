@@ -65,3 +65,7 @@ jobs:
     - name: Check git status
       run: git status
 
+    - name: Commit manifest-json
+      run: |
+        git add ./lib/manifest.json
+        git commit -m 'auto-update: '$(date)
