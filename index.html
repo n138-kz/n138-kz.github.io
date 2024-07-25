@@ -114,6 +114,7 @@
 		<script>
 			async function insertNavigation() {
 				const wrap = document.querySelector('#n138kzNavigationLinks');
+				wrap.innerText = null;
 				wrap.dataset.id = getRandomLowerString(16);
 
 				let line = null;
@@ -152,6 +153,7 @@
 			}
 			async function getListOfGithubPublicRepos() {
 				const wrap = document.querySelector('#GithubPublicRepos');
+				wrap.innerText = null;
 				wrap.dataset.id = getRandomLowerString(16);
 
 				let line = null;
@@ -199,6 +201,7 @@
 			}
 			async function buildDebugField() {
 				const wrap = document.querySelector('#DebugInfoArea');
+				wrap.innerText = null;
 				wrap.dataset.id = getRandomLowerString(16);
 
 				let line = null;
