@@ -18,6 +18,9 @@ jobs:
       issues: write
       pull-requests: write
 
+    env:
+      on-dev: true
+      alt-branch-name: manifestjson
       
     runs-on: ubuntu-latest
 
@@ -30,10 +33,16 @@ jobs:
       run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
     - name: Runner info
       run: echo "$RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
-    - name: git fetch
-      run: git fetch
-    - name: test env
-      run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+    - name: local repository update
+      run: |
+        git fetch
+        git pull
+        git status
+    - name: Create Branch
+      run: |
+        git branch -r
+        git branch $(date +%s)
+        git checkout
     - name: test env
       run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: test env
