@@ -205,6 +205,7 @@
 				let link = null;
 				let object = null;
 				let temp = null;
+				let url = null;
 
 				line = document.createElement('h2');
 				line.innerText = 'Debug info';
@@ -250,7 +251,6 @@
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
 				object[3].style.whiteSpace = 'nowrap';
-				let url = null;
 				url = 'https://api.github.com/rate_limit';
 				const json = await http_get_json(url);
 				console.log(await json);
