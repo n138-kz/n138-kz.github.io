@@ -81,6 +81,6 @@ jobs:
         commit-message: Update Manifest file
         title: Auto PR - Update Manifest file
         body: Auto PR - Update Manifest file
-        base: ${{ env.alt-branch-name }}
+        base: master
         branch: master
         delete-branch: true
