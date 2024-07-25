@@ -9,43 +9,43 @@ on:
 
 permissions: read-all
 
+env:
+  on-dev: true
+  alt-branch-name: manifestjson
+
 jobs:
-    
-  build:
+
+  env:
 
     permissions:
       contents: write
       issues: write
       pull-requests: write
 
-    env:
-      on-dev: true
-      alt-branch-name: manifestjson
-      
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     - uses: actions/stale@v5
-    
+
     - name: Github Repository info
       run: |
         echo "Github repository:             $GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
         echo "Github repository runner-id:   $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
         echo "Github repository runner-name: $RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
         echo "Github API URL:                $GITHUB_API_URL/repos/$GITHUB_REPOSITORY"
-        
+
     - name: "[GithubAPI] Remaining API Rate"
       run: |
         curl -H 'Content-Type: Application/json' https://api.github.com/rate_limit | jq
-        
+
     - name: local repository update
       run: |
         set -x
         git fetch
         git pull
         git status
-        
+
     - name: Create Branch
       run: |
         set -x
@@ -64,12 +64,27 @@ jobs:
       run: |
         curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .name
         curl -H 'Content-Type: Application/json' $GITHUB_API_URL/repos/$GITHUB_REPOSITORY | jq .description
-        
+
     - name: Update Manifest file
       run: php .github/workflows/build-manifest-json.php
-        
+
     - name: Check git status
       run: git status
+
+
+  pr:
+    needs: env
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/stale@v5
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
