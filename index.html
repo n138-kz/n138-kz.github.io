@@ -255,11 +255,8 @@
 				object[3].innerText = 'Ping';
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
-				url = location.href;
-				temp = await http_ping(url);
-				console.log(await temp);
 				object[3].id = 'debug_ping';
-				object[3].innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
+				object[3].innerText = 'RTT:';
 				object[2].appendChild(object[3]);
 
 				object[1].appendChild(object[2]);
@@ -293,7 +290,11 @@
 				line.appendChild(object[0]);
 				wrap.appendChild(line);
 
-				setInterval(()=>{
+				setInterval(async ()=>{
+					url = location.href;
+					temp = await http_ping(url);
+					console.log(await temp);
+					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
 				}, 500);
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
