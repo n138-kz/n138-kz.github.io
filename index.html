@@ -293,7 +293,9 @@
 				setHeader();
 				try { insertNavigation(); } catch (error) { console.error(error); }
 				try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }
-				try { buildDebugField(); } catch (error) { console.error(error); }
+				setInterval(()=>{
+					try { buildDebugField(); } catch (error) { console.error(error); }
+				}, 500);
 				setInterval(()=>{
 					insertLastElement();
 					jstClock_set();
