@@ -12,4 +12,4 @@ $github = json_decode($html, TRUE);
 $manifestFile = __DIR__ . '/../../lib/manifest.json';
 $manifest = json_decode(file_get_contents( realpath($manifestFile) ), TRUE);
 
-file_put_contents($manifestFile, json_encode(array_merge($manifest, ['updated_at'=>time()], JSON_PRETTY_PRINT)));
+file_put_contents($manifestFile, json_encode(array_merge($manifest, ['updated_at'=>time()]), JSON_PRETTY_PRINT));
