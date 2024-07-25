@@ -248,6 +248,19 @@
 
 				object[2] = document.createElement('tr');
 				object[3] = document.createElement('th');
+				object[3].innerText = 'Ping';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('td');
+				url = './';
+				temp = await http_ping(location.href);
+				console.log(await temp);
+				object[3].innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
+				object[2].appendChild(object[3]);
+
+				object[1].appendChild(object[2]);
+
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
 				object[3].innerText = 'GitHub API';
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
