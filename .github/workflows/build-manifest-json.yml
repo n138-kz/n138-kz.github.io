@@ -81,7 +81,7 @@ jobs:
         git status
         git add -A
         git commit -m 'Auto commit - Github Actions[bot]'
-        git push
+        git push --set-upstream origin ${{ env.alt-branch-name }}
         git pull
         git status
 
