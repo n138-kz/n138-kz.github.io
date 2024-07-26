@@ -128,7 +128,7 @@
 				let url = null;
 				url = './sections.json';
 				const json = await http_get_json(url);
-				console.log(await json);
+				console.debug(await json);
 				await json.map( (item)=>{
 					line = document.createElement('div');
 					line.classList.add('flex');
@@ -167,7 +167,7 @@
 				let url = null;
 				url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
 				const json = await http_get_json(url);
-				console.log(await json);
+				console.debug(await json);
 				await json.map( (item)=>{
 					line = document.createElement('div');
 					line.classList.add('flex');
@@ -280,14 +280,14 @@
 				setInterval(async ()=>{
 					url = location.href;
 					temp = await http_ping(url);
-					console.log(await temp);
+					console.debug(await temp);
 					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
 				}, 500);
 
 				setInterval(async ()=>{
 					url = 'https://api.github.com/rate_limit';
 					json = await http_get_json(url);
-					console.log(await json);
+					console.debug(await json);
 					temp = [new Date((await json.rate.reset)*1000)];
 					temp[1] = [
 						(''   +  temp[0].getFullYear()  ),
