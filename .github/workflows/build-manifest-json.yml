@@ -78,5 +78,6 @@ jobs:
         title: Auto PR - Update Manifest file
         body: Auto PR - Update Manifest file
         labels: bot
+        base: master
+        branch: ${{ env.alt-branch-name }}
         delete-branch: true
-
