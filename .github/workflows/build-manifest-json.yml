@@ -90,4 +90,4 @@ jobs:
         labels: bot
         base: master
         branch: ${{ env.alt-branch-name }}
-        delete-branch: true
+        delete-branch: false
