@@ -50,7 +50,7 @@ jobs:
     - name: Create Branch
       run: |
         set -x
-        git branch -r
+        git branch -a
         git branch ${{ env.alt-branch-name }}
         git checkout ${{ env.alt-branch-name }}
         git branch --set-upstream-to=origin/${{ env.alt-branch-name }} ${{ env.alt-branch-name }}
