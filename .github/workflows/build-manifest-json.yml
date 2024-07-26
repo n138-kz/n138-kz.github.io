@@ -52,7 +52,7 @@ jobs:
         git branch -r
         git branch ${{ env.alt-branch-name }}
         git checkout ${{ env.alt-branch-name }}
-        git branch --set-upstream-to=origin/master master
+        git branch --set-upstream-to=origin/${{ env.alt-branch-name }} ${{ env.alt-branch-name }}
         git status
 
     - name: git config
