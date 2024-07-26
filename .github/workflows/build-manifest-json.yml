@@ -71,6 +71,13 @@ jobs:
     - name: Check git status
       run: git status
 
+    - name: Commit 
+      run: |
+        git status
+        git add -A
+        git commit -m 'Auto commit - Github Actions[bot]'
+        git push
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
