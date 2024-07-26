@@ -17,4 +17,4 @@ $manifest = array_merge($manifest, ['name'=>$github['full_name']]);
 $manifest = array_merge($manifest, ['short_name'=>$github['name']]);
 $manifest = array_merge($manifest, ['description'=>$github['description']]);
 
-file_put_contents($manifestFile, json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK | JSON_INVALID_UTF8_IGNORE ));
+file_put_contents($manifestFile, json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK | JSON_INVALID_UTF8_IGNORE ) . PHP_EOL);
