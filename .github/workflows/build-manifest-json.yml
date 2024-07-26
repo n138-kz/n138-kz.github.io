@@ -53,6 +53,7 @@ jobs:
         git branch -a
         git branch ${{ env.alt-branch-name }}
         git checkout ${{ env.alt-branch-name }}
+        git pull --set-upstream origin ${{ env.alt-branch-name }}
         git push --set-upstream origin ${{ env.alt-branch-name }}
         git status
 
