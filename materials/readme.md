@@ -10,7 +10,7 @@
 
 ## さ..そ
 
-![承知しました](/materials/icon_stamp/build/%E6%89%BF%E7%9F%A5%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F.webp)
+[![承知しました](/materials/icon_stamp/build/%E6%89%BF%E7%9F%A5%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F.webp)](/materials/icon_stamp/%E6%89%BF%E7%9F%A5%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F.psd)
 
 ## た..と
 
