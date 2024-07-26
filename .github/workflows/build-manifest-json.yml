@@ -34,7 +34,7 @@ jobs:
         echo "Github repository runner-id:   $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
         echo "Github repository runner-name: $RUNNER_NAME on $RUNNER_OS($RUNNER_ARCH)"
         echo "Github API URL:                $GITHUB_API_URL/repos/$GITHUB_REPOSITORY"
-        echo "Github Git URI:                $GITHUB_API_URL/repos/$GITHUB_REPOSITORY"
+        echo "Github Git URI:                $github.repositoryUrl"
 
     - name: "[GithubAPI] Remaining API Rate"
       run: |
