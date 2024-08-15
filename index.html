@@ -195,6 +195,7 @@
 					link.target = '_blank';
 					link.href = item.homepage;
 					link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
+					link.innerText = item.name;
 					line.appendChild(link);
 					wrap.appendChild(line);
 				} );
