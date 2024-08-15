@@ -163,10 +163,12 @@
 				line.innerText = 'GitHub Public Repos';
 				wrap.appendChild(line);
 
-				let url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
-				let json = await http_get_json(url);
-				console.debug(await json);
+				let url = null;
+				let json = null;
 				try {
+					url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
+					json = await http_get_json(url);
+					console.debug(await json);
 					await json.map((item)=>{});
 					localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos', JSON.stringify(await json) );
 					console.debug('GithubPublicRepos has loaded from MASTER', await json);
