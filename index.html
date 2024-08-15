@@ -338,6 +338,11 @@
 						console.error(error);
 					}
 				}, 500);
+				setTimeout(() => {
+					url = 'https://api.n138.jp/isJP/';
+					const target = document.querySelector('#debug_yourip');
+					target.innerHTML = `<a href="${url}" target="_blank">${target.innerText}</a>`;
+				}, 3000);
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
