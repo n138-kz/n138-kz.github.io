@@ -167,7 +167,7 @@
 				let meta = null;
 				json = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos'));
 				meta = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos_meta'));
-				console.debug(json);
+				console.debug(json, meta);
 				if ( json != false || meta != false || !!meta.created_at == false || ((new Date().getTime()/10**3) - meta.created_at) > 3600) {
 					let url = null;
 					url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
