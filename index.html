@@ -277,6 +277,9 @@
 				line.appendChild(object[0]);
 				wrap.appendChild(line);
 
+				setInterval(()=>{
+					document.querySelector('#debug_screen').innerHTML = `${document.body.clientWidth}x${document.body.clientHeight}px<sup>2</sup>`;
+				}, 3000);
 				setInterval(async ()=>{
 					url = location.href;
 					temp = await http_ping(url);
