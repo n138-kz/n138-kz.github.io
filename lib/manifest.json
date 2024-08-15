@@ -2,6 +2,8 @@
     "name": "n138-kz/n138-kz.github.io",
     "short_name": "n138-kz.github.io",
     "description": "n138-kz.github.io",
+    "version": "1.0.0",
+    "manifest_version": 3,
     "display": "standalone",
     "background_color": "#F0FFFF",
     "theme_color": "#F0FFFF",
