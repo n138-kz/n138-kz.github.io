@@ -336,13 +336,11 @@
 						console.log('ServiceWorker registration success.');
 					})
 					.catch((error)=>{
-						localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'ServiceWorker', JSON.stringify({
-							scope: null,
-							issue: 0,
-						}) );
+						localStorage.clear();
 						console.error(`ServiceWorker registration failed. ${error}`);
 					})
 				} else {
+					localStorage.clear();
 					if (location.protocol != 'https:') {
 						console.error('ServiceWorker registration failed. not supported expect https.');
 					} else {
