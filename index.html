@@ -164,13 +164,21 @@
 				wrap.appendChild(line);
 
 				let json = null;
+				let meta = null;
 				json = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos'));
-				if ( json != false ) {
+				meta = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos_meta'));
+				console.debug(json);
+				if ( json != false || meta != false || !!meta.created_at == false || ((new Date().getTime()/10**3) - meta.created_at) > 3600) {
 					let url = null;
 					url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
 					json = await http_get_json(url);
 					console.debug(await json);
 					localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos', JSON.stringify(await json) );
+					localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos_meta', JSON.stringify({
+						created_at: [new Date().getTime()/10**3, new Date()],
+						updated_at: [new Date().getTime()/10**3, new Date()],
+						expired_at: [new Date().getTime()/10**3 + 3600, new Date((new Date().getTime()/10**3 + 3600)*10**3)],
+					}) );
 				}
 
 				await json.map( (item)=>{
