@@ -281,6 +281,18 @@
 				object[2].appendChild(object[3]);
 
 				object[1].appendChild(object[2]);
+
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
+				object[3].innerText = 'Your IPaddr';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('td');
+				object[3].id = 'debug_yourip';
+				object[3].style.whiteSpace = 'nowrap';
+				object[3].innerText = 'Loading...';
+				object[2].appendChild(object[3]);
+
+				object[1].appendChild(object[2]);
 				object[0].appendChild(object[1]);
 				
 				line.appendChild(object[0]);
@@ -310,6 +322,16 @@
 					];
 					document.querySelector('#debug_githubapi').innerHTML  = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
 					document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
+				}, 500);
+				setInterval(async ()=>{
+					try {
+						url = 'https://api.n138.jp/isJP/';
+						json = await http_get_json(url);
+						console.debug(await json);
+						//document.querySelector('#debug_yourip').innerHTML  = '';
+					} catch (error) {
+						console.error(error);
+					}
 				}, 500);
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
