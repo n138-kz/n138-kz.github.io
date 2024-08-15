@@ -330,7 +330,7 @@
 					.then((registration)=>{
 						localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'ServiceWorker', JSON.stringify({
 							token: registration.scope,
-							issue: new Date().getTime(),
+							issue: new Date().getTime()/10**3,
 						}) );
 						console.log('ServiceWorker registration success.');
 					})
