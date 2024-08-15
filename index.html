@@ -163,11 +163,15 @@
 				line.innerText = 'GitHub Public Repos';
 				wrap.appendChild(line);
 
-				let url = null;
-				url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
-				const json = await http_get_json(url);
-				console.debug(await json);
-				localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos', JSON.stringify(await json) );
+				let json = null;
+				json = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos'));
+				if ( json != false ) {
+					let url = null;
+					url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
+					json = await http_get_json(url);
+					console.debug(await json);
+					localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos', JSON.stringify(await json) );
+				}
 
 				await json.map( (item)=>{
 					line = document.createElement('div');
