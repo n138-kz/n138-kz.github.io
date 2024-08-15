@@ -333,7 +333,7 @@
 						url = 'https://api.n138.jp/isJP/';
 						json = await http_get_json(url);
 						console.debug(await json);
-						document.querySelector('#debug_yourip').innerText = `${await json.result.request}: ${await json.result.result.detail}`;
+						document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.result.request}" target="_blank">${await json.result.request}</a>: ${await json.result.result.detail}`;
 					} catch (error) {
 						console.error(error);
 					}
