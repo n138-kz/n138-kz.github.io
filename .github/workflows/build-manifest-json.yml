@@ -15,6 +15,13 @@ env:
 
 jobs:
 
+  timestamp:
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: get timestamp
+      run: date +%s
+
   build:
 
     permissions:
