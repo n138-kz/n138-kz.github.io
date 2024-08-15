@@ -279,14 +279,13 @@
 
 				setInterval(()=>{
 					document.querySelector('#debug_screen').innerHTML = `${document.body.clientWidth}x${document.body.clientHeight}px<sup>2</sup>`;
-				}, 3000);
+				}, 500);
 				setInterval(async ()=>{
 					url = location.href;
 					temp = await http_ping(url);
 					console.debug(await temp);
 					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
 				}, 500);
-
 				setInterval(async ()=>{
 					url = 'https://api.github.com/rate_limit';
 					json = await http_get_json(url);
