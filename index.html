@@ -173,6 +173,7 @@
 				} catch (error) {
 					json = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos'));
 					console.warn('GithubPublicRepos has loaded from LOCAL', json);
+					console.warn(await http_get_json(url, 17|32768));
 				}
 
 				await json.map( (item)=>{
