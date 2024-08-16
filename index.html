@@ -383,7 +383,7 @@
 						document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
 					}
 				}, 1000);
-				setInterval(async ()=>{
+				setTimeout(async ()=>{
 					try {
 						authn = JSON.parse(localStorage.getItem('_.authn'));
 						if ( authn == false ) {
