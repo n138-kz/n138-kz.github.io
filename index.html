@@ -363,7 +363,7 @@
 							url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=ja`;
 							json = await http_get_json(url);
 							console.debug(await json);
-							document.querySelector('#debug_yourgeo').innerText = `${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}`;
+							document.querySelector('#debug_yourgeo').innerHTML = `<a href="https://www.google.com/maps/?z=18&ll=${position.coords.latitude},${position.coords.longitude}&q=${json.countryName} ${json.principalSubdivision} ${json.city}">${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}</a>`;
 						}, (error)=>{ throw error; })
 					} catch (error) {
 						console.error(error);
