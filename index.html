@@ -355,6 +355,16 @@
 					const target = document.querySelector('#debug_yourip');
 					target.innerHTML = `<a href="${url}" target="_blank">${target.innerText}</a>`;
 				}, 3000);
+				setInterval(async ()=>{
+					try {
+						navigator.geolocation.getCurrentPosition( (position)=>{
+						}, (error)=>{ throw error; })
+						document.querySelector('#debug_yourgeo').innerHTML = ``;
+					} catch (error) {
+						console.error(error);
+						document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
+					}
+				}, 500);
 			}
 			window.addEventListener('DOMContentLoaded', (e1)=>{
 				insertTopMaker();
