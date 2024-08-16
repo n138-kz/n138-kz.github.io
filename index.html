@@ -394,8 +394,24 @@
 							// authn.credential.iat
 							// authn.credential.exp
 							if ( authn.credential.iat < (new Date().getTime()/10**3) && (new Date().getTime()/10**3) < authn.credential.exp ) {
-								url = `https://authn.n138.jp/google/`;
 								document.querySelector('#debug_authn').innerHTML = 'Validating...';
+
+								url = 'https://authn.n138.jp/google/';
+								json = await fetch(url, {
+									method: 'POST',
+									headers: {
+										'Content-Type': 'application/json',
+									},
+									body: JSON.stringify({
+										ts: Math.trunc(new Date().getTime()/10**3),
+										clientId: authn.credential.clientId,
+										credential: authn.credential.credential,
+									})
+								});
+								json = await json.json();
+								console.log(await json)
+								user = await json.google.user;
+								document.querySelector('#debug_authn').innerHTML = '<img src="${user.icon}" /> ${user.name}&lt;${user.email}&gt;';
 							} else {
 								document.querySelector('#debug_authn').innerHTML = 'Not authorized.';
 							}
