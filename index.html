@@ -363,8 +363,8 @@
 							url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=ja`;
 							json = await http_get_json(url);
 							console.debug(await json);
+							document.querySelector('#debug_yourgeo').innerText = `${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}`;
 						}, (error)=>{ throw error; })
-						document.querySelector('#debug_yourgeo').innerHTML = ``;
 					} catch (error) {
 						console.error(error);
 						document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
