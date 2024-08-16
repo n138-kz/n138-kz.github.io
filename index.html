@@ -411,7 +411,7 @@
 								json = await json.json();
 								console.log(await json)
 								user = await json.google.user;
-								document.querySelector('#debug_authn').innerHTML = '<img src="${user.icon}" /> ${user.name}&lt;${user.email}&gt;';
+								document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
 							} else {
 								document.querySelector('#debug_authn').innerText = 'Not authorized.';
 							}
