@@ -387,7 +387,7 @@
 					try {
 						authn = JSON.parse(localStorage.getItem('_.authn'));
 						if ( authn == false ) {
-							document.querySelector('#debug_authn').innerText = 'Not authorized.';
+							document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/">Not authorized.</a>';
 						} else {
 							// authn.credential.clientId
 							// authn.credential.credential
@@ -411,9 +411,13 @@
 								json = await json.json();
 								console.log(await json)
 								user = await json.google.user;
-								document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
+								if ( await user.userid.length > 0 ) {
+									document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
+								} else {
+									document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/">Need to be Re:Authorize</a>';
+								}
 							} else {
-								document.querySelector('#debug_authn').innerText = 'Not authorized.';
+								document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/">Not authorized.</a>';
 							}
 						}
 					} catch (error) {
