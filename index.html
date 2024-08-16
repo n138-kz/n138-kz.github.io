@@ -285,6 +285,18 @@
 
 				object[2] = document.createElement('tr');
 				object[3] = document.createElement('th');
+				object[3].innerText = 'Authn State';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('td');
+				object[3].id = 'debug_authn';
+				object[3].style.whiteSpace = 'nowrap';
+				object[3].innerText = 'Loading...';
+				object[2].appendChild(object[3]);
+
+				object[1].appendChild(object[2]);
+
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
 				object[3].innerText = 'Your IPaddr';
 				object[2].appendChild(object[3]);
 				object[3] = document.createElement('td');
@@ -369,6 +381,28 @@
 					} catch (error) {
 						console.error(error);
 						document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
+					}
+				}, 1000);
+				setInterval(async ()=>{
+					try {
+						authn = JSON.parse(localStorage.getItem('_.authn'));
+						if ( authn == false ) {
+							document.querySelector('#debug_authn').innerHTML = 'Not authorized.';
+						} else {
+							// authn.credential.clientId
+							// authn.credential.credential
+							// authn.credential.iat
+							// authn.credential.exp
+							if ( authn.credential.iat < (new Date().getTime()/10**3) && (new Date().getTime()/10**3) < authn.credential.exp ) {
+								url = `https://authn.n138.jp/google/`;
+								document.querySelector('#debug_authn').innerHTML = 'Validating...';
+							} else {
+								document.querySelector('#debug_authn').innerHTML = 'Not authorized.';
+							}
+						}
+					} catch (error) {
+						console.error(error);
+						document.querySelector('#debug_authn').innerHTML = 'Error: Unable load.';
 					}
 				}, 1000);
 			}
