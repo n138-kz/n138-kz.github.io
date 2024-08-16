@@ -414,10 +414,10 @@
 								if ( await user.userid.length > 0 ) {
 									document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
 								} else {
-									document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/">Need to be Re:Authorize</a>';
+									document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token_with_inconsistency">Need to be Re:Authorize</a>';
 								}
 							} else {
-								document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired">Not authorized.</a>';
+								document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token">Not authorized.</a>';
 							}
 						}
 					} catch (error) {
