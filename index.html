@@ -387,14 +387,14 @@
 					try {
 						authn = JSON.parse(localStorage.getItem('_.authn'));
 						if ( authn == false ) {
-							document.querySelector('#debug_authn').innerHTML = 'Not authorized.';
+							document.querySelector('#debug_authn').innerText = 'Not authorized.';
 						} else {
 							// authn.credential.clientId
 							// authn.credential.credential
 							// authn.credential.iat
 							// authn.credential.exp
 							if ( authn.credential.iat < (new Date().getTime()/10**3) && (new Date().getTime()/10**3) < authn.credential.exp ) {
-								document.querySelector('#debug_authn').innerHTML = 'Validating...';
+								document.querySelector('#debug_authn').innerText = 'Validating...';
 
 								url = 'https://authn.n138.jp/google/';
 								json = await fetch(url, {
@@ -413,12 +413,12 @@
 								user = await json.google.user;
 								document.querySelector('#debug_authn').innerHTML = '<img src="${user.icon}" /> ${user.name}&lt;${user.email}&gt;';
 							} else {
-								document.querySelector('#debug_authn').innerHTML = 'Not authorized.';
+								document.querySelector('#debug_authn').innerText = 'Not authorized.';
 							}
 						}
 					} catch (error) {
 						console.error(error);
-						document.querySelector('#debug_authn').innerHTML = 'Error: Unable load.';
+						document.querySelector('#debug_authn').innerText = 'Error: Unable load.';
 					}
 				}, 1000);
 			}
