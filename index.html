@@ -358,6 +358,7 @@
 				setInterval(async ()=>{
 					try {
 						navigator.geolocation.getCurrentPosition( (position)=>{
+							console.log(position);
 						}, (error)=>{ throw error; })
 						document.querySelector('#debug_yourgeo').innerHTML = ``;
 					} catch (error) {
