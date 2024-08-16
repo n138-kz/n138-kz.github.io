@@ -293,6 +293,18 @@
 				object[2].appendChild(object[3]);
 
 				object[1].appendChild(object[2]);
+
+				object[2] = document.createElement('tr');
+				object[3] = document.createElement('th');
+				object[3].innerText = 'Your Location';
+				object[2].appendChild(object[3]);
+				object[3] = document.createElement('td');
+				object[3].id = 'debug_yourgeo';
+				object[3].style.whiteSpace = 'nowrap';
+				object[3].innerText = 'Loading...';
+				object[2].appendChild(object[3]);
+
+				object[1].appendChild(object[2]);
 				object[0].appendChild(object[1]);
 				
 				line.appendChild(object[0]);
