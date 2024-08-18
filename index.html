@@ -370,6 +370,7 @@
 				}, 3000);
 				setInterval(async ()=>{
 					try {
+						throw null;
 						navigator.geolocation.getCurrentPosition( async (position)=>{
 							position.timestamp = position.timestamp/10**3;
 							console.debug(position);
