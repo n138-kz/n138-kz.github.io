@@ -252,8 +252,9 @@
 					line2.appendChild(link);
 					line.appendChild(line2);
 
-					wrap.appendChild(line);
+					block.appendChild(line);
 				} );
+				wrap.appendChild(block);
 			}
 			async function buildDebugField() {
 				const wrap = document.querySelector('#DebugInfoArea');
