@@ -160,7 +160,7 @@
 				let link = null;
 				let object = null;
 				let block = null;
-				let item = null;
+				let line2 = null;
 
 				line = document.createElement('h2');
 				line.innerText = 'GitHub Public Repos';
@@ -218,7 +218,7 @@
 				await json.map( (item)=>{
 					line = document.createElement('tr');
 
-					item = document.createElement('td');
+					line2 = document.createElement('td');
 					link = document.createElement('a');
 					link.target = '_blank';
 					link.href = item.html_url;
@@ -233,24 +233,24 @@
 					link.dataset.repos_language = item.language;
 					link.dataset.repos_hooks_url = item.hooks_url;
 					link.dataset.repos_open_issues = item.open_issues_count;
-					item.appendChild(link);
-					line.appendChild(item);
+					line2.appendChild(link);
+					line.appendChild(line2);
 					
-					item = document.createElement('td');
+					line2 = document.createElement('td');
 					link = document.createElement('a');
 					link.target = '_blank';
-					item.appendChild(link);
-					line.appendChild(item);
+					line2.appendChild(link);
+					line.appendChild(line2);
 
-					item = document.createElement('td');
+					line2 = document.createElement('td');
 					//item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name;
 					link = document.createElement('a');
 					link.target = '_blank';
 					link.href = item.homepage;
 					link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
 					link.innerText = item.name;
-					item.appendChild(link);
-					line.appendChild(item);
+					line2.appendChild(link);
+					line.appendChild(line2);
 
 					wrap.appendChild(line);
 				} );
