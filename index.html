@@ -183,7 +183,7 @@
 				block.classList.add('navigation');
 				block.classList.add('font_azuki');
 				block.style.whiteSpace = 'normal';
-				await json.map( (item)=>{
+				await json.map( async (item)=>{
 					line = document.createElement('tr');
 
 					line2 = document.createElement('td');
@@ -207,6 +207,16 @@
 					line2 = document.createElement('td');
 					link = document.createElement('a');
 					link.target = '_blank';
+					let url = item.commits_url;
+					let json = null;
+					try {
+						json = await http_get_json(url);
+						await json.map((item)=>{});
+					} catch (error) {
+						console.warn(await http_get_json(url, 17|32768));
+					}
+					link.href = json[0].html_url;
+					link.innerText = json[0].sha.substr(7);
 					line2.appendChild(link);
 					line.appendChild(line2);
 
