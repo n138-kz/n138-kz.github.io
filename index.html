@@ -159,6 +159,8 @@
 				let line = null;
 				let link = null;
 				let object = null;
+				let block = null;
+				let item = null;
 
 				line = document.createElement('h2');
 				line.innerText = 'GitHub Public Repos';
@@ -206,6 +208,50 @@
 					link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
 					link.innerText = item.name;
 					line.appendChild(link);
+					wrap.appendChild(line);
+				} );
+
+				block = document.createElement('table');
+				block.classList.add('navigation');
+				block.classList.add('font_azuki');
+				block.style.whiteSpace = 'normal';
+				await json.map( (item)=>{
+					line = document.createElement('tr');
+
+					item = document.createElement('td');
+					link = document.createElement('a');
+					link.target = '_blank';
+					link.href = item.html_url;
+					link.innerText = '【GitHub】';
+					link.dataset.url_github = item.html_url;
+					link.dataset.url_pages = item.homepage;
+					link.dataset.date_created = item.created_at;
+					link.dataset.date_updated = item.updated_at;
+					link.dataset.repos_node_id = item.node_id;
+					link.dataset.repos_id = item.id;
+					link.dataset.repos_size = item.size;
+					link.dataset.repos_language = item.language;
+					link.dataset.repos_hooks_url = item.hooks_url;
+					link.dataset.repos_open_issues = item.open_issues_count;
+					item.appendChild(link);
+					line.appendChild(item);
+					
+					item = document.createElement('td');
+					link = document.createElement('a');
+					link.target = '_blank';
+					item.appendChild(link);
+					line.appendChild(item);
+
+					item = document.createElement('td');
+					//item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name;
+					link = document.createElement('a');
+					link.target = '_blank';
+					link.href = item.homepage;
+					link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
+					link.innerText = item.name;
+					item.appendChild(link);
+					line.appendChild(item);
+
 					wrap.appendChild(line);
 				} );
 			}
