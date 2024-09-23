@@ -380,7 +380,7 @@
 							document.querySelector('#debug_yourgeo').innerHTML = `<a href="https://www.google.com/maps/?z=18&ll=${position.coords.latitude},${position.coords.longitude}&q=${json.countryName} ${json.principalSubdivision} ${json.city}">${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}</a>`;
 						}, (error)=>{ throw error; })
 					} catch (error) {
-						console.error(error);
+						console.error('navigator.geolocation.getCurrentPosition', error);
 						document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
 					}
 				}, 1000);
