@@ -209,14 +209,16 @@
 					link.target = '_blank';
 					link.href = item.homepage;
 					object = new Date(item.updated_at).getTime()/10**3;
+					console.debug(object, object*10**3, ((new Date().getTime()/10**3)-3600*24*6)*10**3);
 					if (false) {
 					} else if (false) {
 					} else if (object <= ((new Date().getTime()/10**3)-3600*24*6)*10**3 ) {
 						/* 6日以上前 */
-						object = new Date(object);
+						
+						object = new Date(object*10**3);
 						object = object.getMonth()+1 + '/' + object.getDate() + ', ' + object.getFullYear();
 					} else {
-						object = new Date(object);
+						object = new Date(object*10**3);
 					}
 					link.innerText = object;
 					line2.appendChild(link);
