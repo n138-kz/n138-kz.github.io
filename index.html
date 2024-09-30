@@ -216,7 +216,13 @@
 						/* 6日以上前 */
 						
 						object = new Date(object*10**3);
-						object = object.getMonth()+1 + '/' + object.getDate() + ', ' + object.getFullYear();
+						object_datetime = {
+							date: object.getDate(),
+							month: object.getMonth()+1,
+							year: object.getFullYear(),
+						};
+						object_datetime.date = ('00' + object_datetime).substr(-2);
+						object = object_datetime.month + '/' + object_datetime.date + ', ' + object_datetime.year;
 					} else {
 						object = new Date(object*10**3);
 					}
