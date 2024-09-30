@@ -222,7 +222,7 @@
 							year: object.getFullYear(),
 						};
 						object_datetime.date = ('00' + object_datetime.date).substr(-2);
-						object_datetime.month = ('  ' + object_datetime.month).substr(-2);
+						object_datetime.month = ('__' + object_datetime.month).substr(-2);
 						object = object_datetime.month + '/' + object_datetime.date + ', ' + object_datetime.year;
 					} else {
 						object = new Date(object*10**3);
