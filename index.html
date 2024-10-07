@@ -204,6 +204,8 @@
 					line2.appendChild(link);
 					line.appendChild(line2);
 					
+					/* *
+					 *
 					line2 = document.createElement('td');
 					link = document.createElement('a');
 					link.target = '_blank';
@@ -215,6 +217,8 @@
 					} else if (object <= ((new Date().getTime()/10**3)-3600*24*6)*10**3 ) {
 						/* 6日以上前 */
 						
+						/* *
+						*
 						object = new Date(object*10**3);
 						object_datetime = {
 							date: object.getDate(),
@@ -230,6 +234,8 @@
 					link.innerText = object;
 					line2.appendChild(link);
 					line.appendChild(line2);
+					 *
+					 */
 
 					line2 = document.createElement('td');
 					/* item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name; */
