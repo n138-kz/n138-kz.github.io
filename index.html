@@ -404,7 +404,7 @@
 					try {
 						url = 'https://api.n138.jp/isJP/';
 						json = await http_get_json(url);
-						console.debug(await json);
+						console.debug(['isJP', await json]);
 						document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.result.request}" target="_blank">${await json.result.request}</a>: ${await json.result.result.detail}`;
 					} catch (error) {
 						console.error(error);
