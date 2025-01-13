@@ -469,7 +469,6 @@
 				insertFavicon();
 				setHeader();
 				try { insertNavigation(); } catch (error) { console.error(error); }
-				try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }
 				try { buildDebugField(); } catch (error) { console.error(error); }
 				setInterval(()=>{
 					insertLastElement();
@@ -513,7 +512,9 @@
 	<body>
 		<header></header>
 		<div id="n138kzNavigationLinks"></div>
-		<div id="GithubPublicRepos"></div>
+		<div id="GithubPublicRepos">
+			<p><a href="" onclick="try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }">Load Github n138-kz's Repos List</a></p>
+		</div>
 		<div id="DebugInfoArea"></div>
 		<footer></footer>
 	</body>
