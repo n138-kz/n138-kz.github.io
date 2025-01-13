@@ -395,6 +395,11 @@
 					const target = document.querySelector('#debug_githubapi');
 					target.innerHTML = `<a href="${url}" target="_blank">${target.innerText}</a>`;
 				}, 3000);
+				setTimeout(() => {
+					url = 'https://api.n138.jp/isJP/';
+					const target = document.querySelector('#debug_yourip');
+					target.innerHTML = `<a href="${url}" target="_blank">${target.innerText}</a>`;
+				}, 3000);
 				setInterval(async ()=>{
 					try {
 						url = 'https://api.n138.jp/isJP/';
@@ -405,11 +410,6 @@
 						console.error(error);
 					}
 				}, 1000);
-				setTimeout(() => {
-					url = 'https://api.n138.jp/isJP/';
-					const target = document.querySelector('#debug_yourip');
-					target.innerHTML = `<a href="${url}" target="_blank">${target.innerText}</a>`;
-				}, 3000);
 				setInterval(async ()=>{
 					try {
 						throw null;
