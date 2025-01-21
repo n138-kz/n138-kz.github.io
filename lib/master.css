@@ -21,6 +21,11 @@
 		local("Myrica P"),
 		url("https://n138-kz.github.io/lib/Myrica.ttc") format("truetype");
 }
+@media not screen {
+	:root {
+		display: none;
+	}
+}
 
 :root {
 	--default-font-size: 16pt;
@@ -31,16 +36,9 @@
 	--color-preset-yellow: #FFa000FF;
 	--color-preset-green: #008000FF;
 }
-
 :root[theme=dark] {
 	--default-background-color: #000000FF;
 	--default-text-color: #F00000FF;
-}
-
-@media not screen {
-	:root {
-		display: none;
-	}
 }
 
 html, body {
