@@ -86,10 +86,6 @@ footer {
 	background: linear-gradient(to bottom left, lightskyblue, dodgerblue);
 	white-space: nowrap;
 }
-hr {
-	margin: 10px;
-}
-
 @media screen and (max-height: 100px) {
 	footer {
 		margin-top: 5em;
@@ -99,16 +95,17 @@ hr {
 img {
 	max-width: 350px;
 }
+hr {
+	margin: 10px;
+}
 code {
 	background-color: silver;
 	vertical-align: middle;
 	font-family: monospace;
 }
-
 th {
 	text-align: center;
 }
-
 td {
 	text-align: left;
 }
