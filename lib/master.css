@@ -86,11 +86,6 @@ footer {
 	background: linear-gradient(to bottom left, lightskyblue, dodgerblue);
 	white-space: nowrap;
 }
-
-img {
-	max-width: 350px;
-}
-
 hr {
 	margin: 10px;
 }
@@ -101,7 +96,9 @@ hr {
 		opacity: 0.5;
 	}
 }
-
+img {
+	max-width: 350px;
+}
 code {
 	background-color: silver;
 	vertical-align: middle;
