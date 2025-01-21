@@ -103,3 +103,11 @@ th {
 td {
 	text-align: left;
 }
+.set-mosaic {
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+}
+.set-mosaic:focus, .set-mosaic:hover {
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+}
