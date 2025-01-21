@@ -40,10 +40,14 @@
 	--color-preset-red: #FF0000FF;
 	--color-preset-yellow: #FFa000FF;
 	--color-preset-green: #008000FF;
+	--color-discord-color-fg: #5763f2;
+	--color-discord-color-bg: #ffffff;
 }
 :root[theme=dark] {
 	--default-background-color: #000000FF;
 	--default-text-color: #F00000FF;
+	--color-discord-color-fg: #5763f2;
+	--color-discord-color-bg: #ffffff;
 }
 
 html, body {
