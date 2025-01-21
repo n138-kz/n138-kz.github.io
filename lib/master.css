@@ -53,30 +53,24 @@ html, body {
 	color: var(--default-text-color);
 	font-size: var(--default-font-size);
 }
-
 html {
 	padding-top: 10px;
 	background-repeat: no-repeat;
 }
-
-h1, h2, h3, h4, h5, h6 {
-	margin-top: 10px;
-	margin-bottom: 0;
-}
-
 body {
 	background-color: transparent;
 	min-height: 3em;
 }
-
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 10px;
+	margin-bottom: 0;
+}
 body>div[id] {
 	padding: 0 10px;
 }
-
 header {
 	background-color: aliceblue;
 }
-
 footer {
 	display: block;
 	position: fixed;
