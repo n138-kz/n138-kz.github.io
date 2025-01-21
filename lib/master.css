@@ -44,14 +44,14 @@
 html, body {
 	margin: var(--default-margin-padding-size);
 	padding: var(--default-margin-padding-size);
+	background-color: var(--default-background-color);
+	color: var(--default-text-color);
+	font-size: var(--default-font-size);
 }
 
 html {
 	padding-top: 10px;
 	background-repeat: no-repeat;
-	background-color: var(--default-background-color);
-	color: var(--default-text-color);
-	font-size: var(--default-font-size);
 }
 
 h1, h2, h3, h4, h5, h6 {
