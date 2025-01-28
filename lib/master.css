@@ -121,6 +121,10 @@ td {
 	-ms-filter: blur(0px);
 	filter: blur(0px);
 }
+.set-mosaic input[value=""] {
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+}
 .set-hidden {
 	display: none;
 }
