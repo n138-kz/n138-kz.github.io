@@ -96,6 +96,10 @@ img {
 hr {
 	margin: 10px;
 }
+p {
+    margin-top: 0px;
+    margin-bottom: 0.5em;
+}
 code {
 	background-color: silver;
 	vertical-align: middle;
