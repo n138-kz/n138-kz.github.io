@@ -121,7 +121,7 @@ td {
 	-ms-filter: blur(0px);
 	filter: blur(0px);
 }
-.set-mosaic input[value=""] {
+input[value=""].set-mosaic {
 	-ms-filter: blur(0px);
 	filter: blur(0px);
 }
