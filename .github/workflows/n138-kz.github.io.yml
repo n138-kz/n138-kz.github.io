@@ -33,7 +33,7 @@ jobs:
                 echo '${{ env.github_context }}' | jq | tee github-action-run_github-context.json
 
             - name: Check SECRETS.DISCORD_WEBHOOK_URL
-              if: ${{ failure() && env.discord_webhook_url == '' }}
+              if: ${{ env.discord_webhook_url == '' }}
               run: exit 1
 
             - name: Get the GITHUB RestAPI /repos
