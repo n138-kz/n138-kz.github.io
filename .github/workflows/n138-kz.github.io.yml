@@ -56,5 +56,5 @@ jobs:
                         -F 'avatar_url=${{ env.discord_avatar_url }}' \
                         -F 'username=${{ env.discord_username }}' \
                         -F 'file=@'${i} -F $'content=Launched github action: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions).\n' \
-                        ${{ secrets.discord_webhook_url }} | jq; \
+                        ${{ env.discord_webhook_url }} | jq; \
                     done
