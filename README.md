@@ -1,11 +1,18 @@
 # [n138-kz.github.io](https://github.com/n138-kz/n138-kz.github.io)
 
-Site ID(URL) is [`https://n138-kz.github.io/`](https://n138-kz.github.io/)
+## Site ID(URL)
 
-## authz.n138.jp
+```http
+GET https://n138-kz.github.io/
+```
 
-- API endpoint: `http://authz.n138.jp:81/google/`
-- SSL compatible: False
+## API
+
+### Endpoint
+
+```http
+GET http://api.n138.jp
+```
 
 ## Common Policy Notes
 
