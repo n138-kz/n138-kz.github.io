@@ -14,11 +14,11 @@ GET https://n138-kz.github.io/
 GET http://api.n138.jp
 ```
 
-- [<img style="height:1em;text-stroke: 3px #FFFFFF;" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/isJP](https://github.com/n138-kz/isJP)
-- [<img style="height:1em;text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/gd_test](https://github.com/n138-kz/gd_test)
-- [<img style="height:1em;text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/joinImg](https://github.com/n138-kz/joinImg)
-- [<img style="height:1em;text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/sso_discord](https://github.com/n138-kz/sso_discord)
-- [<img style="height:1em;text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/sso_google](https://github.com/n138-kz/sso_google)
+- [<img style="height:1em;text-stroke: 3px #FFFFFF;-webkit-text-stroke: 3px #FFFFFF;" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/isJP](https://github.com/n138-kz/isJP)
+- [<img style="height:1em;text-stroke: 3px #FFFFFF"-webkit-text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/gd_test](https://github.com/n138-kz/gd_test)
+- [<img style="height:1em;text-stroke: 3px #FFFFFF"-webkit-text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/joinImg](https://github.com/n138-kz/joinImg)
+- [<img style="height:1em;text-stroke: 3px #FFFFFF"-webkit-text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/sso_discord](https://github.com/n138-kz/sso_discord)
+- [<img style="height:1em;text-stroke: 3px #FFFFFF"-webkit-text-stroke: 3px #FFFFFF" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"><img style="height:1em;" src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png">/n138-kz/sso_google](https://github.com/n138-kz/sso_google)
 
 ## Common Policy Notes
 
