@@ -28,6 +28,7 @@ jobs:
                 echo '${{ env.github_context }}' | jq | tee github-action-run_github-context.json
 
             - name: Get the GITHUB RestAPI /repos
+              id: result_pull_github_repos
               run: |
                 curl -L \
                 -H "Accept: application/vnd.github+json" \
@@ -36,6 +37,6 @@ jobs:
                 https://api.github.com/repos/${{ github.repository }} | jq | tee github-action-run_$(echo '${{ github.repository }}' | sed -e 's#/#_#g')_github-repos.json
 
             - name: Send to Discord
+              id: result_push_discord
               run: |
                 for i in github-action-run*; do curl -X POST -H 'Content-Type:multipart/form-data' -F 'avatar_url=${{ env.discord_avatar_url }}' -F 'username=${{ env.discord_username }}' -F 'file=@'${i} -F $'content=Launched github action: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions).\n' ${{ secrets.discord_webhook_url }} | jq; done
-
