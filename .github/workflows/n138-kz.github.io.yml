@@ -45,8 +45,11 @@ jobs:
                 -H "X-GitHub-Api-Version: 2022-11-28" \
                 https://api.github.com/repos/${{ github.repository }} | jq | tee github-action-run_$(echo '${{ github.repository }}' | sed -e 's#/#_#g')_github-repos.json
 
-            - name: Get the Discord /webhooks
+            - name: Validate the Discord /webhooks
               run: curl ${{ env.discord_webhook_url }} || exit 1
+
+            - name: Get the Discord /webhooks
+              run: curl ${{ env.discord_webhook_url }} | jq | tee github-action-run_discord-webhooks.json
 
             - name: Send to Discord
               id: result_push_discord
