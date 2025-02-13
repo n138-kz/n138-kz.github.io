@@ -32,8 +32,10 @@ jobs:
                 echo '${{ env.github_context }}' | jq | tee github-action-run_github-context.json
 
             - name: Check SECRETS.DISCORD_WEBHOOK_URL
-              if: ${{ secrets.discord_webhook_url == '' }}
+              if: ${{ env.discord_webhook_url == '' }}
               run: exit 1
+              env:
+                discord_webhook_url: ${{ secrets.discord_webhook_url == '' }}
 
             - name: Get the GITHUB RestAPI /repos
               id: result_pull_github_repos
