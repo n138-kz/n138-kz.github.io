@@ -20,6 +20,10 @@ jobs:
 
         runs-on: ubuntu-latest
 
+        outputs:
+            output1: ${{ toJSON(steps.result_pull_github_repos.outputs) }}
+            output2: ${{ toJSON(steps.result_push_discord.outputs) }}
+
         steps:
             - uses: actions/checkout@v4
 
@@ -39,4 +43,13 @@ jobs:
             - name: Send to Discord
               id: result_push_discord
               run: |
-                for i in github-action-run*; do curl -X POST -H 'Content-Type:multipart/form-data' -F 'avatar_url=${{ env.discord_avatar_url }}' -F 'username=${{ env.discord_username }}' -F 'file=@'${i} -F $'content=Launched github action: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions).\n' ${{ secrets.discord_webhook_url }} | jq; done
+                for i in github-action-run*;
+                    do \
+                        curl \
+                        -X POST \
+                        -H 'Content-Type:multipart/form-data' \
+                        -F 'avatar_url=${{ env.discord_avatar_url }}' \
+                        -F 'username=${{ env.discord_username }}' \
+                        -F 'file=@'${i} -F $'content=Launched github action: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions).\n' \
+                        ${{ secrets.discord_webhook_url }} | jq; \
+                    done
