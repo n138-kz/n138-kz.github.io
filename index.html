@@ -371,7 +371,8 @@
 				setInterval(async ()=>{
 					url = location.href;
 					temp = await http_ping(url);
-					console.debug(await temp);
+					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.ping' );
+					if(config){console.debug(await temp);}
 					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
 				}, 500);
 				setInterval(async ()=>{
