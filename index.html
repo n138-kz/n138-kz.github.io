@@ -1,530 +1,530 @@
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<base target="_blank">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=470,initial-scale=1">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Cache-Control" content="no-cache">
-		<meta http-equiv="Expires" content="0">
-		<meta http-equiv="refresh" content="3600">
-		<link rel="stylesheet" type="text/css" href="./lib/master.css" />
-		<script src="./lib/master.js"></script>
-		<title>n138-kz.github.io</title>
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-		<script src="https://accounts.google.com/gsi/client" async defer></script>
-		<script src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
-		<script src="./lib/grecaptcha.js"></script>
-		<script src="./lib/random.js"></script>
-		<style>
-			h1, h2, h3, h4, h5, h6 {
-				font-family: "Uzura font";
-			}
-			code {
-				font-family: "Myrica font", monospace;
-			}
-			li {
-				font-family: "Azuki font";
-			}
-			footer {
-				font-family: "Azuki font";
-			}
-			footer span {
-				display: inline-flex;
-			}
-		</style>
-		<style>
-			.icon img {
-				height: 1em;
-				margin-right: 1ex;
-			}
+<head>
+	<meta charset="utf-8">
+	<base target="_blank">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=470,initial-scale=1">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="refresh" content="3600">
+	<link rel="stylesheet" type="text/css" href="./lib/master.css" />
+	<script src="./lib/master.js"></script>
+	<title>n138-kz.github.io</title>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<script src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
+	<script src="./lib/grecaptcha.js"></script>
+	<script src="./lib/random.js"></script>
+	<style>
+		h1, h2, h3, h4, h5, h6 {
+			font-family: "Uzura font";
+		}
+		code {
+			font-family: "Myrica font", monospace;
+		}
+		li {
+			font-family: "Azuki font";
+		}
+		footer {
+			font-family: "Azuki font";
+		}
+		footer span {
+			display: inline-flex;
+		}
+	</style>
+	<style>
+		.icon img {
+			height: 1em;
+			margin-right: 1ex;
+		}
+		.flex {
+			display: flex;
+		}
+		@media screen and (max-width: 560px) and (orientation: portrait) {
 			.flex {
 				display: flex;
 			}
-			@media screen and (max-width: 560px) and (orientation: portrait) {
-				.flex {
-					display: flex;
-				}
+		}
+		.navigation {
+			padding-left: 50px;
+		}
+		.font_azuki {
+			font-family: "Azuki font";
+		}
+		.font_uzura {
+			font-family: "Uzura font";
+		}
+		.font_myrica {
+			font-family: "Myrica font";
+		}
+		body>div[class] {
+			font-size: 24pt;
+		}
+	</style>
+	<script>
+		function setHeader() {
+			const header = document.querySelector('header');
+			let wrap = null;
+			let line = null;
+			wrap = document.createElement('div');
+			line = document.createElement('h1');
+			line.innerText = location.host;
+			line.id = 'title';
+			wrap.appendChild(line);
+			header.appendChild(wrap);
+		}
+		function setFooter() {
+			const footer = document.querySelector('footer');
+			let wrap = null;
+			let line = null;
+			wrap = document.createElement('div');
+			line = document.createElement('div');
+			line.innerText = 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.';
+			wrap.appendChild(line);
+
+			line = document.createElement('div');
+			let link = document.createElement('a');
+			link.id = 'jstClock';
+			link.href = 'javascript:void(0)';
+			link.href = '//' + location.host;
+			link.innerText = '';
+			line.appendChild(link);
+			wrap.appendChild(line);
+
+			footer.appendChild(wrap);
+		}
+		function jstClock_set() {
+			jstClock1=new Date();
+			jstClock2={
+				hours  : ('00' + jstClock1.getHours()  ).substr(-2),
+				minutes: ('00' + jstClock1.getMinutes()).substr(-2),
+				seconds: ('00' + jstClock1.getSeconds()).substr(-2),
+				year   : ('00' + jstClock1.getFullYear()  ).substr(-4),
+				month  : jstClock1.toLocaleString('en-us', { month: 'short' }),
+				date   : ('00' + jstClock1.getDate()).substr(-2),
+				times  : parseInt(jstClock1.getTime()/1000),
 			}
-			.navigation {
-				padding-left: 50px;
-			}
-			.font_azuki {
-				font-family: "Azuki font";
-			}
-			.font_uzura {
-				font-family: "Uzura font";
-			}
-			.font_myrica {
-				font-family: "Myrica font";
-			}
-			body>div[class] {
-				font-size: 24pt;
-			}
-		</style>
-		<script>
-			function setHeader() {
-				const header = document.querySelector('header');
-				let wrap = null;
-				let line = null;
-				wrap = document.createElement('div');
-				line = document.createElement('h1');
-				line.innerText = location.host;
-				line.id = 'title';
-				wrap.appendChild(line);
-				header.appendChild(wrap);
-			}
-			function setFooter() {
-				const footer = document.querySelector('footer');
-				let wrap = null;
-				let line = null;
-				wrap = document.createElement('div');
-				line = document.createElement('div');
-				line.innerText = 'Copyright(c) ' + (new Date()).getFullYear() + ', n138.nws. All right reserved.';
-				wrap.appendChild(line);
+			jstClock2.hours = parseInt(jstClock2.hours);
 
-				line = document.createElement('div');
-				let link = document.createElement('a');
-				link.id = 'jstClock';
-				link.href = 'javascript:void(0)';
-				link.href = '//' + location.host;
-				link.innerText = '';
-				line.appendChild(link);
-				wrap.appendChild(line);
+			document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}, ${jstClock2.month}/${jstClock2.date} ${jstClock2.year}`;
+		}
+	</script>
+	<script>
+		async function insertNavigation() {
+			const wrap = document.querySelector('#n138kzNavigationLinks');
+			wrap.innerText = null;
+			wrap.dataset.id = getRandomLowerString(16);
 
-				footer.appendChild(wrap);
-			}
-			function jstClock_set() {
-				jstClock1=new Date();
-				jstClock2={
-					hours  : ('00' + jstClock1.getHours()  ).substr(-2),
-					minutes: ('00' + jstClock1.getMinutes()).substr(-2),
-					seconds: ('00' + jstClock1.getSeconds()).substr(-2),
-					year   : ('00' + jstClock1.getFullYear()  ).substr(-4),
-					month  : jstClock1.toLocaleString('en-us', { month: 'short' }),
-					date   : ('00' + jstClock1.getDate()).substr(-2),
-					times  : parseInt(jstClock1.getTime()/1000),
-				}
-				jstClock2.hours = parseInt(jstClock2.hours);
+			let line = null;
+			let link = null;
+			let object = null;
 
-				document.querySelector('#jstClock').innerText=`${jstClock2.hours}:${jstClock2.minutes}:${jstClock2.seconds}, ${jstClock2.month}/${jstClock2.date} ${jstClock2.year}`;
-			}
-		</script>
-		<script>
-			async function insertNavigation() {
-				const wrap = document.querySelector('#n138kzNavigationLinks');
-				wrap.innerText = null;
-				wrap.dataset.id = getRandomLowerString(16);
+			line = document.createElement('h2');
+			line.innerText = 'Navigation';
+			wrap.appendChild(line);
 
-				let line = null;
-				let link = null;
-				let object = null;
-
-				line = document.createElement('h2');
-				line.innerText = 'Navigation';
-				wrap.appendChild(line);
-
-				let url = null;
-				url = './sections.json';
-				const json = await http_get_json(url);
-				console.debug(await json);
-				await json.map( (item)=>{
-					line = document.createElement('div');
-					line.classList.add('flex');
-					line.classList.add('navigation');
-					line.classList.add('font_azuki');
-
-					link = document.createElement('a');
-					link.classList.add('icon');
-					link.target = '_blank';
-					link.href = item.href;
-
-					object = document.createElement('img');
-					object.alt = '';
-					object.src = item.favicon;
-					link.appendChild(object);
-
-					object = document.createTextNode( item.name );
-					link.appendChild(object);
-					line.appendChild(link);
-					wrap.appendChild(line);
-				} );
-			}
-			async function getListOfGithubPublicRepos() {
-				const wrap = document.querySelector('#GithubPublicRepos');
-				wrap.innerText = null;
-				wrap.dataset.id = getRandomLowerString(16);
-
-				let line = null;
-				let link = null;
-				let object = null;
-				let block = null;
-				let line2 = null;
-
-				line = document.createElement('h2');
-				line.innerText = 'GitHub Public Repos';
-				wrap.appendChild(line);
-
-				let url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
-				let json = null;
-				try {
-					json = await http_get_json(url);
-					await json.map((item)=>{});
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos', JSON.stringify(json) );
-					console.debug('GithubPublicRepos has loaded from MASTER', await json);
-				} catch (error) {
-					json = JSON.parse(sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos'));
-					console.warn('GithubPublicRepos has loaded from LOCAL', json);
-					console.warn(await http_get_json(url, 17|32768));
-				}
-
-				block = document.createElement('table');
-				block.classList.add('navigation');
-				block.classList.add('font_azuki');
-				block.style.whiteSpace = 'normal';
-				await json.map( async (item)=>{
-					line = document.createElement('tr');
-
-					line2 = document.createElement('td');
-					link = document.createElement('a');
-					link.target = '_blank';
-					link.href = item.html_url;
-					link.innerText = '【GitHub】';
-					link.dataset.url_github = item.html_url;
-					link.dataset.url_pages = item.homepage;
-					link.dataset.date_created = item.created_at;
-					link.dataset.date_updated = item.updated_at;
-					link.dataset.repos_node_id = item.node_id;
-					link.dataset.repos_id = item.id;
-					link.dataset.repos_size = item.size;
-					link.dataset.repos_language = item.language;
-					link.dataset.repos_hooks_url = item.hooks_url;
-					link.dataset.repos_open_issues = item.open_issues_count;
-					line2.appendChild(link);
-					line.appendChild(line2);
-					
-					/* *
-					 *
-					line2 = document.createElement('td');
-					link = document.createElement('a');
-					link.target = '_blank';
-					link.href = item.homepage;
-					object = new Date(item.updated_at).getTime()/10**3;
-					console.debug(object, object*10**3, ((new Date().getTime()/10**3)-3600*24*6)*10**3);
-					if (false) {
-					} else if (false) {
-					} else if (object <= ((new Date().getTime()/10**3)-3600*24*6)*10**3 ) {
-						/* 6日以上前 */
-						
-						/* *
-						*
-						object = new Date(object*10**3);
-						object_datetime = {
-							date: object.getDate(),
-							month: object.getMonth()+1,
-							year: object.getFullYear(),
-						};
-						object_datetime.date = ('00' + object_datetime.date).substr(-2);
-						object_datetime.month = ('__' + object_datetime.month).substr(-2);
-						object = object_datetime.month + '/' + object_datetime.date + ', ' + object_datetime.year;
-					} else {
-						object = new Date(object*10**3);
-					}
-					link.innerText = object;
-					line2.appendChild(link);
-					line.appendChild(line2);
-					 *
-					 */
-
-					line2 = document.createElement('td');
-					/* item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name; */
-					link = document.createElement('a');
-					link.target = '_blank';
-					link.href = item.homepage;
-					link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
-					link.innerText = item.name;
-					line2.appendChild(link);
-					line.appendChild(line2);
-
-					block.appendChild(line);
-				} );
-				wrap.appendChild(block);
-			}
-			async function buildDebugField() {
-				const wrap = document.querySelector('#DebugInfoArea');
-				wrap.innerText = null;
-				wrap.dataset.id = getRandomLowerString(16);
-
-				let line = null;
-				let link = null;
-				let object = null;
-				let temp = null;
-				let url = null;
-				let json = null;
-
-				line = document.createElement('h2');
-				line.innerText = 'Debug info';
-				wrap.appendChild(line);
-
+			let url = null;
+			url = './sections.json';
+			const json = await http_get_json(url);
+			console.debug(await json);
+			await json.map( (item)=>{
 				line = document.createElement('div');
 				line.classList.add('flex');
 				line.classList.add('navigation');
 				line.classList.add('font_azuki');
 
-				object = [document.createElement('table')];
-				object[0].border = 1;
-				object[0].style.maxWidth = '500px';
-				
-				object[1] = document.createElement('thead');
+				link = document.createElement('a');
+				link.classList.add('icon');
+				link.target = '_blank';
+				link.href = item.href;
 
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Item name';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Value';
-				object[2].appendChild(object[3]);
+				object = document.createElement('img');
+				object.alt = '';
+				object.src = item.favicon;
+				link.appendChild(object);
 
-				object[1].appendChild(object[2]);
-				object[0].appendChild(object[1]);
-
-				object[1] = document.createElement('tbody');
-				
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Screen width/length';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('td');
-				object[3].id = 'debug_screen';
-				object[3].innerText = 'Loading...';
-				object[2].appendChild(object[3]);
-
-				object[1].appendChild(object[2]);
-
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Ping';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('td');
-				object[3].id = 'debug_ping';
-				object[3].innerText = 'RTT: Calclating...';
-				object[2].appendChild(object[3]);
-
-				object[1].appendChild(object[2]);
-
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'GitHub API';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('td');
-				object[3].id = 'debug_githubapi';
-				object[3].style.whiteSpace = 'nowrap';
-				object[3].innerText = 'Loading...';
-				object[2].appendChild(object[3]);
-
-				object[1].appendChild(object[2]);
-
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Your IPaddr';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('td');
-				object[3].id = 'debug_yourip';
-				object[3].style.whiteSpace = 'nowrap';
-				object[3].innerText = 'Loading...';
-				object[2].appendChild(object[3]);
-
-				object[1].appendChild(object[2]);
-
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Authn State';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('td');
-				object[3].id = 'debug_authn';
-				object[3].style.whiteSpace = 'nowrap';
-				object[3].innerText = 'Loading...';
-				object[2].appendChild(object[3]);
-
-				object[1].appendChild(object[2]);
-
-				object[2] = document.createElement('tr');
-				object[3] = document.createElement('th');
-				object[3].innerText = 'Your Location';
-				object[2].appendChild(object[3]);
-				object[3] = document.createElement('td');
-				object[3].id = 'debug_yourgeo';
-				object[3].style.whiteSpace = 'nowrap';
-				object[3].innerText = 'Loading...';
-				object[2].appendChild(object[3]);
-
-				object[1].appendChild(object[2]);
-				object[0].appendChild(object[1]);
-				
-				line.appendChild(object[0]);
+				object = document.createTextNode( item.name );
+				link.appendChild(object);
+				line.appendChild(link);
 				wrap.appendChild(line);
+			} );
+		}
+		async function getListOfGithubPublicRepos() {
+			const wrap = document.querySelector('#GithubPublicRepos');
+			wrap.innerText = null;
+			wrap.dataset.id = getRandomLowerString(16);
 
-				setInterval(()=>{
-					document.querySelector('#debug_screen').innerHTML = `${document.body.clientWidth}x${document.body.clientHeight}px`;
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize.w',document.body.clientWidth );
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize.h',document.body.clientHeight );
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize',`${document.body.clientWidth}x${document.body.clientHeight}` );
-				}, 500);
-				setInterval(async ()=>{
-					url=location.href;
-					url='https://api.github.com/rate_limit';
-					temp=await http_ping(url);
-					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.ping' );
-					if(config){console.debug(await temp);}
-					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.ping',temp['Client-Date']['process-rttms'] );
-				}, 500);
-				setInterval(async ()=>{
-					json=await getGithubRatelimit();
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.ratelimit', JSON.stringify(json) );
+			let line = null;
+			let link = null;
+			let object = null;
+			let block = null;
+			let line2 = null;
 
-					document.querySelector('#debug_githubapi').innerHTML = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
-					if(await json.rate.used>0){
-						temp = [new Date((await json.rate.reset)*1000)];
-						temp[1] = [
-							(''   +  temp[0].getFullYear()  ),
-							(''   + (temp[0].getMonth() + 1)),
-							('00' +  temp[0].getDate()      ).substr(-2),
-							(''   +  temp[0].getHours()     ),
-							('00' +  temp[0].getMinutes()   ).substr(-2),
-							('00' +  temp[0].getSeconds()   ).substr(-2),
-						];
-						document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
-					}
-				}, 500);
-				setTimeout(async ()=>{
-					try {
-						url = 'https://api.n138.jp/isJP/';
-						json = await http_get_json(url);
-						console.debug(['isJP', await json]);
-						document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.result.request.request}" target="_blank">${await json.result.request.request}</a>: ${await json.result.result.detail}`;
-						sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',json );
-					} catch (error) {
-						console.error(error);
-					}
-				}, 5000);
-				setInterval(async ()=>{
-					try {
-						config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'navigator.geolocation' );
-						if(!config){
-							throw null;
-							navigator.geolocation.getCurrentPosition( async (position)=>{
-								position.timestamp = position.timestamp/10**3;
-								console.debug(position);
-								url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=ja`;
-								json = await http_get_json(url);
-								console.debug(await json);
-								document.querySelector('#debug_yourgeo').innerHTML = `<a href="https://www.google.com/maps/?z=18&ll=${position.coords.latitude},${position.coords.longitude}&q=${json.countryName} ${json.principalSubdivision} ${json.city}">${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}</a>`;
-							}, (error)=>{ throw error; })
-						}
-					} catch (error) {
-						config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.geolocation.error' );
-						if(config){ console.error('navigator.geolocation.getCurrentPosition', error); }
-						document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
-					}
-				}, 1000);
-				setTimeout(async ()=>{
-					try {
-						authn = JSON.parse(localStorage.getItem('_.authn'));
-						if ( authn == false ) {
-							document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=never_authenticated">Not authorized.</a>';
-						} else {
-							// authn.credential.clientId
-							// authn.credential.credential
-							// authn.credential.iat
-							// authn.credential.exp
-							if ( authn.credential.iat < (new Date().getTime()/10**3) && (new Date().getTime()/10**3) < authn.credential.exp ) {
-								document.querySelector('#debug_authn').innerText = 'Validating...';
+			line = document.createElement('h2');
+			line.innerText = 'GitHub Public Repos';
+			wrap.appendChild(line);
 
-								url = 'https://authn.n138.jp/google/';
-								json = await fetch(url, {
-									method: 'POST',
-									headers: {
-										'Content-Type': 'application/json',
-									},
-									body: JSON.stringify({
-										ts: Math.trunc(new Date().getTime()/10**3),
-										clientId: authn.credential.clientId,
-										credential: authn.credential.credential,
-									})
-								});
-								json = await json.json();
-								console.log(await json)
-								user = await json.google.user;
-								if ( await user.userid.length > 0 ) {
-									document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
-								} else {
-									document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token_with_inconsistency">Need to be Re:Authorize</a>';
-								}
-							} else {
-								document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token">Not authorized.</a>';
-							}
-						}
-					} catch (error) {
-						console.error(error);
-						document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=not_yet_set">Unauthorized.</a>';
-					}
-				}, 1000);
+			let url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
+			let json = null;
+			try {
+				json = await http_get_json(url);
+				await json.map((item)=>{});
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos', JSON.stringify(json) );
+				console.debug('GithubPublicRepos has loaded from MASTER', await json);
+			} catch (error) {
+				json = JSON.parse(sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos'));
+				console.warn('GithubPublicRepos has loaded from LOCAL', json);
+				console.warn(await http_get_json(url, 17|32768));
 			}
-			window.addEventListener('DOMContentLoaded', (e1)=>{
-				init_setTopMaker();
-				init_setFavicon();
-				setHeader();
-				try { insertNavigation(); } catch (error) { console.error(error); }
-				try { buildDebugField(); } catch (error) { console.error(error); }
-				setInterval(()=>{
-					insertLastElement();
-					jstClock_set();
-				}, 1000);
 
-				setTimeout( setFooter(), 1000);
-			});
-			window.addEventListener('load', (e1)=>{
-			});
-		</script>
-		<link rel="manifest" href="./lib/manifest.json">
-		<script>
-			function serviceworker_initialize() {
-				if ('serviceWorker' in navigator) {
-					navigator.serviceWorker.register('./lib/ServiceWorker.js')
-					.then((registration)=>{
-						console.log(registration);
-						localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'ServiceWorker', JSON.stringify({
-							scope: registration.scope,
-							issue: new Date().getTime()/10**3,
-						}) );
-						console.log('ServiceWorker registration success.');
-					})
-					.catch((error)=>{
-						localStorage.clear();
-						console.error(`ServiceWorker registration failed. ${error}`);
-					})
+			block = document.createElement('table');
+			block.classList.add('navigation');
+			block.classList.add('font_azuki');
+			block.style.whiteSpace = 'normal';
+			await json.map( async (item)=>{
+				line = document.createElement('tr');
+
+				line2 = document.createElement('td');
+				link = document.createElement('a');
+				link.target = '_blank';
+				link.href = item.html_url;
+				link.innerText = '【GitHub】';
+				link.dataset.url_github = item.html_url;
+				link.dataset.url_pages = item.homepage;
+				link.dataset.date_created = item.created_at;
+				link.dataset.date_updated = item.updated_at;
+				link.dataset.repos_node_id = item.node_id;
+				link.dataset.repos_id = item.id;
+				link.dataset.repos_size = item.size;
+				link.dataset.repos_language = item.language;
+				link.dataset.repos_hooks_url = item.hooks_url;
+				link.dataset.repos_open_issues = item.open_issues_count;
+				line2.appendChild(link);
+				line.appendChild(line2);
+				
+				/* *
+					*
+				line2 = document.createElement('td');
+				link = document.createElement('a');
+				link.target = '_blank';
+				link.href = item.homepage;
+				object = new Date(item.updated_at).getTime()/10**3;
+				console.debug(object, object*10**3, ((new Date().getTime()/10**3)-3600*24*6)*10**3);
+				if (false) {
+				} else if (false) {
+				} else if (object <= ((new Date().getTime()/10**3)-3600*24*6)*10**3 ) {
+					/* 6日以上前 */
+					
+					/* *
+					*
+					object = new Date(object*10**3);
+					object_datetime = {
+						date: object.getDate(),
+						month: object.getMonth()+1,
+						year: object.getFullYear(),
+					};
+					object_datetime.date = ('00' + object_datetime.date).substr(-2);
+					object_datetime.month = ('__' + object_datetime.month).substr(-2);
+					object = object_datetime.month + '/' + object_datetime.date + ', ' + object_datetime.year;
 				} else {
-					localStorage.clear();
-					if (location.protocol != 'https:') {
-						console.error('ServiceWorker registration failed. not supported expect https.');
-					} else {
-						console.error('ServiceWorker registration failed. not supported this browser.');
+					object = new Date(object*10**3);
+				}
+				link.innerText = object;
+				line2.appendChild(link);
+				line.appendChild(line2);
+					*
+					*/
+
+				line2 = document.createElement('td');
+				/* item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name; */
+				link = document.createElement('a');
+				link.target = '_blank';
+				link.href = item.homepage;
+				link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
+				link.innerText = item.name;
+				line2.appendChild(link);
+				line.appendChild(line2);
+
+				block.appendChild(line);
+			} );
+			wrap.appendChild(block);
+		}
+		async function buildDebugField() {
+			const wrap = document.querySelector('#DebugInfoArea');
+			wrap.innerText = null;
+			wrap.dataset.id = getRandomLowerString(16);
+
+			let line = null;
+			let link = null;
+			let object = null;
+			let temp = null;
+			let url = null;
+			let json = null;
+
+			line = document.createElement('h2');
+			line.innerText = 'Debug info';
+			wrap.appendChild(line);
+
+			line = document.createElement('div');
+			line.classList.add('flex');
+			line.classList.add('navigation');
+			line.classList.add('font_azuki');
+
+			object = [document.createElement('table')];
+			object[0].border = 1;
+			object[0].style.maxWidth = '500px';
+			
+			object[1] = document.createElement('thead');
+
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Item name';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Value';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+			object[0].appendChild(object[1]);
+
+			object[1] = document.createElement('tbody');
+			
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Screen width/length';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('td');
+			object[3].id = 'debug_screen';
+			object[3].innerText = 'Loading...';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Ping';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('td');
+			object[3].id = 'debug_ping';
+			object[3].innerText = 'RTT: Calclating...';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'GitHub API';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('td');
+			object[3].id = 'debug_githubapi';
+			object[3].style.whiteSpace = 'nowrap';
+			object[3].innerText = 'Loading...';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Your IPaddr';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('td');
+			object[3].id = 'debug_yourip';
+			object[3].style.whiteSpace = 'nowrap';
+			object[3].innerText = 'Loading...';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Authn State';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('td');
+			object[3].id = 'debug_authn';
+			object[3].style.whiteSpace = 'nowrap';
+			object[3].innerText = 'Loading...';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+
+			object[2] = document.createElement('tr');
+			object[3] = document.createElement('th');
+			object[3].innerText = 'Your Location';
+			object[2].appendChild(object[3]);
+			object[3] = document.createElement('td');
+			object[3].id = 'debug_yourgeo';
+			object[3].style.whiteSpace = 'nowrap';
+			object[3].innerText = 'Loading...';
+			object[2].appendChild(object[3]);
+
+			object[1].appendChild(object[2]);
+			object[0].appendChild(object[1]);
+			
+			line.appendChild(object[0]);
+			wrap.appendChild(line);
+
+			setInterval(()=>{
+				document.querySelector('#debug_screen').innerHTML = `${document.body.clientWidth}x${document.body.clientHeight}px`;
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize.w',document.body.clientWidth );
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize.h',document.body.clientHeight );
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize',`${document.body.clientWidth}x${document.body.clientHeight}` );
+			}, 500);
+			setInterval(async ()=>{
+				url=location.href;
+				url='https://api.github.com/rate_limit';
+				temp=await http_ping(url);
+				config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.ping' );
+				if(config){console.debug(await temp);}
+				document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.ping',temp['Client-Date']['process-rttms'] );
+			}, 500);
+			setInterval(async ()=>{
+				json=await getGithubRatelimit();
+				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.ratelimit', JSON.stringify(json) );
+
+				document.querySelector('#debug_githubapi').innerHTML = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
+				if(await json.rate.used>0){
+					temp = [new Date((await json.rate.reset)*1000)];
+					temp[1] = [
+						(''   +  temp[0].getFullYear()  ),
+						(''   + (temp[0].getMonth() + 1)),
+						('00' +  temp[0].getDate()      ).substr(-2),
+						(''   +  temp[0].getHours()     ),
+						('00' +  temp[0].getMinutes()   ).substr(-2),
+						('00' +  temp[0].getSeconds()   ).substr(-2),
+					];
+					document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
+				}
+			}, 500);
+			setTimeout(async ()=>{
+				try {
+					url = 'https://api.n138.jp/isJP/';
+					json = await http_get_json(url);
+					console.debug(['isJP', await json]);
+					document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.result.request.request}" target="_blank">${await json.result.request.request}</a>: ${await json.result.result.detail}`;
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',json );
+				} catch (error) {
+					console.error(error);
+				}
+			}, 5000);
+			setInterval(async ()=>{
+				try {
+					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'navigator.geolocation' );
+					if(!config){
+						throw null;
+						navigator.geolocation.getCurrentPosition( async (position)=>{
+							position.timestamp = position.timestamp/10**3;
+							console.debug(position);
+							url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=ja`;
+							json = await http_get_json(url);
+							console.debug(await json);
+							document.querySelector('#debug_yourgeo').innerHTML = `<a href="https://www.google.com/maps/?z=18&ll=${position.coords.latitude},${position.coords.longitude}&q=${json.countryName} ${json.principalSubdivision} ${json.city}">${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}</a>`;
+						}, (error)=>{ throw error; })
 					}
+				} catch (error) {
+					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.geolocation.error' );
+					if(config){ console.error('navigator.geolocation.getCurrentPosition', error); }
+					document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
+				}
+			}, 1000);
+			setTimeout(async ()=>{
+				try {
+					authn = JSON.parse(localStorage.getItem('_.authn'));
+					if ( authn == false ) {
+						document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=never_authenticated">Not authorized.</a>';
+					} else {
+						// authn.credential.clientId
+						// authn.credential.credential
+						// authn.credential.iat
+						// authn.credential.exp
+						if ( authn.credential.iat < (new Date().getTime()/10**3) && (new Date().getTime()/10**3) < authn.credential.exp ) {
+							document.querySelector('#debug_authn').innerText = 'Validating...';
+
+							url = 'https://authn.n138.jp/google/';
+							json = await fetch(url, {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json',
+								},
+								body: JSON.stringify({
+									ts: Math.trunc(new Date().getTime()/10**3),
+									clientId: authn.credential.clientId,
+									credential: authn.credential.credential,
+								})
+							});
+							json = await json.json();
+							console.log(await json)
+							user = await json.google.user;
+							if ( await user.userid.length > 0 ) {
+								document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
+							} else {
+								document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token_with_inconsistency">Need to be Re:Authorize</a>';
+							}
+						} else {
+							document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token">Not authorized.</a>';
+						}
+					}
+				} catch (error) {
+					console.error(error);
+					document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=not_yet_set">Unauthorized.</a>';
+				}
+			}, 1000);
+		}
+		window.addEventListener('DOMContentLoaded', (e1)=>{
+			init_setTopMaker();
+			init_setFavicon();
+			setHeader();
+			try { insertNavigation(); } catch (error) { console.error(error); }
+			try { buildDebugField(); } catch (error) { console.error(error); }
+			setInterval(()=>{
+				insertLastElement();
+				jstClock_set();
+			}, 1000);
+
+			setTimeout( setFooter(), 1000);
+		});
+		window.addEventListener('load', (e1)=>{
+		});
+	</script>
+	<link rel="manifest" href="./lib/manifest.json">
+	<script>
+		function serviceworker_initialize() {
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('./lib/ServiceWorker.js')
+				.then((registration)=>{
+					console.log(registration);
+					localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'ServiceWorker', JSON.stringify({
+						scope: registration.scope,
+						issue: new Date().getTime()/10**3,
+					}) );
+					console.log('ServiceWorker registration success.');
+				})
+				.catch((error)=>{
+					localStorage.clear();
+					console.error(`ServiceWorker registration failed. ${error}`);
+				})
+			} else {
+				localStorage.clear();
+				if (location.protocol != 'https:') {
+					console.error('ServiceWorker registration failed. not supported expect https.');
+				} else {
+					console.error('ServiceWorker registration failed. not supported this browser.');
 				}
 			}
-			serviceworker_initialize();
-		</script>
-	</head>
-	<body>
-		<header></header>
-		<div id="n138kzNavigationLinks"></div>
-		<div id="GithubPublicRepos">
-			<h2>GitHub Public Repos</h2>
-			<p class="navigation font_azuki"><a href="#" target="_self" onclick="try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }; return false;">Load Github n138-kz's Repos List</a></p>
-		</div>
-		<div id="DebugInfoArea"></div>
-		<footer></footer>
-	</body>
+		}
+		serviceworker_initialize();
+	</script>
+</head>
+<body>
+	<header></header>
+	<div id="n138kzNavigationLinks"></div>
+	<div id="GithubPublicRepos">
+		<h2>GitHub Public Repos</h2>
+		<p class="navigation font_azuki"><a href="#" target="_self" onclick="try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); }; return false;">Load Github n138-kz's Repos List</a></p>
+	</div>
+	<div id="DebugInfoArea"></div>
+	<footer></footer>
+</body>
 </html>
