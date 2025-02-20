@@ -366,7 +366,10 @@
 				wrap.appendChild(line);
 
 				setInterval(()=>{
-					document.querySelector('#debug_screen').innerHTML = `${document.body.clientWidth}x${document.body.clientHeight}px<sup>2</sup>`;
+					document.querySelector('#debug_screen').innerHTML = `${document.body.clientWidth}x${document.body.clientHeight}px`;
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize.w',document.body.clientWidth );
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize.h',document.body.clientHeight );
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize',`${document.body.clientWidth}x${document.body.clientHeight}` );
 				}, 500);
 				setInterval(async ()=>{
 					url = location.href;
