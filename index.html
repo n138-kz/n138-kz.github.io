@@ -341,7 +341,7 @@
 				json=await getGithubRatelimit();
 				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.ratelimit', JSON.stringify(json) );
 
-				document.querySelector('#debug_githubapi').innerHTML = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
+				document.querySelector('#debug_githubapi').innerText = 'Not in use.';
 				if(await json.rate.used>0){
 					temp = [new Date((await json.rate.reset)*1000)];
 					temp[1] = [
@@ -352,7 +352,8 @@
 						('00' +  temp[0].getMinutes()   ).substr(-2),
 						('00' +  temp[0].getSeconds()   ).substr(-2),
 					];
-					document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
+					document.querySelector('#debug_githubapi').innerText = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
+					document.querySelector('#debug_githubapi').innerText += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}`;
 				}
 			}, 500);
 			setTimeout(async ()=>{
