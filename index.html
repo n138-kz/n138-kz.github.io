@@ -378,6 +378,7 @@
 					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.ping' );
 					if(config){console.debug(await temp);}
 					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.ping',temp['Client-Date']['process-rttms'] );
 				}, 500);
 				setInterval(async ()=>{
 					json=await getGithubRatelimit();
