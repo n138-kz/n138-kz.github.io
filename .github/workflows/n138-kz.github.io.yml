@@ -1,65 +1,15 @@
 name: n138-kz.github.io
 
 on:
-    workflow_dispatch:
-    schedule:
-        - cron: "0 5 1 * *"
-
-env:
-    discord_webhook_url: ${{ secrets.discord_webhook_url }}
-    discord_avatar_url: https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png
-    discord_username: Github-Actions
-    github_context: '{"GITHUB_REPOSITORY":"${{ github.repository }}","GITHUB_REF_NAME":"${{ github.ref_name }}","GITHUB_TOKEN":"${{ github.token }}","GITHUB_ACTION":"${{ github.action }}","GITHUB_ACTION_PATH":"${{ github.action_path }}","GITHUB_SHA":"${{ github.sha }}","GITHUB_WORKFLOW":"${{ github.workflow }}","GITHUB_JOB":"${{ github.job }}","GITHUB_ENV":"${{ github.env }}","GITHUB_EVENT":"${{ github.event }}","GITHUB_EVENT_NAME":"${{ github.event_name }}"}'
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 */2 * *"
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
-
-    send_github_context:
-
-        runs-on: ubuntu-latest
-
-        outputs:
-            output1: ${{ toJSON(steps.result_pull_github_repos.outputs) }}
-            output2: ${{ toJSON(steps.result_push_discord.outputs) }}
-
-        steps:
-            - uses: actions/checkout@v4
-
-            - name: Prepare file for GITHUB Context
-              run: |
-                echo '${{ env.github_context }}' | jq | tee github-action-run_github-context.json
-
-            - name: Check SECRETS.DISCORD_WEBHOOK_URL
-              if: ${{ env.discord_webhook_url == '' }}
-              run: exit 1
-
-            - name: Get the GITHUB RestAPI /repos
-              id: result_pull_github_repos
-              run: |
-                curl -L \
-                -H "Accept: application/vnd.github+json" \
-                -H "Authorization: Bearer ${{ github.token }}" \
-                -H "X-GitHub-Api-Version: 2022-11-28" \
-                https://api.github.com/repos/${{ github.repository }} | jq | tee github-action-run_$(echo '${{ github.repository }}' | sed -e 's#/#_#g')_github-repos.json
-
-            - name: Validate the Discord /webhooks
-              run: curl ${{ env.discord_webhook_url }} || exit 1
-
-            - name: Get the Discord /webhooks
-              run: curl ${{ env.discord_webhook_url }} | jq | tee github-action-run_discord-webhooks.json
-
-            - name: Send to Discord
-              id: result_push_discord
-              run: |
-                for i in github-action-run*;
-                    do \
-                        curl \
-                        -X POST \
-                        -H 'Content-Type:multipart/form-data' \
-                        -F 'avatar_url=${{ env.discord_avatar_url }}' \
-                        -F 'username=${{ env.discord_username }}' \
-                        -F 'file=@'${i} -F $'content=Launched github action: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions).\n' \
-                        ${{ env.discord_webhook_url }} | jq; \
-                    done
+  send_github_context:
+    uses: n138-kz/Dockerfile/.github/workflows/github-act_send_github_context.yml@main
+    # https://github.com/n138-kz/Dockerfile/blob/main/.github/workflows/github-act_send_github_context.yml
+    secrets: inherit # pass all secrets, Require: secrets.DISCORD_WEBHOOK_URL
