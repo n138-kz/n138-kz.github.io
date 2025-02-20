@@ -373,7 +373,7 @@
 					json = await http_get_json(url);
 					console.debug(['isJP', await json]);
 					document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.result.request.request}" target="_blank">${await json.result.request.request}</a>: ${await json.result.result.detail}`;
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',json );
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',JSON.stringify(json) );
 				} catch (error) {
 					console.error(error);
 				}
