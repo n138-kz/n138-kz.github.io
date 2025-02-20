@@ -411,15 +411,18 @@
 				}, 5000);
 				setInterval(async ()=>{
 					try {
-						throw null;
-						navigator.geolocation.getCurrentPosition( async (position)=>{
-							position.timestamp = position.timestamp/10**3;
-							console.debug(position);
-							url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=ja`;
-							json = await http_get_json(url);
-							console.debug(await json);
-							document.querySelector('#debug_yourgeo').innerHTML = `<a href="https://www.google.com/maps/?z=18&ll=${position.coords.latitude},${position.coords.longitude}&q=${json.countryName} ${json.principalSubdivision} ${json.city}">${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}</a>`;
-						}, (error)=>{ throw error; })
+						config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'navigator.geolocation' );
+						if(!config){
+							throw null;
+							navigator.geolocation.getCurrentPosition( async (position)=>{
+								position.timestamp = position.timestamp/10**3;
+								console.debug(position);
+								url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=ja`;
+								json = await http_get_json(url);
+								console.debug(await json);
+								document.querySelector('#debug_yourgeo').innerHTML = `<a href="https://www.google.com/maps/?z=18&ll=${position.coords.latitude},${position.coords.longitude}&q=${json.countryName} ${json.principalSubdivision} ${json.city}">${json.countryName}(${json.countryCode}) / ${json.principalSubdivision} ${json.city}</a>`;
+							}, (error)=>{ throw error; })
+						}
 					} catch (error) {
 						config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.geolocation.error' );
 						if(config){ console.error('navigator.geolocation.getCurrentPosition', error); }
