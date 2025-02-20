@@ -379,20 +379,22 @@
 					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
 				}, 500);
 				setInterval(async ()=>{
-					url = 'https://api.github.com/rate_limit';
-					json = await http_get_json(url);
-					console.debug(await json);
-					temp = [new Date((await json.rate.reset)*1000)];
-					temp[1] = [
-						(''   +  temp[0].getFullYear()  ),
-						(''   + (temp[0].getMonth() + 1)),
-						('00' +  temp[0].getDate()      ).substr(-2),
-						(''   +  temp[0].getHours()     ),
-						('00' +  temp[0].getMinutes()   ).substr(-2),
-						('00' +  temp[0].getSeconds()   ).substr(-2),
-					];
-					document.querySelector('#debug_githubapi').innerHTML  = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
-					document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
+					json=await getGithubRatelimit();
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.ratelimit', JSON.stringify(github_rates) );
+
+					document.querySelector('#debug_githubapi').innerHTML = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
+					if(await json.rate.used>0){
+						temp = [new Date((await json.rate.reset)*1000)];
+						temp[1] = [
+							(''   +  temp[0].getFullYear()  ),
+							(''   + (temp[0].getMonth() + 1)),
+							('00' +  temp[0].getDate()      ).substr(-2),
+							(''   +  temp[0].getHours()     ),
+							('00' +  temp[0].getMinutes()   ).substr(-2),
+							('00' +  temp[0].getSeconds()   ).substr(-2),
+						];
+						document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
+					}
 				}, 500);
 				setTimeout(() => {
 					url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
