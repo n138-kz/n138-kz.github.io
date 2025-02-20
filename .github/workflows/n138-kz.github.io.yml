@@ -13,3 +13,20 @@ jobs:
     uses: n138-kz/Dockerfile/.github/workflows/github-act_send_github_context.yml@main
     # https://github.com/n138-kz/Dockerfile/blob/main/.github/workflows/github-act_send_github_context.yml
     secrets: inherit # pass all secrets, Require: secrets.DISCORD_WEBHOOK_URL
+
+  repo_delete:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Delete GitHub repo
+        if: ${{ false }}
+        run: |
+          curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -X GET
+            https://api.github.com/repos/${{ github.repository }} | jq
