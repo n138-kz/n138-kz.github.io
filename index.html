@@ -171,10 +171,10 @@
 				try {
 					json = await http_get_json(url);
 					await json.map((item)=>{});
-					localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos', JSON.stringify(await json) );
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos', JSON.stringify(json) );
 					console.debug('GithubPublicRepos has loaded from MASTER', await json);
 				} catch (error) {
-					json = JSON.parse(localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'GithubPublicRepos'));
+					json = JSON.parse(sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos'));
 					console.warn('GithubPublicRepos has loaded from LOCAL', json);
 					console.warn(await http_get_json(url, 17|32768));
 				}
