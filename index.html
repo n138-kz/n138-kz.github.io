@@ -372,8 +372,9 @@
 					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.screensize',`${document.body.clientWidth}x${document.body.clientHeight}` );
 				}, 500);
 				setInterval(async ()=>{
-					url = location.href;
-					temp = await http_ping(url);
+					url=location.href;
+					url='https://api.github.com/rate_limit';
+					temp=await http_ping(url);
 					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.ping' );
 					if(config){console.debug(await temp);}
 					document.querySelector('#debug_ping').innerText = `RTT: ${temp['Client-Date']['process-rttms']}ms`;
