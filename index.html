@@ -398,11 +398,6 @@
 						document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}<br />`;
 					}
 				}, 500);
-				setTimeout(() => {
-					url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
-					const target = document.querySelector('#debug_githubapi');
-					target.innerHTML = `<a href="${url}" target="_blank">${target.innerText}</a>`;
-				}, 3000);
 				setTimeout(async ()=>{
 					try {
 						url = 'https://api.n138.jp/isJP/';
