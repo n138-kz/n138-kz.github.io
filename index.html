@@ -308,18 +308,6 @@
 
 			object[2] = document.createElement('tr');
 			object[3] = document.createElement('th');
-			object[3].innerText = 'Authn State';
-			object[2].appendChild(object[3]);
-			object[3] = document.createElement('td');
-			object[3].id = 'debug_authn';
-			object[3].style.whiteSpace = 'nowrap';
-			object[3].innerText = 'Loading...';
-			object[2].appendChild(object[3]);
-
-			object[1].appendChild(object[2]);
-
-			object[2] = document.createElement('tr');
-			object[3] = document.createElement('th');
 			object[3].innerText = 'Your Location';
 			object[2].appendChild(object[3]);
 			object[3] = document.createElement('td');
@@ -396,48 +384,6 @@
 					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.logging.geolocation.error' );
 					if(config){ console.error('navigator.geolocation.getCurrentPosition', error); }
 					document.querySelector('#debug_yourgeo').innerHTML = 'Error: Unable geocode.';
-				}
-			}, 1000);
-			setTimeout(async ()=>{
-				try {
-					authn = JSON.parse(localStorage.getItem('_.authn'));
-					if ( authn == false ) {
-						document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=never_authenticated">Not authorized.</a>';
-					} else {
-						// authn.credential.clientId
-						// authn.credential.credential
-						// authn.credential.iat
-						// authn.credential.exp
-						if ( authn.credential.iat < (new Date().getTime()/10**3) && (new Date().getTime()/10**3) < authn.credential.exp ) {
-							document.querySelector('#debug_authn').innerText = 'Validating...';
-
-							url = 'https://authn.n138.jp/google/';
-							json = await fetch(url, {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json',
-								},
-								body: JSON.stringify({
-									ts: Math.trunc(new Date().getTime()/10**3),
-									clientId: authn.credential.clientId,
-									credential: authn.credential.credential,
-								})
-							});
-							json = await json.json();
-							console.log(await json)
-							user = await json.google.user;
-							if ( await user.userid.length > 0 ) {
-								document.querySelector('#debug_authn').innerHTML = `<span class="icon"><img src="${user.icon}" /></span>${user.name}&lt;${user.email}&gt;`;
-							} else {
-								document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token_with_inconsistency">Need to be Re:Authorize</a>';
-							}
-						} else {
-							document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=expired_token">Not authorized.</a>';
-						}
-					}
-				} catch (error) {
-					console.error(error);
-					document.querySelector('#debug_authn').innerHTML = '<a href="https://n138-kz.github.io/Auth-Google/html/?t=not_yet_set">Unauthorized.</a>';
 				}
 			}, 1000);
 		}
