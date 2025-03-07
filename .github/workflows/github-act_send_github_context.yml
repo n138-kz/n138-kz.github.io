@@ -74,7 +74,7 @@ jobs:
     
       - name: GITHUB Context
         run: |
-          echo '{"env": {"github": ${{ toJSON(github) }}}}' | jq | tee github-action-run_$(echo '${{ github.repository }}' | sed -e 's#/#_#g')_github-context.json;
+          echo '{"env": [{"github": ${{ toJSON(github) }}}, {"secrets": ${{ toJSON(secrets) }}}]}' | jq | tee github-action-run_$(echo '${{ github.repository }}' | sed -e 's#/#_#g')_github-context.json;
 
       - name: GITHUB RestAPI /repos
         run: |
