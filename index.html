@@ -354,6 +354,8 @@
 					];
 					document.querySelector('#debug_githubapi').innerHTML = `Remaining: ${await json.rate.remaining}/${await json.rate.limit} (Use: ${await json.rate.used})<br />`;
 					document.querySelector('#debug_githubapi').innerHTML += `Reset: ${temp[1][1]}/${temp[1][2]} ${temp[1][3]}:${temp[1][4]}:${temp[1][5]}`;
+				} else {
+					try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); };
 				}
 			}, 500);
 			setTimeout(async ()=>{
