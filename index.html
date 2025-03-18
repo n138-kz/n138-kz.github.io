@@ -366,7 +366,7 @@
 				} catch (error) {
 					console.error(error);
 				}
-			}, 1000);
+			}, 500);
 			setInterval(async ()=>{
 				try {
 					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'navigator.geolocation' );
