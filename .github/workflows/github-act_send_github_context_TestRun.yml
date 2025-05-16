@@ -1,0 +1,23 @@
+name: github-act_send_github_context TestRun
+
+on:
+  workflow_dispatch:
+    inputs:
+      gh_actor_message:
+        default: Test RUN
+        required: true
+        description: Actor message
+        type: string
+  push:
+    paths:
+      - ".github/workflows/github-act_send_github_context.yml"
+      - ".github/workflows/github-act_send_github_context_TestRun.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  send_github_context:
+    uses: n138-kz/Dockerfile/.github/workflows/github-act_send_github_context.yml@main
+    # https://github.com/n138-kz/Dockerfile/blob/main/.github/workflows/github-act_send_github_context.yml
+    secrets: inherit # pass all secrets
