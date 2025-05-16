@@ -92,6 +92,7 @@ jobs:
           echo 'github_workflow_ref_name='${gh_workflow_ref} >> $GITHUB_ENV;
 
       - name: Send Discord
+        if: ${{ false }}
         run: |
           for f in github-action-run*; do \
             curl -X POST \
@@ -123,3 +124,23 @@ jobs:
               -F $'content=Launched github action: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions/workflows/${{ env.github_workflow_ref_name }}).\n${{ github.workflow }}: [${{ env.github_actor_message }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})\n' \
               ${{ env.discord_webhook_url }} | jq; \
           done;
+
+      - name: Send Discord
+        if: ${{ false }}
+        run: |
+          for f in github-action-run*; do \
+            curl -X POST \
+              -H 'Content-Type:multipart/form-data' \
+              -F 'payload_json={"avatar_url":"${{ env.discord_avatar_url }}","username":"${{ env.discord_username }}","username":"${{ env.discord_username }}","embeds":[{"color":5793266,"fields":[{"name":"Launched github action","value":"Repository: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions/workflows/${{ env.github_workflow_ref_name }})."},{"name":"","value":"workflow: ${{ github.workflow }}"},{"name":"","value":"[${{ env.github_actor_message }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"}]}]}' \
+              -F "files[0]=@${f}" \
+              ${{ env.discord_webhook_url }} | jq; \
+          done;
+
+      - name: Send Discord
+        run: |
+          curl_files=''; i=0; for f in github-action-run*; do curl_files=${curl_files}" -F file[$i]=@${f}";i=$((i+1));done;
+          curl -X POST \
+            -H 'Content-Type:multipart/form-data' \
+            -F 'payload_json={"avatar_url":"${{ env.discord_avatar_url }}","username":"${{ env.discord_username }}","username":"${{ env.discord_username }}","embeds":[{"color":5793266,"fields":[{"name":"Launched github action","value":"Repository: [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}/actions/workflows/${{ env.github_workflow_ref_name }})."},{"name":"","value":"workflow: ${{ github.workflow }}"},{"name":"","value":"[${{ env.github_actor_message }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"}]}]}' \
+            ${curl_files} \
+            ${{ env.discord_webhook_url }} | jq; \
