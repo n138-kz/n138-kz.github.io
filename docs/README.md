@@ -1,5 +1,7 @@
 # [n138-kz.github.io](https://github.com/n138-kz/n138-kz.github.io)
 
+![GitHub Extra Pins](https://github-readme-stats.vercel.app/api/pin/?locale=ja&username=n138-kz&repo=n138-kz.github.io&show_owner=true&theme=graywhite)
+
 ## Site ID(URL)
 
 ```http
