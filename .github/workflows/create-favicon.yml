@@ -24,4 +24,6 @@ jobs:
 
             - run: docker run --name ubuntu --platform linux/amd64 --mount type=bind,source=./,target=/media -w /media -d ubuntu /bin/bash
 
+            - run: docker inspect ubuntu
+
             - run: docker exec ubuntu apt install ffmpeg
