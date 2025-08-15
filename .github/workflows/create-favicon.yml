@@ -33,7 +33,7 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y install wget file imagemagick
 
-            - run: docker exec ubuntu if [ ! -d ./lib/ico ] ; then mkdir -p ./lib/ico ; fi
+            - run: docker exec ubuntu if [ ! -d ./lib/ico ] \; then mkdir -p ./lib/ico \; fi
 
             - run: docker exec ubuntu cd ./lib/ico
 
