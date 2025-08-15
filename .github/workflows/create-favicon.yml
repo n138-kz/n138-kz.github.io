@@ -34,9 +34,7 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y update
 
-            - run: docker exec ubuntu apt-get -y install ffmpeg imagemagick
-
-            - run: docker exec ubuntu ffmpeg -version
+            - run: docker exec ubuntu apt-get -y install imagemagick
 
             - run: docker exec ubuntu convert -version
 
