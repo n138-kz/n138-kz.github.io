@@ -32,6 +32,8 @@ jobs:
 
             - run: docker exec ubuntu od n138-kz.png
 
+            - run: docker exec ubuntu pwd
+
             - run: docker exec ubuntu apt-get -y update
 
             - run: docker exec ubuntu apt-get -y install imagemagick
