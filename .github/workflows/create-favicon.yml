@@ -33,10 +33,6 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y install wget file imagemagick
 
-            - run: docker exec ubuntu "if [ ! -d ./lib/ico ] ; then mkdir -p ./lib/ico ; fi"
-
-            - run: docker exec ubuntu cd ./lib/ico
-
             - run: docker exec ubuntu wget https://github.com/n138-kz.png
 
             - run: docker exec ubuntu ls -lh n138-kz.png
