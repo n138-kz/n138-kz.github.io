@@ -20,6 +20,7 @@ jobs:
 
             #- run: docker run --name ubuntu --platform linux/amd64 --mount type=bind,source=./,target=/media -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
 
+            - run: docker run --name ubuntu --platform linux/amd64 -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
 
             - run: docker inspect ubuntu
 
@@ -27,7 +28,6 @@ jobs:
 
             - run: docker exec ubuntu ls -lh n138-kz.png
 
-            - run: docker run --name ubuntu --platform linux/amd64 -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
             - run: docker exec ubuntu file n138-kz.png
 
             - run: docker exec ubuntu od n138-kz.png
