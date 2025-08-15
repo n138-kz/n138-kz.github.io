@@ -31,7 +31,7 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y update
 
-            - run: docker exec ubuntu apt-get -y install wget imagemagick
+            - run: docker exec ubuntu apt-get -y install wget file imagemagick
 
             - run: docker exec ubuntu wget https://github.com/n138-kz.png
 
