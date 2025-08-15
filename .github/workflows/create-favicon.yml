@@ -33,6 +33,8 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y install wget file imagemagick
 
+            - run: docker exec ubuntu convert -version
+
             - run: docker exec ubuntu wget https://github.com/n138-kz.png
 
             - run: |
@@ -43,8 +45,6 @@ jobs:
             - run: |
                 docker exec ubuntu pwd
                 docker exec ubuntu ls -lhR
-
-            - run: docker exec ubuntu convert -version
 
             - run: docker exec ubuntu convert n138-kz.png -define icon:auto-resize=16,24,32,48,64,72,96,128,256 n138-kz.ico
 
