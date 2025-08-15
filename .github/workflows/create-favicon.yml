@@ -18,13 +18,13 @@ jobs:
 
             - run: git pull
 
-            - run: wget https://github.com/n138-kz.png
 
             - run: ls -lh n138-kz.png
 
             - run: file n138-kz.png
 
             - run: od n138-kz.png
+            - run: docker exec ubuntu wget https://github.com/n138-kz.png
 
             #- run: docker run --name ubuntu --platform linux/amd64 --mount type=bind,source=./,target=/media -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
 
