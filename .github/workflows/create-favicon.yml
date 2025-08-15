@@ -1,0 +1,69 @@
+name: Create the Favicon
+
+on:
+    workflow_dispatch:
+    push:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    create-pr:
+        runs-on: ubuntu-latest
+        steps:
+
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+                
+            - uses: actions/setup-node@v3
+
+            - run: git fetch
+
+            - run: git pull
+
+            - run: docker run --name ubuntu --platform linux/amd64 --mount type=bind,source=./,target=/media -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
+
+            #- run: docker run --name ubuntu --platform linux/amd64 -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
+
+            - run: docker inspect ubuntu
+
+            - run: docker exec ubuntu apt-get -y update
+
+            - run: docker exec ubuntu apt-get -y install wget file imagemagick
+
+            - run: docker exec ubuntu convert -version
+
+            - run: docker exec ubuntu wget https://github.com/n138-kz.png
+
+            - run: |
+                docker exec ubuntu ls -lh n138-kz.png
+                docker exec ubuntu file n138-kz.png
+                docker exec ubuntu od n138-kz.png
+
+            - run: |
+                docker exec ubuntu pwd
+                docker exec ubuntu ls -lhR
+
+            - run: docker exec ubuntu convert n138-kz.png -define icon:auto-resize=16,24,32,48,64,72,96,128,256 n138-kz.ico
+
+            - run: docker exec ubuntu rm -f n138-kz.png
+
+            - run: |
+                docker exec ubuntu pwd
+                docker exec ubuntu ls -lhR
+
+            - run: |
+                pwd
+                ls -lhR
+
+            - run: if [ ! -d ./lib/ico ]; then mkdir -p ./lib/ico; fi
+
+            - run: mv n138-kz.ico ./lib/ico/
+
+            - uses: peter-evans/create-pull-request@v5
+              with:
+                commit-message: Update file
+                delete-branch: true
+                title: Update file
