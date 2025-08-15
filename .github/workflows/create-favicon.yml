@@ -17,3 +17,5 @@ jobs:
             - run: wget https://github.com/n138-kz.png
 
             - run: ls -lh n138-kz.png
+
+            - run: file n138-kz.png
