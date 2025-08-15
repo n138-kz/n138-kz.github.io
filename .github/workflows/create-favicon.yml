@@ -41,9 +41,9 @@ jobs:
 
             - run: docker exec ubuntu od n138-kz.png
 
-            - run: docker exec ubuntu pwd
-
-            - run: docker exec ubuntu ls -lh
+            - run: |
+                docker exec ubuntu pwd
+                docker exec ubuntu ls -lh
 
             - run: docker exec ubuntu convert -version
 
