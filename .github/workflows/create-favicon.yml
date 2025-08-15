@@ -21,7 +21,6 @@ jobs:
 
 
 
-            - run: od n138-kz.png
             - run: docker exec ubuntu wget https://github.com/n138-kz.png
 
             #- run: docker run --name ubuntu --platform linux/amd64 --mount type=bind,source=./,target=/media -w /media -d -i ubuntu /bin/bash -c 'while :;do uname -a; done'
@@ -31,6 +30,7 @@ jobs:
             - run: docker exec ubuntu file n138-kz.png
 
             - run: docker inspect ubuntu
+            - run: docker exec ubuntu od n138-kz.png
 
             - run: docker exec ubuntu apt-get -y update
 
