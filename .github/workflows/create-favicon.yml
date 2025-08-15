@@ -49,6 +49,8 @@ jobs:
 
             - run: docker exec ubuntu convert n138-kz.png -define icon:auto-resize=16,24,32,48,64,72,96,128,256 n138-kz.ico
 
+            - run: docker exec ubuntu rm -f n138-kz.png
+
             - run: docker exec ubuntu pwd
 
             - run: docker exec ubuntu ls -lh
