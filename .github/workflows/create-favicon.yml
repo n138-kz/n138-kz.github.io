@@ -51,9 +51,13 @@ jobs:
 
             - run: docker exec ubuntu rm -f n138-kz.png
 
-            - run: docker exec ubuntu pwd
+            - run: |
+                docker exec ubuntu pwd
+                docker exec ubuntu ls -lh
 
-            - run: docker exec ubuntu ls -lh
+            - run: |
+                pwd
+                ls -lh
 
             - uses: peter-evans/create-pull-request@v5
               with:
