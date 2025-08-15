@@ -19,3 +19,5 @@ jobs:
             - run: ls -lh n138-kz.png
 
             - run: file n138-kz.png
+
+            - run: od n138-kz.png
