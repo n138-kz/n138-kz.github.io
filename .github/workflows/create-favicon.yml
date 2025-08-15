@@ -1,0 +1,16 @@
+name: Create the Favicon
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+
+            - uses: actions/checkout@v4
+
+            - run: wget https://github.com/n138-kz.png
