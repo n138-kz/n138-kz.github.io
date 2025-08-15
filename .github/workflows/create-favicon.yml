@@ -26,4 +26,6 @@ jobs:
 
             - run: docker inspect ubuntu
 
+            - run: docker exec ubuntu apt-get -y update
+
             - run: docker exec ubuntu apt-get -y install ffmpeg
