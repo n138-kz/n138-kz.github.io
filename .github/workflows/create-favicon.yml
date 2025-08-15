@@ -35,11 +35,10 @@ jobs:
 
             - run: docker exec ubuntu wget https://github.com/n138-kz.png
 
-            - run: docker exec ubuntu ls -lh n138-kz.png
-
-            - run: docker exec ubuntu file n138-kz.png
-
-            - run: docker exec ubuntu od n138-kz.png
+            - run: |
+                docker exec ubuntu ls -lh n138-kz.png
+                docker exec ubuntu file n138-kz.png
+                docker exec ubuntu od n138-kz.png
 
             - run: |
                 docker exec ubuntu pwd
