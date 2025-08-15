@@ -58,6 +58,10 @@ jobs:
                 pwd
                 ls -lhR
 
+            - run: if [ ! -d ./lib/ico ]; then mkdir -p ./lib/ico; fi
+
+            - run: mv n138-kz.ico ./lib/ico/
+
             - uses: peter-evans/create-pull-request@v5
               with:
                 commit-message: Update file
