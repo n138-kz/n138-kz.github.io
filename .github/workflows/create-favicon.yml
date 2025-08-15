@@ -22,4 +22,6 @@ jobs:
 
             - run: od n138-kz.png
 
+            - run: apt -y install ffmpeg
+
             - run: ffmpeg -i n138-kz.png n138-kz.webp
