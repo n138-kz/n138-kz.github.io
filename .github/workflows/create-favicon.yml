@@ -43,7 +43,7 @@ jobs:
 
             - run: |
                 docker exec ubuntu pwd
-                docker exec ubuntu ls -lh
+                docker exec ubuntu ls -lhR
 
             - run: docker exec ubuntu convert -version
 
@@ -53,11 +53,11 @@ jobs:
 
             - run: |
                 docker exec ubuntu pwd
-                docker exec ubuntu ls -lh
+                docker exec ubuntu ls -lhR
 
             - run: |
                 pwd
-                ls -lh
+                ls -lhR
 
             - uses: peter-evans/create-pull-request@v5
               with:
