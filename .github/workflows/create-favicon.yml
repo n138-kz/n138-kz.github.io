@@ -30,7 +30,7 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y install ffmpeg imagemagick
 
-            - run: docker exec ubuntu ffmpeg -v
+            - run: docker exec ubuntu ffmpeg -version
 
             - run: docker exec ubuntu pwd
 
