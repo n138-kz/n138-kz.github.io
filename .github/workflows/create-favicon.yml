@@ -50,6 +50,8 @@ jobs:
 
             - run: docker exec ubuntu rm -f n138-kz.png
 
+            - run: mv n138-kz.ico favicon.ico
+
             - run: |
                 docker exec ubuntu pwd
                 docker exec ubuntu ls -lhR
