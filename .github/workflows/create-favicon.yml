@@ -22,6 +22,6 @@ jobs:
 
             - run: od n138-kz.png
 
-            - run: docker run --name ubuntu --mount type=bind,source=./,target=/media -w /media -d ubuntu
+            - run: docker run --name ubuntu --mount type=bind,source=./,target=/media -w /media -d ubuntu /bin/bash
 
             - run: docker exec ubuntu apt install ffmpeg
