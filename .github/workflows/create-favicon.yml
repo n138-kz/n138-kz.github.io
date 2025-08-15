@@ -23,4 +23,3 @@ jobs:
             - run: od n138-kz.png
 
 
-            - run: ffmpeg -i n138-kz.png n138-kz.webp
