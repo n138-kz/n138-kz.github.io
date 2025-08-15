@@ -22,4 +22,5 @@ jobs:
 
             - run: od n138-kz.png
 
+            - run: docker run -d ubuntu
 
