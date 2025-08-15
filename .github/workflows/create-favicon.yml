@@ -32,6 +32,8 @@ jobs:
 
             - run: docker exec ubuntu ffmpeg -version
 
+            - run: docker exec ubuntu convert -version
+
             - run: docker exec ubuntu pwd
 
             - run: docker exec ubuntu ls -lh
