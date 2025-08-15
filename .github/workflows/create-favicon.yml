@@ -30,4 +30,4 @@ jobs:
 
             - run: docker exec ubuntu apt-get -y install ffmpeg
 
-            - run: docker exec ubuntu ffmpeg -v
+            - run: docker exec ubuntu pwd
