@@ -53,6 +53,7 @@ jobs:
             node: conoha-tunnel-jp01.n138.jp
         needs: 
             - n138_jp
+            - n138_jp_-dig
         steps:
             - uses: actions/checkout@v4
               with:
@@ -92,6 +93,7 @@ jobs:
             node: conoha-service-jp01.n138.jp
         needs: 
             - n138_jp
+            - n138_jp_-dig
         steps:
             - uses: actions/checkout@v4
               with:
