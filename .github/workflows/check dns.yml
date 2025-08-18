@@ -92,6 +92,8 @@ jobs:
         runs-on: ubuntu-latest
         env:
             node: r7pgzppfk5fnpidc.n138.jp
+        needs:
+          - conoha-tunnel-jp01_n138_jp
         steps:
             - uses: actions/checkout@v4
               with:
@@ -118,6 +120,8 @@ jobs:
         runs-on: ubuntu-latest
         env:
             node: j26jags6cbhxpw64.n138.jp
+        needs:
+          - conoha-service-jp01_n138_jp
         steps:
             - uses: actions/checkout@v4
               with:
