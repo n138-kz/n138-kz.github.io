@@ -20,6 +20,17 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
+    n138_jp_-dig:
+        runs-on: ubuntu-latest
+        env:
+            node: n138.jp
+        needs: 
+            - n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -48,6 +59,17 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
+    conoha-tunnel-jp01_n138_jp_-dig:
+        runs-on: ubuntu-latest
+        env:
+            node: conoha-tunnel-jp01.n138.jp
+        needs: 
+            - conoha-tunnel-jp01_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -76,6 +98,17 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
+    conoha-service-jp01_n138_jp_-dig:
+        runs-on: ubuntu-latest
+        env:
+            node: conoha-service-jp01.n138.jp
+        needs: 
+            - conoha-service-jp01_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
