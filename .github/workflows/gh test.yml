@@ -10,6 +10,21 @@ permissions:
 jobs:
     n138_jp:
         runs-on: ubuntu-latest
+        env:
+            node: 
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - run: nslookup ${{ env.node }}n138.jp
+            - run: dig ${{ env.node }}n138.jp in soa
+            - run: dig ${{ env.node }}n138.jp in ns
+            - run: dig ${{ env.node }}n138.jp in a
+            - run: dig ${{ env.node }}n138.jp in aaaa
+            - run: dig ${{ env.node }}n138.jp in cname
+            - run: dig ${{ env.node }}n138.jp in txt
+            - run: dig ${{ env.node }}n138.jp in srv
         steps:
             - uses: actions/checkout@v4
               with:
