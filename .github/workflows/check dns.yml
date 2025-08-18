@@ -57,6 +57,7 @@ jobs:
               with:
                 ref: main
 
+            - run: apt-get install -y whois
             - name: whois
               run: whois ${{ env.node }}
 
@@ -107,6 +108,7 @@ jobs:
               with:
                 ref: main
 
+            - run: apt-get install -y whois
             - name: whois
               run: whois ${{ env.node }}
 
@@ -157,6 +159,7 @@ jobs:
               with:
                 ref: main
 
+            - run: apt-get install -y whois
             - name: whois
               run: whois ${{ env.node }}
 
@@ -207,6 +210,7 @@ jobs:
               with:
                 ref: main
 
+            - run: apt-get install -y whois
             - name: whois
               run: whois ${{ env.node }}
 
@@ -257,5 +261,6 @@ jobs:
               with:
                 ref: main
 
+            - run: apt-get install -y whois
             - name: whois
               run: whois ${{ env.node }}
