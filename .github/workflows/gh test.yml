@@ -1,4 +1,4 @@
-name: check the dns
+name: Check the dns
 
 on:
     workflow_dispatch:
