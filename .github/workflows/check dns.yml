@@ -21,17 +21,6 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
-    n138_jp_-dig:
-        runs-on: ubuntu-latest
-        env:
-            node: n138.jp
-        needs: 
-            - n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -46,20 +35,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    n138_jp_-whois:
-        runs-on: ubuntu-latest
-        env:
-            node: n138.jp
-        needs: 
-            - n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
-            - run: apt-get install -y whois
-            - name: whois
-              run: whois ${{ env.node }}
 
     conoha-tunnel-jp01_n138_jp:
         runs-on: ubuntu-latest
@@ -72,17 +47,6 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
-    conoha-tunnel-jp01_n138_jp_-dig:
-        runs-on: ubuntu-latest
-        env:
-            node: conoha-tunnel-jp01.n138.jp
-        needs: 
-            - conoha-tunnel-jp01_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -97,20 +61,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    conoha-tunnel-jp01_n138_jp_-whois:
-        runs-on: ubuntu-latest
-        env:
-            node: conoha-tunnel-jp01.n138.jp
-        needs: 
-            - conoha-tunnel-jp01_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
-            - run: apt-get install -y whois
-            - name: whois
-              run: whois ${{ env.node }}
 
     conoha-service-jp01_n138_jp:
         runs-on: ubuntu-latest
@@ -123,17 +73,6 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
-    conoha-service-jp01_n138_jp_-dig:
-        runs-on: ubuntu-latest
-        env:
-            node: conoha-service-jp01.n138.jp
-        needs: 
-            - conoha-service-jp01_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -148,20 +87,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    conoha-service-jp01_n138_jp_-whois:
-        runs-on: ubuntu-latest
-        env:
-            node: conoha-service-jp01.n138.jp
-        needs: 
-            - conoha-service-jp01_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
-            - run: apt-get install -y whois
-            - name: whois
-              run: whois ${{ env.node }}
 
     r7pgzppfk5fnpidc_n138_jp:
         runs-on: ubuntu-latest
@@ -174,17 +99,6 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
-    r7pgzppfk5fnpidc_n138_jp_-dig:
-        runs-on: ubuntu-latest
-        env:
-            node: r7pgzppfk5fnpidc.n138.jp
-        needs: 
-            - r7pgzppfk5fnpidc_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -199,20 +113,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    r7pgzppfk5fnpidc_n138_jp_-whois:
-        runs-on: ubuntu-latest
-        env:
-            node: r7pgzppfk5fnpidc.n138.jp
-        needs: 
-            - r7pgzppfk5fnpidc_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
-            - run: apt-get install -y whois
-            - name: whois
-              run: whois ${{ env.node }}
 
     j26jags6cbhxpw64_n138_jp:
         runs-on: ubuntu-latest
@@ -225,17 +125,6 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
-    j26jags6cbhxpw64_n138_jp_-dig:
-        runs-on: ubuntu-latest
-        env:
-            node: j26jags6cbhxpw64.n138.jp
-        needs: 
-            - j26jags6cbhxpw64_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -250,17 +139,3 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    j26jags6cbhxpw64_n138_jp_-whois:
-        runs-on: ubuntu-latest
-        env:
-            node: j26jags6cbhxpw64.n138.jp
-        needs: 
-            - j26jags6cbhxpw64_n138_jp
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
-            - run: apt-get install -y whois
-            - name: whois
-              run: whois ${{ env.node }}
