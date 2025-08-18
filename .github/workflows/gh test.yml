@@ -17,6 +17,7 @@ jobs:
 
             - run: nslookup n138.jp
             - run: dig n138.jp in soa
+            - run: dig n138.jp in ns
             - run: dig n138.jp in a
             - run: dig n138.jp in aaaa
             - run: dig n138.jp in cname
