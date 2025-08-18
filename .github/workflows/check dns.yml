@@ -36,18 +36,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    n138_jp_1:
-        runs-on: ubuntu-latest
-        env:
-            node: n138.jp
-        needs:
-          - n138_jp
-        timeout-minutes: 1
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: curl
               run: curl ${{ env.node }}
 
@@ -79,18 +67,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    conoha-tunnel-jp01_n138_jp_1:
-        runs-on: ubuntu-latest
-        env:
-            node: conoha-tunnel-jp01.n138.jp
-        needs:
-          - conoha-tunnel-jp01_n138_jp
-        timeout-minutes: 1
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: curl
               run: curl ${{ env.node }}
 
@@ -122,18 +98,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    conoha-service-jp01_n138_jp_1:
-        runs-on: ubuntu-latest
-        env:
-            node: conoha-service-jp01.n138.jp
-        needs:
-          - conoha-service-jp01_n138_jp
-        timeout-minutes: 1
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: curl
               run: curl ${{ env.node }}
 
@@ -165,18 +129,6 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    r7pgzppfk5fnpidc_n138_jp_1:
-        runs-on: ubuntu-latest
-        env:
-            node: r7pgzppfk5fnpidc.n138.jp
-        needs:
-          - r7pgzppfk5fnpidc_n138_jp
-        timeout-minutes: 1
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: curl
               run: curl ${{ env.node }}
 
@@ -208,17 +160,5 @@ jobs:
               run: dig ${{ env.node }} in txt
             - name: dig SRV
               run: dig ${{ env.node }} in srv
-    j26jags6cbhxpw64_n138_jp_1:
-        runs-on: ubuntu-latest
-        env:
-            node: j26jags6cbhxpw64.n138.jp
-        needs:
-          - j26jags6cbhxpw64_n138_jp
-        timeout-minutes: 1
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                ref: main
-
             - name: curl
               run: curl ${{ env.node }}
