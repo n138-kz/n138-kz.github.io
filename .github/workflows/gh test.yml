@@ -15,9 +15,9 @@ jobs:
               with:
                 ref: main
 
-            - run: nslookup n138.jp in soa
-            - run: nslookup n138.jp in a
-            - run: nslookup n138.jp in aaaa
-            - run: nslookup n138.jp in cname
-            - run: nslookup n138.jp in txt
-            - run: nslookup n138.jp in srv
+            - run: dig n138.jp in soa
+            - run: dig n138.jp in a
+            - run: dig n138.jp in aaaa
+            - run: dig n138.jp in cname
+            - run: dig n138.jp in txt
+            - run: dig n138.jp in srv
