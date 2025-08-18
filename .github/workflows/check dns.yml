@@ -2,6 +2,7 @@ name: Check the DNS
 
 on:
     workflow_dispatch:
+    push:
     schedule:
         - cron: '0 5 * * *'
 
