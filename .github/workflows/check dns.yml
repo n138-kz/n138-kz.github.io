@@ -138,6 +138,17 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
+    r7pgzppfk5fnpidc_n138_jp_-dig:
+        runs-on: ubuntu-latest
+        env:
+            node: r7pgzppfk5fnpidc.n138.jp
+        needs: 
+            - r7pgzppfk5fnpidc_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
@@ -166,6 +177,17 @@ jobs:
 
             - name: nslookup
               run: nslookup ${{ env.node }}
+    j26jags6cbhxpw64_n138_jp_-dig:
+        runs-on: ubuntu-latest
+        env:
+            node: j26jags6cbhxpw64.n138.jp
+        needs: 
+            - j26jags6cbhxpw64_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
             - name: dig SOA
               run: dig ${{ env.node }} in soa
             - name: dig NS
