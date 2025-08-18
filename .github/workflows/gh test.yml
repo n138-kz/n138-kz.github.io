@@ -3,6 +3,8 @@ name: check the dns
 on:
     workflow_dispatch:
     push:
+    schedule:
+        - cron: '0 5 * * *'
 
 permissions:
     contents: read
