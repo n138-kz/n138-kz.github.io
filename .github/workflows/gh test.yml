@@ -1,0 +1,23 @@
+name: check the dns
+
+on:
+    workflow_dispatch:
+    push:
+
+permissions:
+    contents: read
+
+jobs:
+    dns:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - run: nslookup n138.jp in soa
+            - run: nslookup n138.jp in a
+            - run: nslookup n138.jp in aaaa
+            - run: nslookup n138.jp in cname
+            - run: nslookup n138.jp in txt
+            - run: nslookup n138.jp in srv
