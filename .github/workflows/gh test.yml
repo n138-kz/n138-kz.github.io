@@ -25,16 +25,21 @@ jobs:
             - run: dig ${{ env.node }}n138.jp in cname
             - run: dig ${{ env.node }}n138.jp in txt
             - run: dig ${{ env.node }}n138.jp in srv
+
+    conoha-tunnel-jp01_n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: conoha-tunnel-jp01.
         steps:
             - uses: actions/checkout@v4
               with:
                 ref: main
 
-            - run: nslookup n138.jp
-            - run: dig n138.jp in soa
-            - run: dig n138.jp in ns
-            - run: dig n138.jp in a
-            - run: dig n138.jp in aaaa
-            - run: dig n138.jp in cname
-            - run: dig n138.jp in txt
-            - run: dig n138.jp in srv
+            - run: nslookup ${{ env.node }}n138.jp
+            - run: dig ${{ env.node }}n138.jp in soa
+            - run: dig ${{ env.node }}n138.jp in ns
+            - run: dig ${{ env.node }}n138.jp in a
+            - run: dig ${{ env.node }}n138.jp in aaaa
+            - run: dig ${{ env.node }}n138.jp in cname
+            - run: dig ${{ env.node }}n138.jp in txt
+            - run: dig ${{ env.node }}n138.jp in srv
