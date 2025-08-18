@@ -1,0 +1,149 @@
+name: Check the DNS
+
+on:
+    workflow_dispatch:
+    schedule:
+      - cron: '0 5 * * *'
+    push:
+
+permissions:
+    contents: read
+
+jobs:
+    n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: n138.jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: nslookup
+              run: nslookup ${{ env.node }}
+            - name: dig SOA
+              run: dig ${{ env.node }} in soa
+            - name: dig NS
+              run: dig ${{ env.node }} in ns
+            - name: dig A
+              run: dig ${{ env.node }} in a
+            - name: dig AAAA
+              run: dig ${{ env.node }} in aaaa
+            - name: dig CNAME
+              run: dig ${{ env.node }} in cname
+            - name: dig TXT
+              run: dig ${{ env.node }} in txt
+            - name: dig SRV
+              run: dig ${{ env.node }} in srv
+
+    conoha-tunnel-jp01_n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: conoha-tunnel-jp01.n138.jp
+        needs:
+          - n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: nslookup
+              run: nslookup ${{ env.node }}
+            - name: dig SOA
+              run: dig ${{ env.node }} in soa
+            - name: dig NS
+              run: dig ${{ env.node }} in ns
+            - name: dig A
+              run: dig ${{ env.node }} in a
+            - name: dig AAAA
+              run: dig ${{ env.node }} in aaaa
+            - name: dig CNAME
+              run: dig ${{ env.node }} in cname
+            - name: dig TXT
+              run: dig ${{ env.node }} in txt
+            - name: dig SRV
+              run: dig ${{ env.node }} in srv
+
+    conoha-service-jp01_n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: conoha-service-jp01.n138.jp
+        needs:
+          - n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: nslookup
+              run: nslookup ${{ env.node }}
+            - name: dig SOA
+              run: dig ${{ env.node }} in soa
+            - name: dig NS
+              run: dig ${{ env.node }} in ns
+            - name: dig A
+              run: dig ${{ env.node }} in a
+            - name: dig AAAA
+              run: dig ${{ env.node }} in aaaa
+            - name: dig CNAME
+              run: dig ${{ env.node }} in cname
+            - name: dig TXT
+              run: dig ${{ env.node }} in txt
+            - name: dig SRV
+              run: dig ${{ env.node }} in srv
+
+    r7pgzppfk5fnpidc_n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: r7pgzppfk5fnpidc.n138.jp
+        needs:
+          - conoha-tunnel-jp01_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: nslookup
+              run: nslookup ${{ env.node }}
+            - name: dig SOA
+              run: dig ${{ env.node }} in soa
+            - name: dig NS
+              run: dig ${{ env.node }} in ns
+            - name: dig A
+              run: dig ${{ env.node }} in a
+            - name: dig AAAA
+              run: dig ${{ env.node }} in aaaa
+            - name: dig CNAME
+              run: dig ${{ env.node }} in cname
+            - name: dig TXT
+              run: dig ${{ env.node }} in txt
+            - name: dig SRV
+              run: dig ${{ env.node }} in srv
+
+    j26jags6cbhxpw64_n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: j26jags6cbhxpw64.n138.jp
+        needs:
+          - conoha-service-jp01_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: nslookup
+              run: nslookup ${{ env.node }}
+            - name: dig SOA
+              run: dig ${{ env.node }} in soa
+            - name: dig NS
+              run: dig ${{ env.node }} in ns
+            - name: dig A
+              run: dig ${{ env.node }} in a
+            - name: dig AAAA
+              run: dig ${{ env.node }} in aaaa
+            - name: dig CNAME
+              run: dig ${{ env.node }} in cname
+            - name: dig TXT
+              run: dig ${{ env.node }} in txt
+            - name: dig SRV
+              run: dig ${{ env.node }} in srv
