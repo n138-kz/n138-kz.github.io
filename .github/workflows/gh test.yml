@@ -114,3 +114,30 @@ jobs:
             - name: dig SRV
               run: dig ${{ env.node }}n138.jp in srv
 
+    j26jags6cbhxpw64_n138_jp:
+        runs-on: ubuntu-latest
+        env:
+            node: j26jags6cbhxpw64.
+        needs: 
+            conoha-service-jp01_n138_jp
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: nslookup
+              run: nslookup ${{ env.node }}n138.jp
+            - name: dig SOA
+              run: dig ${{ env.node }}n138.jp in soa
+            - name: dig NS
+              run: dig ${{ env.node }}n138.jp in ns
+            - name: dig A
+              run: dig ${{ env.node }}n138.jp in a
+            - name: dig AAAA
+              run: dig ${{ env.node }}n138.jp in aaaa
+            - name: dig CNAME
+              run: dig ${{ env.node }}n138.jp in cname
+            - name: dig TXT
+              run: dig ${{ env.node }}n138.jp in txt
+            - name: dig SRV
+              run: dig ${{ env.node }}n138.jp in srv
