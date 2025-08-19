@@ -2,6 +2,9 @@ name: Get ISO 8601 Date
 
 on:
   workflow_dispatch:
+  push:
+    paths: 
+      - "iso8601.yml"
 
 jobs:
   iso8601:
