@@ -9,6 +9,8 @@ on:
 jobs:
   iso8601:
     runs-on: ubuntu-latest
+    env:
+      ISO_DATE: ""
     steps:
       - name: Set ISO 8601 date as an environment variable
         id: set_date
