@@ -17,5 +17,5 @@ jobs:
           
       - name: Use the ISO 8601 date variable
         run: |
-          echo "::debug:title=ISO 8601 Date:${ISO_DATE}"
+          echo "::notice title=ISO 8601 Date::The current ISO 8601 date is: ${{ env.ISO_DATE }}"
           echo "The current ISO 8601 date is: ${{ env.ISO_DATE }}"
