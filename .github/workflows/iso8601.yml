@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths: 
-      - "iso8601.yml"
+      - "**.yml"
 
 jobs:
   iso8601:
