@@ -353,18 +353,19 @@
 					try { getListOfGithubPublicRepos(); } catch (error) { console.error(error); };
 				}
 			}, 500);
-setTimeout(async ()=>{
-try {
-request=await fetch('https://ipinfo.io/json');
-response=await request.json();
-json=JSON.stringify(response);
-console.debug(['isJP', await json]);
-document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.ip}" target="_blank">${await json.ip}</a>: ${await json.hostname}`;
-sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',JSON.stringify(json) );
-} catch (error) {
-console.error(error);
-}
-}, 500);
+			setTimeout(async ()=>{
+				try {
+					request=await fetch('https://ipinfo.io/json');
+					response=await request.json();
+					json=JSON.stringify(response);
+					console.debug(['isJP', await json]);
+
+					document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.ip}" target="_blank">${await json.ip}</a>: ${await json.hostname}`;
+					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',JSON.stringify(json) );
+				} catch (error) {
+					console.error(error);
+				}
+			}, 500);
 			setInterval(async ()=>{
 				try {
 					config=localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.' + 'navigator.geolocation' );
