@@ -51,23 +51,23 @@
 
 			response.map(e0=>{
 				let lists=[];
-				lists.push(document.createElement('dl')); // 0
+				lists.push(document.createElement('dl'));
 				lists[lists.length-1].style.marginBlockStart='0';
 				lists[lists.length-1].style.marginBlockEnd='0';
 
-				lists.push(document.createElement('dt')); // 1
+				lists.push(document.createElement('dt'));
 				lists[lists.length-1].innerHTML='';
 				lists[lists.length-1].innerHTML+=`<a href="${e0['html_url']}">${e0['name']}</a>`;
 				lists[lists.length-1].innerHTML+=(e0['homepage']===null||e0['homepage']===undefined||e0['homepage']==false)?'':`<a href="${e0['homepage']}"><img src="./lib/14827.png" style="height: 16px;"></a>`;
 				lists[lists.length-1].style=whiteSpace='no-wrap';
-				lists[lists.length-2].appendChild(lists[lists.length-1]); // 1 --> 0
-				lists.pop(); // 0
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
 
-				lists.push(document.createElement('dd')); // 1
+				lists.push(document.createElement('dd'));
 				lists[lists.length-1].innerText=(e0['description']===null||e0['description']===undefined||e0['description']==false)?'':`${e0['description']}`;
 				lists[lists.length-1].style=whiteSpace='no-wrap';
-				lists[lists.length-2].appendChild(lists[lists.length-1]); // 1 --> 0
-				lists.pop(); // 0
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
 
 				item.appendChild(lists[0]);
 			});
