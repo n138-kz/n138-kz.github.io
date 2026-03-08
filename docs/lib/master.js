@@ -158,7 +158,7 @@ window.addEventListener('DOMContentLoaded', (e)=>{
 window.addEventListener('load', ()=>{
 	let list=[];
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892200357'); /* 251023_Amazon.co.jp通販サイト(アマゾン)_728x90 */
-	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562209'); /* 260308_ソフトバンクオンラインショップ_728x90 */
+	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562209'); /* 260308_ソフトバンクオンラインショップ_728x90 */
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562211'); /* 260308_総合ネット通販 タンタンショップ_300x250 */
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562212'); /* 260308_障がい者就職支援受付窓口_300x250 */
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562213'); /* 260308_トリファ_300x250 */
