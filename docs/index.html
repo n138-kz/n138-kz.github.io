@@ -235,7 +235,7 @@
 					unit: 'ms',
 					status: '',
 				};
-				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${ping_rtt.time}${ping_rtt.unit}`;
+				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.floor(ping_rtt.time*10**3)/10**3}${ping_rtt.unit}`;
 			}
 			{
 				const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
