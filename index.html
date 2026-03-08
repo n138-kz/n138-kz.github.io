@@ -13,11 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="./lib/master.css?t=0" />
 	<script src="./lib/master.js"></script>
 	<title>n138-kz.github.io</title>
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="https://accounts.google.com/gsi/client" async defer></script>
-	<script src="https://www.google.com/recaptcha/api.js?render=6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA"></script>
-	<script src="./lib/grecaptcha.js"></script>
-	<script src="./lib/random.js"></script>
 	<style>
 		h1, h2, h3, h4, h5, h6 {
 			font-family: "Uzura font";
@@ -360,11 +355,11 @@
 			}, 500);
 			setTimeout(async ()=>{
 				try {
-					url = 'https://api.n138.jp/isJP/';
-					json = await http_get_json(url);
-					console.debug(['isJP', await json]);
-					document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.result.request.request}" target="_blank">${await json.result.request.request}</a>: ${await json.result.result.detail}`;
-					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',JSON.stringify(json) );
+					request=await fetch('https://ipinfo.io/json');
+					response=await request.json();
+					console.debug(['isJP', await response]);
+
+					document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await response.ip}" target="_blank">${await response.ip}</a>: ${await response.hostname}`;
 				} catch (error) {
 					console.error(error);
 				}
@@ -390,7 +385,7 @@
 				}
 			}, 1000);
 		}
-		window.addEventListener('DOMContentLoaded', (e1)=>{
+		window.addEventListener('load', (e1)=>{
 			init_setTopMaker();
 			init_setFavicon();
 			setHeader();
