@@ -247,6 +247,10 @@
 
 				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerText=`${response.ip}: ${response.hostname}`;
 			}
+			{
+				const now=new Date();
+				document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
+			}
 		},500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
