@@ -207,6 +207,11 @@
 			item.style.float='left';
 			item.style.marginRight='32px';
 		}
+		setInterval(async ()=>{
+			{
+				document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
+			}
+		},500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
 			try { await getListOfSocialPublicAccounts(); } catch (error) {}
