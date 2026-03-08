@@ -37,9 +37,10 @@
 			}
 		}
 		async function getListOfGithubPublicRepos () {
+			const item = document.getElementById('GithubPublicRepos');
 			const request = await get_API_Item({ url: 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=300', });
 			console.log(await request);
-			if (! Array.isArray(await request.response)) { return; }
+			if (! Array.isArray(await request.response)) { item.remove(); return; }
 
 			gh_repos_list = await request.response;
 			console.log(await gh_repos_list);
@@ -65,7 +66,7 @@
 				lists.pop(); // 0
 
 				console.log(lists[0], e0);
-				document.getElementById('GithubPublicRepos').appendChild(lists[0]);
+				item.appendChild(lists[0]);
 			});
 
 		}
