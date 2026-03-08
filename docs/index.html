@@ -244,7 +244,7 @@
 				response = await request.response;
 				console.debug(await response);
 
-				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerText=`${response.ip}: ${response.hostname}`;
+				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
 			}
 			{
 				const now=new Date();
