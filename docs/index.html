@@ -237,6 +237,16 @@
 				};
 				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${ping_rtt.time}${ping_rtt.unit}`;
 			}
+			{
+				const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
+				console.debug(await request);
+				if (! Array.isArray(await request.response)) { item.remove(); return; }
+
+				response = await request.response;
+				console.debug(await response);
+
+				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerText=`${response.ip}: ${response.hostname}`;
+			}
 		},500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
