@@ -244,42 +244,40 @@
 						document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
 					} catch (error) {}
 					break;
-			
+				case 'debug.detail.networkdelay':
+					try {
+						const ping_rtt_0=Date.now()/10**3;
+						const ping_rtt_xhr=await fetch(`${location.origin}`, {
+							method: 'HEAD',
+							redirect: 'follow',
+							referrerPolicy: 'no-referrer',
+							credentials: 'include',
+						});
+						if ( ! await ping_rtt_xhr.ok ) {
+							throw {
+								title: `HTTP Error: ${ping_rtt_xhr.url}`,
+									url: ping_rtt_xhr.url,
+								ok: await ping_rtt_xhr.ok,
+								message: await ping_rtt_xhr.statusText,
+								code: await ping_rtt_xhr.status,
+								redirected: await ping_rtt_xhr.redirected
+							}
+						}
+						const ping_rtt_1=Date.now()/10**3;
+						const ping_rtt={
+							time: (ping_rtt_1-ping_rtt_0)*10**3,
+							unit: 'ms',
+							status: '',
+						};
+						document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
+					} catch (error) {}
+					break;
 				default:
 					break;
 			}
 		}
 		setInterval(async ()=>RefreshDevOpsFields('debug.detail.screensize'), 1000);
-		setInterval(async ()=>{
-			try {
-				if (true) {
-					const ping_rtt_0=Date.now()/10**3;
-					const ping_rtt_xhr=await fetch(`${location.origin}`, {
-						method: 'HEAD',
-						redirect: 'follow',
-						referrerPolicy: 'no-referrer',
-						credentials: 'include',
-					});
-					if ( ! await ping_rtt_xhr.ok ) {
-						throw {
-							title: `HTTP Error: ${ping_rtt_xhr.url}`,
-								url: ping_rtt_xhr.url,
-							ok: await ping_rtt_xhr.ok,
-							message: await ping_rtt_xhr.statusText,
-							code: await ping_rtt_xhr.status,
-							redirected: await ping_rtt_xhr.redirected
-						}
-					}
-					const ping_rtt_1=Date.now()/10**3;
-					const ping_rtt={
-						time: (ping_rtt_1-ping_rtt_0)*10**3,
-						unit: 'ms',
-						status: '',
-					};
-					document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
-				}
-			} catch (error) {}
-		},500);
+		setInterval(async ()=>RefreshDevOpsFields('debug.detail.networkdelay'), 500);
 		setTimeout(async ()=>{
 			try {
 				if (true) {
