@@ -20,12 +20,21 @@
 	<script>
 		async function get_API_Item(params={}) {
 			if (params.url===undefined) { return; }
-			const request = await fetch(params.url);
-			const response = await request.json();
-			return {
-				request: request,
-				response: response,
-			};
+
+			let request;
+			try {
+				request = await fetch(params.url);
+				let response = await request.json();
+				return {
+					request: request,
+					response: response,
+				};
+			} catch (error) {
+				return {
+					request: request,
+					error: error,
+				};
+			}
 		}
 		async function getListOfGithubPublicRepos () {
 			const request = await get_API_Item({ url: 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=300', });
