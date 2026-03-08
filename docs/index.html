@@ -70,6 +70,9 @@
 
 			document.body.appendChild(lists[0]);
 		}
+		window.addEventListener('DOMContentLoaded', (e)=>{
+			getListOfGithubPublicRepos()
+		});
 		async function old_getListOfGithubPublicRepos() {
 			const wrap = document.querySelector('#GithubPublicRepos');
 			wrap.innerText = null;
