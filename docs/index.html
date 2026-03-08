@@ -243,7 +243,7 @@
 					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
 				}
 			} catch (error) {}
-		},500);
+		},1000);
 		setInterval(async ()=>{
 			try {
 				if (true) {
@@ -299,7 +299,7 @@
 					document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${new Date(response.rate.reset*10**3).toLocaleString()}`;
 				}
 			} catch (error) {}
-		},500);
+		},10000);
 		setInterval(async ()=>{
 			try {
 				if (true) {
