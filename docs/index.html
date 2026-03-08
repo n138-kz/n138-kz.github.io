@@ -42,6 +42,10 @@
 			console.log(await request);
 			if (! Array.isArray(await request.response)) { item.remove(); return; }
 
+			item_header=document.createElement('h2');
+			item_header.innerText='GitHub Public Repos';
+			item.appendChild(item_header);
+
 			gh_repos_list = await request.response;
 			console.log(await gh_repos_list);
 
@@ -76,8 +80,6 @@
 	</script>
 </head>
 <body>
-	<div id="GithubPublicRepos">
-		<h2>GitHub Public Repos</h2>
-	</div>
+	<div id="GithubPublicRepos"></div>
 </body>
 </html>
