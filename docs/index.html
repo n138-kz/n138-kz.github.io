@@ -272,25 +272,24 @@
 						document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
 					} catch (error) {}
 					break;
+				case 'debug.detail.clientaddr':
+					try {
+						const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
+						console.debug(await request);
+				
+						response = await request.response;
+						console.debug(await response);
+				
+						document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
+					} catch (error) {}
+					break;
 				default:
 					break;
 			}
 		}
 		setInterval(async ()=>RefreshDevOpsFields('debug.detail.screensize'), 1000);
 		setInterval(async ()=>RefreshDevOpsFields('debug.detail.networkdelay'), 500);
-		setTimeout(async ()=>{
-			try {
-				if (true) {
-					const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
-					console.debug(await request);
-
-					response = await request.response;
-					console.debug(await response);
-
-					document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
-				}
-			} catch (error) {}
-		},500);
+		setTimeout(async ()=>RefreshDevOpsFields('debug.detail.clientaddr'), 500);
 		setInterval(async ()=>{
 			try {
 				if (true) {
