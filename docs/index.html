@@ -238,13 +238,15 @@
 				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
 			} catch (error) {}
 			try {
-				const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
-				console.debug(await request);
+				if (false) {
+					const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
+					console.debug(await request);
 
-				response = await request.response;
-				console.debug(await response);
+					response = await request.response;
+					console.debug(await response);
 
-				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
+					document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
+				}
 			} catch (error) {}
 			try {
 				const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
