@@ -240,7 +240,6 @@
 			{
 				const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
 				console.debug(await request);
-				if (! Array.isArray(await request.response)) { item.remove(); return; }
 
 				response = await request.response;
 				console.debug(await response);
