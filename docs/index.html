@@ -75,7 +75,7 @@
 
 		}
 		async function getListOfSocialPublicAccounts() {
-			const item = document.getElementById('GithubPublicRepos');
+			const item = document.getElementById('SocialPublicAccounts');
 			const request = await get_API_Item({ url: './lib/sections.json', });
 			console.log(await request);
 			if (! Array.isArray(await request.response)) { item.remove(); return; }
