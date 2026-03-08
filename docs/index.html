@@ -36,7 +36,7 @@
 			gh_repos_list = await request.response;
 			console.log(await gh_repos_list);
 
-			let items=[ 'name', 'description', 'homepage', 'created_at', 'pushed_at', 'updated_at' ];
+			let items=[ 'name', 'description', 'homepage', 'html_url', 'id', 'node_id', 'created_at', 'pushed_at', 'updated_at' ];
 			let lists=[];
 			lists.push(document.createElement('table'));
 			lists[lists.length-1].border=1;
@@ -70,6 +70,21 @@
 				lists.pop();
 				lists.push(document.createElement('td'));
 				lists[lists.length-1].innerText=`${e0['homepage']}`;
+				lists[lists.length-1].style=whiteSpace='no-wrap';
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
+				lists.push(document.createElement('td'));
+				lists[lists.length-1].innerText=`${e0['html_url']}`;
+				lists[lists.length-1].style=whiteSpace='no-wrap';
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
+				lists.push(document.createElement('td'));
+				lists[lists.length-1].innerText=`${e0['id']}`;
+				lists[lists.length-1].style=whiteSpace='no-wrap';
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
+				lists.push(document.createElement('td'));
+				lists[lists.length-1].innerText=`${e0['node_id']}`;
 				lists[lists.length-1].style=whiteSpace='no-wrap';
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
