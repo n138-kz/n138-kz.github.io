@@ -266,7 +266,7 @@
 			try {
 				if (true) {
 					const now=new Date();
-					document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
+					document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${('000'+now.getMilliseconds()).substr(-3)}`;
 				}
 			} catch (error) {}
 		},500);
