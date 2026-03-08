@@ -211,6 +211,31 @@
 			{
 				document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
 			}
+			{
+				const ping_rtt_0=Date.now()/10**3;
+				const ping_rtt_xhr=await fetch(`${location.origin}`, {
+					method: 'HEAD',
+					redirect: 'follow',
+					referrerPolicy: 'no-referrer',
+					credentials: 'include',
+				});
+				if ( ! await ping_rtt_xhr.ok ) {
+					throw {
+						title: `HTTP Error: ${ping_rtt_xhr.url}`,
+							url: ping_rtt_xhr.url,
+						ok: await ping_rtt_xhr.ok,
+						message: await ping_rtt_xhr.statusText,
+						code: await ping_rtt_xhr.status,
+						redirected: await ping_rtt_xhr.redirected
+					}
+				}
+				const ping_rtt_1=Date.now()/10**3;
+				const ping_rtt={
+					time: (ping_rtt_1-ping_rtt_0)*10**3,
+					unit: 'ms',
+					status: '',
+				};
+			}
 		},500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
