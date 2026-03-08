@@ -36,6 +36,45 @@
 				};
 			}
 		}
+		async function getListOfSocialPublicAccounts() {
+			const item = document.getElementById('SocialPublicAccounts');
+			const request = await get_API_Item({ url: './lib/sections.json', });
+			console.debug(await request);
+			if (! Array.isArray(await request.response)) { item.remove(); return; }
+			
+			item_header=document.createElement('h2');
+			item_header.innerText='Navigation';
+			item.appendChild(item_header);
+			
+			response = await request.response;
+			console.debug(await response);
+			
+			let stracture=[];
+			stracture[0]=document.createElement('div');
+			stracture[0].style.marginLeft='32px';
+			response.map(e0=>{
+				stracture[1]=document.createElement('li');
+				stracture[1].style.listStyleType='none';
+				stracture[2]=document.createElement('a');
+				stracture[2].href=`${e0.url}`;
+				stracture[2].target=`_blank`;
+				
+				stracture[3]=document.createElement('img');
+				stracture[3].src=`${e0.favicon}`;
+				stracture[3].style.height=`1.5em`;
+				stracture[3].style.display=`inline-block`;
+				stracture[2].appendChild(stracture[3]);
+				
+				stracture[3]=document.createTextNode(`${e0.name}`);
+				stracture[2].appendChild(stracture[3]);
+				
+				stracture[1].appendChild(stracture[2]);
+				
+				stracture[0].appendChild(stracture[1]);
+			});
+			item.appendChild(stracture[0]);
+			item.style.float='left';
+		}
 		async function getListOfGithubPublicRepos () {
 			const item = document.getElementById('GithubPublicRepos');
 			const request = await get_API_Item({ url: 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=300', });
@@ -75,45 +114,6 @@
 				stracture.pop();
 
 				stracture[stracture.length-2].appendChild(stracture[stracture.length-1]);
-			});
-			item.appendChild(stracture[0]);
-			item.style.float='left';
-		}
-		async function getListOfSocialPublicAccounts() {
-			const item = document.getElementById('SocialPublicAccounts');
-			const request = await get_API_Item({ url: './lib/sections.json', });
-			console.debug(await request);
-			if (! Array.isArray(await request.response)) { item.remove(); return; }
-
-			item_header=document.createElement('h2');
-			item_header.innerText='Navigation';
-			item.appendChild(item_header);
-
-			response = await request.response;
-			console.debug(await response);
-
-			let stracture=[];
-			stracture[0]=document.createElement('div');
-			stracture[0].style.marginLeft='32px';
-			response.map(e0=>{
-				stracture[1]=document.createElement('li');
-				stracture[1].style.listStyleType='none';
-				stracture[2]=document.createElement('a');
-				stracture[2].href=`${e0.url}`;
-				stracture[2].target=`_blank`;
-
-				stracture[3]=document.createElement('img');
-				stracture[3].src=`${e0.favicon}`;
-				stracture[3].style.height=`1.5em`;
-				stracture[3].style.display=`inline-block`;
-				stracture[2].appendChild(stracture[3]);
-
-				stracture[3]=document.createTextNode(`${e0.name}`);
-				stracture[2].appendChild(stracture[3]);
-
-				stracture[1].appendChild(stracture[2]);
-
-				stracture[0].appendChild(stracture[1]);
 			});
 			item.appendChild(stracture[0]);
 			item.style.float='left';
