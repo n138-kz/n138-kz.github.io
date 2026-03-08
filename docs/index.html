@@ -210,35 +210,35 @@
 		setInterval(async ()=>{
 			try {
 				if (false) {
-				document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
+					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
 				}
 			} catch (error) {}
 			try {
 				if (false) {
-				const ping_rtt_0=Date.now()/10**3;
-				const ping_rtt_xhr=await fetch(`${location.origin}`, {
-					method: 'HEAD',
-					redirect: 'follow',
-					referrerPolicy: 'no-referrer',
-					credentials: 'include',
-				});
-				if ( ! await ping_rtt_xhr.ok ) {
-					throw {
-						title: `HTTP Error: ${ping_rtt_xhr.url}`,
-							url: ping_rtt_xhr.url,
-						ok: await ping_rtt_xhr.ok,
-						message: await ping_rtt_xhr.statusText,
-						code: await ping_rtt_xhr.status,
-						redirected: await ping_rtt_xhr.redirected
+					const ping_rtt_0=Date.now()/10**3;
+					const ping_rtt_xhr=await fetch(`${location.origin}`, {
+						method: 'HEAD',
+						redirect: 'follow',
+						referrerPolicy: 'no-referrer',
+						credentials: 'include',
+					});
+					if ( ! await ping_rtt_xhr.ok ) {
+						throw {
+							title: `HTTP Error: ${ping_rtt_xhr.url}`,
+								url: ping_rtt_xhr.url,
+							ok: await ping_rtt_xhr.ok,
+							message: await ping_rtt_xhr.statusText,
+							code: await ping_rtt_xhr.status,
+							redirected: await ping_rtt_xhr.redirected
+						}
 					}
-				}
-				const ping_rtt_1=Date.now()/10**3;
-				const ping_rtt={
-					time: (ping_rtt_1-ping_rtt_0)*10**3,
-					unit: 'ms',
-					status: '',
-				};
-				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
+					const ping_rtt_1=Date.now()/10**3;
+					const ping_rtt={
+						time: (ping_rtt_1-ping_rtt_0)*10**3,
+						unit: 'ms',
+						status: '',
+					};
+					document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
 				}
 			} catch (error) {}
 			try {
@@ -254,19 +254,19 @@
 			} catch (error) {}
 			try {
 				if (false) {
-				const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
-				console.debug(await request);
+					const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
+					console.debug(await request);
 
-				response = await request.response;
-				console.debug(await response);
+					response = await request.response;
+					console.debug(await response);
 
-				document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${response.rate.reset}`;
+					document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${response.rate.reset}`;
 				}
 			} catch (error) {}
 			try {
 				if (false) {
-				const now=new Date();
-				document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
+					const now=new Date();
+					document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
 				}
 			} catch (error) {}
 		},500);
