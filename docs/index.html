@@ -238,7 +238,7 @@
 			item.style.marginRight='32px';
 		}
 		async function RefreshDevOpsFields(params='') {
-			switch (key) {
+			switch (params) {
 				case 'debug.detail.screensize':
 					try {
 						document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
