@@ -358,7 +358,7 @@
 					request=await fetch('https://ipinfo.io/json');
 					response=await request.json();
 					json=JSON.stringify(response);
-					console.debug(['isJP', await json]);
+					console.debug(['isJP', await json, await response]);
 
 					document.querySelector('#debug_yourip').innerHTML = `<a href="https://ipinfo.io/${await json.ip}" target="_blank">${await json.ip}</a>: ${await json.hostname}`;
 					sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.' + 'debug.isJP',JSON.stringify(json) );
