@@ -44,7 +44,7 @@
 				lists.push(document.createElement('td'));
 				lists[lists.length-1].innerText=`${e0.created_at}`;
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists[lists.length-1].pop();
+				lists.pop();
 			});
 			console.log(lists);
 		}
