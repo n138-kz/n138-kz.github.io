@@ -235,6 +235,7 @@
 					unit: 'ms',
 					status: '',
 				};
+				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${ping_rtt.time}${ping_rtt.unit}`;
 			}
 		},500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
