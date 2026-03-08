@@ -59,7 +59,7 @@
 				lists.push(document.createElement('tr'));
 
 				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0['name']}`;
+				lists[lists.length-1].innerHTML=`<a href="${e0['html_url']}">${e0['name']}</a>`;
 				lists[lists.length-1].style=whiteSpace='no-wrap';
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
