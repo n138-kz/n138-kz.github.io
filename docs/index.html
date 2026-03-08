@@ -36,7 +36,16 @@
 			gh_repos_list = await request.response;
 			console.log(await gh_repos_list);
 
-			
+			let lists=[];
+			lists.push(document.createElement('table'));
+			lists.push(document.createElement('tbody'));
+			gh_repos_list.map(e0=>{
+				lists.push(document.createElement('tr'));
+				lists.push(document.createElement('td'));
+				lists[lists.length-1].innerText=`${e0.created_at}`;
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+			});
+			console.log(lists);
 		}
 		async function old_getListOfGithubPublicRepos() {
 			const wrap = document.querySelector('#GithubPublicRepos');
