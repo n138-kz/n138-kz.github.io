@@ -247,6 +247,9 @@
 				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
 			}
 			{
+				document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`<br>`;
+			}
+			{
 				const now=new Date();
 				document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
 			}
