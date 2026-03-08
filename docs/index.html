@@ -64,7 +64,7 @@
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
 				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=(e0['description']===null||e0['description']===undefined||e0['description']==false)?'Null: Yes':'';
+				lists[lists.length-1].innerText=(e0['description']===null||e0['description']===undefined||e0['description']==false)?'':`${e0['description']}`;
 				lists[lists.length-1].style=whiteSpace='no-wrap';
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
