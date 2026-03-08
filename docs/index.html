@@ -213,6 +213,8 @@
 					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
 				}
 			} catch (error) {}
+		},500);
+		setInterval(async ()=>{
 			try {
 				if (true) {
 					const ping_rtt_0=Date.now()/10**3;
@@ -241,6 +243,8 @@
 					document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
 				}
 			} catch (error) {}
+		},500);
+		setInterval(async ()=>{
 			try {
 				if (false) {
 					const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
@@ -252,6 +256,8 @@
 					document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
 				}
 			} catch (error) {}
+		},500);
+		setInterval(async ()=>{
 			try {
 				if (true) {
 					const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
@@ -263,6 +269,8 @@
 					document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${new Date(response.rate.reset*10**3).toLocaleString()}`;
 				}
 			} catch (error) {}
+		},500);
+		setInterval(async ()=>{
 			try {
 				if (true) {
 					const now=new Date();
