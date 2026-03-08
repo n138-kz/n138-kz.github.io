@@ -120,14 +120,25 @@
 			item.style.float='left';
 			item.style.marginRight='32px';
 		}
+		await function BuildDevOpsFields() {
+			const item = document.getElementById('DevOpsFields');
+
+			item_header=document.createElement('h2');
+			item_header.innerText='Details';
+			item.appendChild(item_header);
+			
+			let stracture=[];
+		}
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
 			try { await getListOfSocialPublicAccounts(); } catch (error) {}
+			try { await BuildDevOpsFields(); } catch (error) {}
 		});
 	</script>
 </head>
 <body>
 	<div id="SocialPublicAccounts"></div>
 	<div id="GithubPublicRepos"></div>
+	<div id="DevOpsFields"></div>
 </body>
 </html>
