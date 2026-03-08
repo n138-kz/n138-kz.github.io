@@ -128,6 +128,28 @@
 			item.appendChild(item_header);
 			
 			let stracture=[];
+			stracture.push(document.createElement('div'));
+			stracture[0].style.marginLeft='32px';
+			{
+				stracture[1]=document.createElement('table');
+				stracture[2]=document.createElement('tbody');
+				stracture[3]=document.createElement('tr');
+				stracture[4]=document.createElement('th');
+				stracture[4].innerText=`Ping`;
+				stracture[3].appendChild(stracture[4]);
+				stracture[4]=document.createElement('td');
+				stracture[4].innerText=`> 999 ms`;
+				stracture[3].appendChild(stracture[4]);
+
+				stracture[2].appendChild(stracture[3]);
+
+				stracture[1].appendChild(stracture[2]);
+
+				stracture[0].appendChild(stracture[1]);
+			}
+			item.appendChild(stracture[0]);
+			item.style.float='left';
+			item.style.marginRight='32px';
 		}
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
