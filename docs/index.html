@@ -46,10 +46,10 @@
 			item_header.innerText='GitHub Public Repos';
 			item.appendChild(item_header);
 
-			gh_repos_list = await request.response;
-			console.log(await gh_repos_list);
+			response = await request.response;
+			console.log(await response);
 
-			gh_repos_list.map(e0=>{
+			response.map(e0=>{
 				let lists=[];
 				lists.push(document.createElement('dl')); // 0
 				lists[lists.length-1].style.marginBlockStart='0';
