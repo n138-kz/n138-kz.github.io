@@ -210,7 +210,7 @@
 		setInterval(async ()=>{
 			try {
 				if (true) {
-					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
+					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
 				}
 			} catch (error) {}
 			try {
