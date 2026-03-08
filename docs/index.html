@@ -49,8 +49,10 @@
 			response = await request.response;
 			console.debug(await response);
 
+			let lists=[];
+			lists.push(document.createElement('div'));
+			lists[0].style.marginLeft='32px';
 			response.map(e0=>{
-				let lists=[];
 				lists.push(document.createElement('dl'));
 				lists[lists.length-1].style.marginBlockStart='0';
 				lists[lists.length-1].style.marginBlockEnd='0';
@@ -69,8 +71,9 @@
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
 
-				item.appendChild(lists[0]);
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
 			});
+			item.appendChild(lists[0]);
 
 		}
 		async function getListOfSocialPublicAccounts() {
