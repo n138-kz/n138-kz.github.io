@@ -65,7 +65,13 @@
 				lists[lists.length-1].innerText=`${e0.updated_at}`;
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
 			});
+			lists[lists.length-2].appendChild(lists[lists.length-1]);
+			lists.pop();
+			lists[lists.length-2].appendChild(lists[lists.length-1]);
+			lists.pop();
 			console.log(lists);
 		}
 		async function old_getListOfGithubPublicRepos() {
