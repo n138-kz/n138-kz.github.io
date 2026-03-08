@@ -283,6 +283,17 @@
 						document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
 					} catch (error) {}
 					break;
+				case 'debug.detail.githubapiamount':
+					try {
+						const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
+						console.debug(await request);
+				
+						response = await request.response;
+						console.debug(await response);
+				
+						document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${new Date(response.rate.reset*10**3).toLocaleString()}`;
+					} catch (error) {}
+					break;
 				default:
 					break;
 			}
@@ -293,24 +304,12 @@
 		setInterval(async ()=>{
 			try {
 				if (true) {
-					const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
-					console.debug(await request);
-
-					response = await request.response;
-					console.debug(await response);
-
-					document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${new Date(response.rate.reset*10**3).toLocaleString()}`;
-				}
-			} catch (error) {}
-		},1000);
-		setInterval(async ()=>{
-			try {
-				if (true) {
 					const now=new Date();
 					document.querySelector(`[data-id="debug.detail.localtime"]`).innerHTML=`${now.toLocaleString()}.${('000'+now.getMilliseconds()).substr(-3)}<br>${Math.trunc(now.getTime()/10**3)}`;
 				}
 			} catch (error) {}
 		},500);
+		setInterval(async ()=>RefreshDevOpsFields('debug.detail.githubapiamount'), 1000);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
 			try { await getListOfSocialPublicAccounts(); } catch (error) {}
