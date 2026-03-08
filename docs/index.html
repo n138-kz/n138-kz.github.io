@@ -87,24 +87,27 @@
 			console.debug(await response);
 
 			let stracture=[];
+			stracture[0]=document.createElement('div');
+			stracture[0].style.marginLeft='10px';
 			response.map(e0=>{
-				stracture[0]=document.createElement('li');
-				stracture[1]=document.createElement('a');
-				stracture[1].href=`${e0.url}`;
-				stracture[1].target=`_blank`;
+				stracture[1]=document.createElement('li');
+				stracture[2]=document.createElement('a');
+				stracture[2].href=`${e0.url}`;
+				stracture[2].target=`_blank`;
 
-				stracture[2]=document.createElement('img');
-				stracture[2].src=`${e0.favicon}`;
-				stracture[2].style.height=`1.5em`;
-				stracture[1].appendChild(stracture[2]);
+				stracture[3]=document.createElement('img');
+				stracture[3].src=`${e0.favicon}`;
+				stracture[3].style.height=`1.5em`;
+				stracture[2].appendChild(stracture[3]);
 
-				stracture[2]=document.createTextNode(`${e0.name}`);
+				stracture[3]=document.createTextNode(`${e0.name}`);
+				stracture[2].appendChild(stracture[3]);
+
 				stracture[1].appendChild(stracture[2]);
 
 				stracture[0].appendChild(stracture[1]);
-
-				item.appendChild(stracture[0]);
 			});
+			item.appendChild(stracture[0]);
 		}
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
