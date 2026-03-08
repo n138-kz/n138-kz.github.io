@@ -50,6 +50,8 @@
 			});
 			lists[lists.length-2].appendChild(lists[lists.length-1]);
 			lists.pop();
+			lists[lists.length-2].appendChild(lists[lists.length-1]);
+			lists.pop();
 			lists.push(document.createElement('tbody'));
 			gh_repos_list.map(e0=>{
 				lists.push(document.createElement('tr'));
