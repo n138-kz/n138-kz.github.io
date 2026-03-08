@@ -74,6 +74,7 @@
 			});
 			item.appendChild(stracture[0]);
 			item.style.float='left';
+			item.style.marginRight='32px';
 		}
 		async function getListOfGithubPublicRepos () {
 			const item = document.getElementById('GithubPublicRepos');
@@ -117,6 +118,7 @@
 			});
 			item.appendChild(stracture[0]);
 			item.style.float='left';
+			item.style.marginRight='32px';
 		}
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
