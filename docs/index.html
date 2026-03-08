@@ -237,13 +237,19 @@
 			item.style.float='left';
 			item.style.marginRight='32px';
 		}
-		setInterval(async ()=>{
-			try {
-				if (true) {
-					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
-				}
-			} catch (error) {}
-		},1000);
+		async function RefreshDevOpsFields(params='') {
+			switch (key) {
+				case 'debug.detail.screensize':
+					try {
+						document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.querySelector('html').clientWidth}x${document.querySelector('html').clientHeight}`;
+					} catch (error) {}
+					break;
+			
+				default:
+					break;
+			}
+		}
+		setInterval(async ()=>RefreshDevOpsFields(),1000);
 		setInterval(async ()=>{
 			try {
 				if (true) {
