@@ -36,35 +36,28 @@
 			gh_repos_list = await request.response;
 			console.log(await gh_repos_list);
 
+			let items=[ 'name', 'description', 'homepage', 'created_at', 'pushed_at', 'updated_at' ];
 			let lists=[];
 			lists.push(document.createElement('table'));
+			lists.push(document.createElement('thead'));
+			lists.push(document.createElement('tr'));
+			items.map(e0=>{
+				lists.push(document.createElement('td'));
+				lists[lists.length-1].innerText=`${e0}`;
+				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				lists.pop();
+			});
+			lists[lists.length-2].appendChild(lists[lists.length-1]);
+			lists.pop();
 			lists.push(document.createElement('tbody'));
 			gh_repos_list.map(e0=>{
 				lists.push(document.createElement('tr'));
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0.name}`;
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0.description}`;
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0.homepage}`;
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0.created_at}`;
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0.pushed_at}`;
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerText=`${e0.updated_at}`;
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
+				items.map(e1=>{
+					lists.push(document.createElement('td'));
+					lists[lists.length-1].innerText=`${e0[e1]}`;
+					lists[lists.length-2].appendChild(lists[lists.length-1]);
+					lists.pop();
+				});
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
 			});
