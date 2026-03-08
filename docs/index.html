@@ -87,7 +87,18 @@
 			response = await request.response;
 			console.log(await response);
 
+			let stracture=[];
 			response.map(e0=>{
+				stracture[0]=document.createElement('li');
+				stracture[1]=document.createElement('a');
+				stracture[2]=document.createElement('img');
+				stracture[2].src=`${e0.favicon}`;
+				stracture[2].alt=``;
+				stracture[1].appendChild(stracture[2]);
+				stracture[1].href=`${e0.url}`;
+				stracture[1].target=`_blank`;
+				stracture[1].innerText=`${e0.name}`;
+				stracture[0].appendChild(stracture[1]);
 			});
 		}
 		window.addEventListener('DOMContentLoaded', async (e)=>{
