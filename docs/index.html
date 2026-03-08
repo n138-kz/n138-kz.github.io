@@ -52,7 +52,6 @@
 				lists.pop(); // 0
 
 				console.log(lists, e0);
-				
 				document.body.appendChild(lists);
 			});
 
@@ -60,74 +59,6 @@
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			await getListOfGithubPublicRepos()
 		});
-		async function old_getListOfGithubPublicRepos() {
-			const wrap = document.querySelector('#GithubPublicRepos');
-			wrap.innerText = null;
-			wrap.dataset.id = getRandomLowerString(16);
-
-			let line = null;
-			let link = null;
-			let object = null;
-			let block = null;
-			let line2 = null;
-
-			line = document.createElement('h2');
-			line.innerText = 'GitHub Public Repos';
-			wrap.appendChild(line);
-
-			let url = 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100';
-			let json = null;
-			try {
-				json = await http_get_json(url);
-				await json.map((item)=>{});
-				sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos', JSON.stringify(json) );
-				console.debug('GithubPublicRepos has loaded from MASTER', await json);
-			} catch (error) {
-				json = JSON.parse(sessionStorage.setItem( (btoa(location.href)).slice(0, 16) + '.'+'github.publicrepos'));
-				console.warn('GithubPublicRepos has loaded from LOCAL', json);
-				console.warn(await http_get_json(url, 17|32768));
-			}
-
-			block = document.createElement('table');
-			block.classList.add('navigation');
-			block.classList.add('font_azuki');
-			block.style.whiteSpace = 'normal';
-			await json.map( async (item)=>{
-				line = document.createElement('tr');
-
-				line2 = document.createElement('td');
-				link = document.createElement('a');
-				link.target = '_blank';
-				link.href = item.html_url;
-				link.innerText = '【GitHub】';
-				link.dataset.url_github = item.html_url;
-				link.dataset.url_pages = item.homepage;
-				link.dataset.date_created = item.created_at;
-				link.dataset.date_updated = item.updated_at;
-				link.dataset.repos_node_id = item.node_id;
-				link.dataset.repos_id = item.id;
-				link.dataset.repos_size = item.size;
-				link.dataset.repos_language = item.language;
-				link.dataset.repos_hooks_url = item.hooks_url;
-				link.dataset.repos_open_issues = item.open_issues_count;
-				line2.appendChild(link);
-				line.appendChild(line2);
-				
-				line2 = document.createElement('td');
-				/* 長いrepo名
-				item.name = (item.name.length > 20) ? item.name.substr(0, 20)+'...' : item.name; */
-				link = document.createElement('a');
-				link.target = '_blank';
-				link.href = item.homepage;
-				link.innerText = '[' + Math.trunc((new Date()/10**3) - (new Date(item.updated_at)/10**3)) + '] ' + item.name;
-				link.innerText = item.name;
-				line2.appendChild(link);
-				line.appendChild(line2);
-
-				block.appendChild(line);
-			} );
-			wrap.appendChild(block);
-		}
 	</script>
 </head>
 <body>
