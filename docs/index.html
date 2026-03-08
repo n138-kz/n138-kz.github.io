@@ -77,6 +77,7 @@
 				stracture[stracture.length-2].appendChild(stracture[stracture.length-1]);
 			});
 			item.appendChild(stracture[0]);
+			item.style.float='left';
 		}
 		async function getListOfSocialPublicAccounts() {
 			const item = document.getElementById('SocialPublicAccounts');
@@ -115,6 +116,7 @@
 				stracture[0].appendChild(stracture[1]);
 			});
 			item.appendChild(stracture[0]);
+			item.style.float='left';
 		}
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
