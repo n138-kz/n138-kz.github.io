@@ -294,6 +294,12 @@
 						document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${new Date(response.rate.reset*10**3).toLocaleString()}`;
 					} catch (error) {}
 					break;
+				case 'debug.detail.localtime':
+					try {
+						const now=new Date();
+						document.querySelector(`[data-id="debug.detail.localtime"]`).innerHTML=`${now.toLocaleString()}.${('000'+now.getMilliseconds()).substr(-3)}<br>${Math.trunc(now.getTime()/10**3)}`;
+					} catch (error) {}
+					break;
 				default:
 					break;
 			}
@@ -301,15 +307,8 @@
 		setInterval(async ()=>RefreshDevOpsFields('debug.detail.screensize'), 1000);
 		setInterval(async ()=>RefreshDevOpsFields('debug.detail.networkdelay'), 500);
 		setTimeout(async ()=>RefreshDevOpsFields('debug.detail.clientaddr'), 500);
-		setInterval(async ()=>{
-			try {
-				if (true) {
-					const now=new Date();
-					document.querySelector(`[data-id="debug.detail.localtime"]`).innerHTML=`${now.toLocaleString()}.${('000'+now.getMilliseconds()).substr(-3)}<br>${Math.trunc(now.getTime()/10**3)}`;
-				}
-			} catch (error) {}
-		},500);
 		setInterval(async ()=>RefreshDevOpsFields('debug.detail.githubapiamount'), 1000);
+		setInterval(async ()=>RefreshDevOpsFields('debug.detail.localtime'), 500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
 			try { await getListOfSocialPublicAccounts(); } catch (error) {}
