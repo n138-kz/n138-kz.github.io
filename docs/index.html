@@ -208,10 +208,10 @@
 			item.style.marginRight='32px';
 		}
 		setInterval(async ()=>{
-			{
+			try {
 				document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
-			}
-			{
+			} catch (error) {}
+			try {
 				const ping_rtt_0=Date.now()/10**3;
 				const ping_rtt_xhr=await fetch(`${location.origin}`, {
 					method: 'HEAD',
@@ -236,8 +236,8 @@
 					status: '',
 				};
 				document.querySelector(`[data-id="debug.detail.networkdelay"]`).innerText=`${Math.round(ping_rtt.time)}${ping_rtt.unit}`;
-			}
-			{
+			} catch (error) {}
+			try {
 				const request = await get_API_Item({ url: 'https://ipinfo.io/json', });
 				console.debug(await request);
 
@@ -245,8 +245,8 @@
 				console.debug(await response);
 
 				document.querySelector(`[data-id="debug.detail.clientaddr"]`).innerHTML=`<a href="https://ipinfo.io/${response.ip}/json">${response.hostname}</a>`;
-			}
-			{
+			} catch (error) {}
+			try {
 				const request = await get_API_Item({ url: 'https://api.github.com/rate_limit', });
 				console.debug(await request);
 
@@ -254,11 +254,11 @@
 				console.debug(await response);
 
 				document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${response.rate.reset}`;
-			}
-			{
+			} catch (error) {}
+			try {
 				const now=new Date();
 				document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
-			}
+			} catch (error) {}
 		},500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
