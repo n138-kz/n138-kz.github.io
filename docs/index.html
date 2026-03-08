@@ -52,6 +52,8 @@
 			let lists=[];
 			lists.push(document.createElement('div'));
 			lists[0].style.marginLeft='32px';
+			lists[0].style.height='500px';
+			lists[0].style.overflowY='scroll';
 			response.map(e0=>{
 				lists.push(document.createElement('dl'));
 				lists[lists.length-1].style.marginBlockStart='0';
