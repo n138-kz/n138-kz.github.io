@@ -49,35 +49,34 @@
 			response = await request.response;
 			console.debug(await response);
 
-			let lists=[];
-			lists.push(document.createElement('div'));
-			lists[0].style.marginLeft='32px';
-			lists[0].style.height='500px';
-			lists[0].style.maxWidth='1000px';
-			lists[0].style.overflowY='scroll';
+			let stracture=[];
+			stracture.push(document.createElement('div'));
+			stracture[0].style.marginLeft='32px';
+			stracture[0].style.height='500px';
+			stracture[0].style.maxWidth='1000px';
+			stracture[0].style.overflowY='scroll';
 			response.map(e0=>{
-				lists.push(document.createElement('dl'));
-				lists[lists.length-1].style.marginBlockStart='0';
-				lists[lists.length-1].style.marginBlockEnd='0';
+				stracture.push(document.createElement('dl'));
+				stracture[stracture.length-1].style.marginBlockStart='0';
+				stracture[stracture.length-1].style.marginBlockEnd='0';
 
-				lists.push(document.createElement('dt'));
-				lists[lists.length-1].innerHTML='';
-				lists[lists.length-1].innerHTML+=`<a href="${e0['html_url']}">${e0['name']}</a>`;
-				lists[lists.length-1].innerHTML+=(e0['homepage']===null||e0['homepage']===undefined||e0['homepage']==false)?'':`<a href="${e0['homepage']}"><img src="./lib/14827.png" style="height: 1.5em;"></a>`;
-				lists[lists.length-1].style=whiteSpace='no-wrap';
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
+				stracture.push(document.createElement('dt'));
+				stracture[stracture.length-1].innerHTML='';
+				stracture[stracture.length-1].innerHTML+=`<a href="${e0['html_url']}">${e0['name']}</a>`;
+				stracture[stracture.length-1].innerHTML+=(e0['homepage']===null||e0['homepage']===undefined||e0['homepage']==false)?'':`<a href="${e0['homepage']}"><img src="./lib/14827.png" style="height: 1.5em;"></a>`;
+				stracture[stracture.length-1].style=whiteSpace='no-wrap';
+				stracture[stracture.length-2].appendChild(stracture[stracture.length-1]);
+				stracture.pop();
 
-				lists.push(document.createElement('dd'));
-				lists[lists.length-1].innerText=(e0['description']===null||e0['description']===undefined||e0['description']==false)?'':`${e0['description']}`;
-				lists[lists.length-1].style=whiteSpace='no-wrap';
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
+				stracture.push(document.createElement('dd'));
+				stracture[stracture.length-1].innerText=(e0['description']===null||e0['description']===undefined||e0['description']==false)?'':`${e0['description']}`;
+				stracture[stracture.length-1].style=whiteSpace='no-wrap';
+				stracture[stracture.length-2].appendChild(stracture[stracture.length-1]);
+				stracture.pop();
 
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
+				stracture[stracture.length-2].appendChild(stracture[stracture.length-1]);
 			});
-			item.appendChild(lists[0]);
-
+			item.appendChild(stracture[0]);
 		}
 		async function getListOfSocialPublicAccounts() {
 			const item = document.getElementById('SocialPublicAccounts');
