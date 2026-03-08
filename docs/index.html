@@ -59,7 +59,8 @@
 				lists.push(document.createElement('tr'));
 
 				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerHTML=`<a href="${e0['html_url']}">${e0['name']}</a>`;
+				lists[lists.length-1].innerHTML=(e0['homepage']===null||e0['homepage']===undefined||e0['homepage']==false)?'':`<a href="${e0['homepage']}"><img src="./lib/14827.png" style="height: 16px;"></a>`;
+				lists[lists.length-1].innerHTML+=`<a href="${e0['html_url']}">${e0['name']}</a>`;
 				lists[lists.length-1].dataset.id=`${e0['id']}`;
 				lists[lists.length-1].dataset.node_id=`${e0['node_id']}`;
 				lists[lists.length-1].dataset.created_at=`${e0['created_at']}`;
@@ -70,11 +71,6 @@
 				lists.pop();
 				lists.push(document.createElement('td'));
 				lists[lists.length-1].innerText=(e0['description']===null||e0['description']===undefined||e0['description']==false)?'':`${e0['description']}`;
-				lists[lists.length-1].style=whiteSpace='no-wrap';
-				lists[lists.length-2].appendChild(lists[lists.length-1]);
-				lists.pop();
-				lists.push(document.createElement('td'));
-				lists[lists.length-1].innerHTML=(e0['homepage']===null||e0['homepage']===undefined||e0['homepage']==false)?'':`<a href="${e0['homepage']}"><img src="./lib/14827.png" style="height: 16px;"></a>`;
 				lists[lists.length-1].style=whiteSpace='no-wrap';
 				lists[lists.length-2].appendChild(lists[lists.length-1]);
 				lists.pop();
