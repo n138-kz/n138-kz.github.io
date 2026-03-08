@@ -209,12 +209,12 @@
 		}
 		setInterval(async ()=>{
 			try {
-				if (false) {
+				if (true) {
 					document.querySelector(`[data-id="debug.detail.screensize"]`).innerText=`${document.body.clientWidth}x${document.body.clientHeight}`;
 				}
 			} catch (error) {}
 			try {
-				if (false) {
+				if (true) {
 					const ping_rtt_0=Date.now()/10**3;
 					const ping_rtt_xhr=await fetch(`${location.origin}`, {
 						method: 'HEAD',
@@ -264,7 +264,7 @@
 				}
 			} catch (error) {}
 			try {
-				if (false) {
+				if (true) {
 					const now=new Date();
 					document.querySelector(`[data-id="debug.detail.localtime"]`).innerText=`${now.toLocaleString()}.${now.getMilliseconds()}`;
 				}
