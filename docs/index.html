@@ -92,12 +92,15 @@
 				stracture[1]=document.createElement('a');
 				stracture[1].href=`${e0.url}`;
 				stracture[1].target=`_blank`;
-				stracture[2]=document.createTextNode(`${e0.name}`);
-				stracture[1].appendChild(stracture[2]);
+
 				stracture[2]=document.createElement('img');
 				stracture[2].src=`${e0.favicon}`;
 				stracture[2].style.height=`1.5em`;
 				stracture[1].appendChild(stracture[2]);
+
+				stracture[2]=document.createTextNode(`${e0.name}`);
+				stracture[1].appendChild(stracture[2]);
+
 				stracture[0].appendChild(stracture[1]);
 
 				item.appendChild(stracture[0]);
