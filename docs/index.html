@@ -304,15 +304,15 @@
 					break;
 			}
 		}
-		setInterval(async ()=>RefreshDevOpsFields('debug.detail.screensize'), 1000);
-		setInterval(async ()=>RefreshDevOpsFields('debug.detail.networkdelay'), 500);
-		setTimeout(async ()=>RefreshDevOpsFields('debug.detail.clientaddr'), 500);
-		setInterval(async ()=>RefreshDevOpsFields('debug.detail.githubapiamount'), 1000);
-		setInterval(async ()=>RefreshDevOpsFields('debug.detail.localtime'), 500);
 		window.addEventListener('DOMContentLoaded', async (e)=>{
 			try { await getListOfGithubPublicRepos(); } catch (error) {}
 			try { await getListOfSocialPublicAccounts(); } catch (error) {}
 			try { await BuildDevOpsFields(); } catch (error) {}
+			setInterval(async ()=>RefreshDevOpsFields('debug.detail.screensize'), 1000);
+			setInterval(async ()=>RefreshDevOpsFields('debug.detail.networkdelay'), 500);
+			setTimeout(async ()=>RefreshDevOpsFields('debug.detail.clientaddr'), 500);
+			setInterval(async ()=>RefreshDevOpsFields('debug.detail.githubapiamount'), 1000);
+			setInterval(async ()=>RefreshDevOpsFields('debug.detail.localtime'), 500);
 		});
 	</script>
 </head>
