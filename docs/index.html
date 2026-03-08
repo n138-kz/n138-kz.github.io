@@ -260,7 +260,7 @@
 					response = await request.response;
 					console.debug(await response);
 
-					document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${response.rate.reset}`;
+					document.querySelector(`[data-id="debug.detail.githubapiamount"]`).innerHTML=`Remaining: ${response.rate.remaining}/${response.rate.limit} (Use: ${response.rate.used})<br>Reset: ${response.rate.reset.toLocaleString()}`;
 				}
 			} catch (error) {}
 			try {
