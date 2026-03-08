@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@font-face {
+	font-family: "Uzura font";
+	src: 
+		local("うずらフォント"),
+		local("uzura_font"),
+}
+@font-face {
+	font-family: "Azuki font";
+	src: 
+		local("あずきフォント"),
+		local("azuki_font"),
+}
+@font-face {
+	font-family: "Myrica font";
+	src: 
+		local("Myrica M"),
+		local("Myrica N"),
+		local("Myrica P"),
+}
+@media not screen {
+	:root {
+		display: none;
+	}
+}
+:root {
+	--default-font-size: 16pt;
+	--default-margin-padding-size: 0;
+	--default-background-color: #F0FFFFFF;
+	--default-text-color: #000000FF;
+	--color-preset-red: #FF0000FF;
+	--color-preset-yellow: #FFa000FF;
+	--color-preset-green: #008000FF;
+	--color-discord-color-fg: #5763f2;
+	--color-discord-color-bg: #ffffff;
+}
+html, body {
+	margin: var(--default-margin-padding-size);
+	padding: var(--default-margin-padding-size);
+	background-color: var(--default-background-color);
+	color: var(--default-text-color);
+	font-size: var(--default-font-size);
+}
+html {
+	background-color: transparent;
+	padding-top: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+hr {
+	margin: 10px;
+}
+p {
+    margin-top: 0px;
+    margin-bottom: 0.5em;
+}
+code {
+	background-color: silver;
+	vertical-align: middle;
+	font-family: monospace;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+th {
+	text-align: center;
+}
+td {
+	text-align: left;
+}
