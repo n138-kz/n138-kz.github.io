@@ -28,10 +28,14 @@
 			};
 		}
 		async function getListOfGithubPublicRepos () {
-			const getListOfGithubPublicRepos = await get_API_Item({
+			const request = await get_API_Item({
 				url: 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=300',
 			});
-			console.log(await getListOfGithubPublicRepos);
+			console.log(await request);
+
+			gh_repos_list = await request.response;
+			console.log(await gh_repos_list);
+
 			
 		}
 		async function old_getListOfGithubPublicRepos() {
