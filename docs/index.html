@@ -13,6 +13,22 @@
 	<script src="./lib/master.js"></script>
 	<title>n138-kz.github.io</title>
 	<script>
+		async function get_API_Item(params={}) {
+			if (params.url===undefined) { return; }
+			const request = await fetch(params.url);
+			const response = await request.json();
+			return {
+				request: request,
+				response: response,
+			};
+		}
+		async function getListOfGithubPublicRepos () {
+			const getListOfGithubPublicRepos = await get_API_Item({
+				url: 'https://api.github.com/users/n138-kz/repos?sort=name&per_page=100',
+			});
+			console.log(await getListOfGithubPublicRepos);
+			
+		}
 		async function old_getListOfGithubPublicRepos() {
 			const wrap = document.querySelector('#GithubPublicRepos');
 			wrap.innerText = null;
