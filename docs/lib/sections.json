@@ -2,7 +2,7 @@
   {
     "name": "GitHub",
     "url": "https://github.com/n138-kz/",
-    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://github.com/"
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://github.com"
   },
   {
     "name": "YouTube",
@@ -12,12 +12,12 @@
   {
     "name": "Twitter(X)",
     "url": "https://twitter.com/n138kz",
-    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://x.com/"
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://x.com"
   },
   {
     "name": "Qiita",
     "url": "https://qiita.com/YuuT_38",
-    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://qiita.com/"
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://qiita.com"
   },
   {
     "name": "Bluesky",
@@ -31,7 +31,7 @@
   },
   {
     "name": "Policies",
-    "url": "policy/",
-    "favicon": "https://n138-kz.github.io/lib/favicon.webp"
+    "url": "https://github.com/n138-kz/n138-kz.github.io/blob/main/policy/README.md",
+    "favicon": "https://www.google.com/s2/favicons?size=64&domain=https://n138-kz.github.io"
   }
 ]
