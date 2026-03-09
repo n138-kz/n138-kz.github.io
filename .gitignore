@@ -1,2 +1,5 @@
-
 *.bak*
+*.db*
+*.sqlite*
+*.secret*
+*.config*
