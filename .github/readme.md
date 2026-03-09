@@ -12,10 +12,6 @@ GET https://n138-kz.github.io
 GET http://api.n138.jp
 ```
 
-## Common Policy Notes
-
-- [Policy Notes](/policy/)
-
 [![GitHub last commit](https://img.shields.io/github/last-commit/n138-kz/n138-kz.github.io)](/commits)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/n138-kz/n138-kz.github.io)](/commits)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/n138-kz/n138-kz.github.io)](/commits)
