@@ -214,9 +214,8 @@ window.addEventListener('load', ()=>{
 	social_icon.style.padding=`0px`;
 	social_icon.style.position='fixed';
 	social_icon.style.backgroundColor='azure';
-	social_icon.style.background='url(https://github.com/n138-kz.png) no-repeat center / cover';
 	social_icon.style.cursor='pointer';
-	social_icon.setAttribute('onclick', 'location.href="https://github.com/n138-kz"');
+	social_icon.appendChild(social_icon_children); /* div>a>img */
 
 	document.body.appendChild(social_icon);
 });
