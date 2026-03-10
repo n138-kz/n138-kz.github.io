@@ -182,7 +182,7 @@ window.addEventListener('load', ()=>{
 	const grecaptchaBadge = document.querySelectorAll('.grecaptcha-badge');
 	if (grecaptchaBadge.length==0) { return; } /* grecaptchaBadge 導入前だったらなにもしない */
 
-	const grecaptchaBadge_rect = grecaptchaBadge.getBoundingClientRect();
+	const grecaptchaBadge_rect = grecaptchaBadge[0].getBoundingClientRect();
 
 	const viewport={
 		height: window.innerHeight,
