@@ -201,7 +201,7 @@ window.addEventListener('load', ()=>{
 	social_icon_children[social_icon_children.length-1].title=`${social_icon_children[social_icon_children.length-1].href.replace(/^http.?\/\//, '').split('/').slice(0, 2).join('/')}`;
 	social_icon_children.push(document.createElement('img'));
 	social_icon_children[social_icon_children.length-1].src=`https://github.com/n138-kz.png`;
-	social_icon_children[social_icon_children.length-1].alt=`${social_icon_children[social_icon_children.length-1].href.replace(/^http.?\/\//, '').split('/').slice(0, 2).join('/')}`;
+	social_icon_children[social_icon_children.length-1].alt=`${social_icon_children[social_icon_children.length-2].title}`;
 	social_icon_children[social_icon_children.length-2].appendChild(social_icon_children[social_icon_children.length-1]); /* a>img */
 	social_icon_children.pop();
 	social_icon_children=social_icon_children[0]; /* a>img */
