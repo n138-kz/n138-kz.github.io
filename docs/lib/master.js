@@ -179,8 +179,10 @@ window.addEventListener('load', ()=>{
 	const social_icon = document.createElement('div');
 	social_icon.id='social_icon';
 
-	const grecaptchaBadge = document.querySelector('.grecaptcha-badge');
-	const grecaptchaBadge_rect = grecaptchaBadge.getBoundingClientRect();
+	const grecaptchaBadge = document.querySelectorAll('.grecaptcha-badge');
+	if (grecaptchaBadge.length==0) { return; } /* grecaptchaBadge 導入前だったらなにもしない */
+
+	const grecaptchaBadge_rect = grecaptchaBadge[0].getBoundingClientRect();
 
 	const viewport={
 		height: window.innerHeight,
@@ -191,6 +193,19 @@ window.addEventListener('load', ()=>{
 		bottom: viewport.height - grecaptchaBadge_rect.bottom,
 		right: viewport.width - grecaptchaBadge_rect.right,
 	}
+
+	let social_icon_children=[];
+	social_icon_children.push(document.createElement('a'));
+	social_icon_children[social_icon_children.length-1].href=`https://github.com/n138-kz`;
+	social_icon_children[social_icon_children.length-1].target=`_blank`;
+	social_icon_children.push(document.createElement('img'));
+	social_icon_children[social_icon_children.length-1].src=`https://github.com/n138-kz.png`;
+	social_icon_children[social_icon_children.length-1].style.width=`${grecaptchaBadge_rect.height}px`;
+	social_icon_children[social_icon_children.length-1].style.height=`${grecaptchaBadge_rect.height}px`;
+	social_icon_children[social_icon_children.length-1].style.borderRadius=`30%`;
+	social_icon_children[social_icon_children.length-2].appendChild(social_icon_children[social_icon_children.length-1]); /* a>img */
+	social_icon_children.pop();
+	social_icon_children=social_icon_children[0]; /* a>img */
 	
 	social_icon.style.width=`${grecaptchaBadge_rect.height}px`;
 	social_icon.style.height=`${grecaptchaBadge_rect.height}px`;
@@ -200,9 +215,8 @@ window.addEventListener('load', ()=>{
 	social_icon.style.padding=`0px`;
 	social_icon.style.position='fixed';
 	social_icon.style.backgroundColor='azure';
-	social_icon.style.background='url(https://github.com/n138-kz.png) no-repeat center / cover';
 	social_icon.style.cursor='pointer';
-	social_icon.setAttribute('onclick', 'location.href="https://github.com/n138-kz"');
+	social_icon.appendChild(social_icon_children); /* div>a>img */
 
 	document.body.appendChild(social_icon);
 });
