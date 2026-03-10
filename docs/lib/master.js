@@ -179,7 +179,9 @@ window.addEventListener('load', ()=>{
 	const social_icon = document.createElement('div');
 	social_icon.id='social_icon';
 
-	const grecaptchaBadge = document.querySelector('.grecaptcha-badge');
+	const grecaptchaBadge = document.querySelectorAll('.grecaptcha-badge');
+	if (grecaptchaBadge.length==0) { return; } /* grecaptchaBadge 導入前だったらなにもしない */
+
 	const grecaptchaBadge_rect = grecaptchaBadge.getBoundingClientRect();
 
 	const viewport={
