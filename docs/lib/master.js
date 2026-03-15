@@ -164,6 +164,15 @@ window.addEventListener('load', ()=>{
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562213'); /* 260308_トリファ_300x250 */
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562214'); /* 260308_トリファ_300x250_1 */
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562215'); /* 260308_トリファ_300x250_2 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566288'); /* 260316_FRONTIERダイレクト_468x60 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566289'); /* 260316_NEC Direct(NECダイレクト)_728x90 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566290'); /* 260316_ソースネクスト_728x90 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566291'); /* 260316_Renta！_728x90 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566292'); /* 260316_Renta！_728x90_1 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566294'); /* 260316_オーディオブック配信 audiobook.jp_728x90 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566295'); /* 260316_オーディオブック配信 audiobook.jp_728x90_1 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566296'); /* 260316_オーディオブック配信 audiobook.jp_728x90_2 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/smartphonebanner?sid=3755829&pid=892566293&position=overlay'); /* 260316_オーディオブック配信 audiobook.jp_320x50 */
 
 	let url=list[getRandomIntInclusive(0,list.length-1)];
 	const container = document.createElement('div');
