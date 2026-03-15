@@ -164,7 +164,7 @@ window.addEventListener('load', ()=>{
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562213'); /* 260308_トリファ_300x250 */
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562214'); /* 260308_トリファ_300x250_1 */
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892562215'); /* 260308_トリファ_300x250_2 */
-	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566288'); /* 260316_FRONTIERダイレクト_468x60
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566288'); /* 260316_FRONTIERダイレクト_468x60 */
 
 	let url=list[getRandomIntInclusive(0,list.length-1)];
 	const container = document.createElement('div');
