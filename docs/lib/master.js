@@ -170,6 +170,7 @@ window.addEventListener('load', ()=>{
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566291'); /* 260316_Renta！_728x90 */
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566292'); /* 260316_Renta！_728x90_1 */
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566294'); /* 260316_オーディオブック配信 audiobook.jp_728x90 */
+	list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566295'); /* 260316_オーディオブック配信 audiobook.jp_728x90_1 */
 
 	let url=list[getRandomIntInclusive(0,list.length-1)];
 	const container = document.createElement('div');
