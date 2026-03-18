@@ -170,17 +170,12 @@ window.addEventListener('load', ()=>{
 			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{
 				e.remove();
 			});
-			while (typeof loop_breaker === 'undefined') {
-				/* 例外(ReferenceError: initAd is not defined)が発生したら、もう一度やり直す。 */
-				try {
-					initAd();
-					loop_breaker=true;
-					break;
-				} catch (error) {
-					console.error(error);
-				}
+			try {
+				initAd();
+			} catch (error) {
+				console.error(error);
 			}
-		}, 60000);
+		});
 	}
 });
 window.addEventListener('load', ()=>{
