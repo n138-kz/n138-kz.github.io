@@ -165,7 +165,20 @@ window.addEventListener('load', ()=>{
 		item.rel = 'stylesheet';
 		item.href = 'https://n138-kz.github.io/lib/ad.css';
 		document.head.appendChild(item);
-		initAd();
+
+		setInterval(() => {
+			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{
+				e.remove();
+			});
+			while (true) {
+				try {
+					initAd();
+					break;
+				} catch (error) {
+					console.error(error);
+				}
+			}
+		}, 60000);
 	}
 });
 window.addEventListener('load', ()=>{
