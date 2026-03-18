@@ -166,19 +166,6 @@ window.addEventListener('load', ()=>{
 		item.href = 'https://n138-kz.github.io/lib/ad.css';
 		document.head.appendChild(item);
 
-		{
-			while (typeof loop_breaker === 'undefined') {
-				/* 例外(ReferenceError: initAd is not defined)が発生したら、もう一度やり直す。 */
-				try {
-					initAd();
-					loop_breaker=true;
-					break;
-				} catch (error) {
-					console.error(error);
-				}
-			}
-		}
-
 		setInterval(() => {
 			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{
 				e.remove();
