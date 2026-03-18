@@ -1,0 +1,3 @@
+script[src^="//ad.jp.ap.valuecommerce.com"]+a>img {
+    max-width: 468px;
+}
