@@ -175,7 +175,7 @@ window.addEventListener('load', ()=>{
 			} catch (error) {
 				console.error(error);
 			}
-		});
+		}, 60*1000);
 	}
 });
 window.addEventListener('load', ()=>{
