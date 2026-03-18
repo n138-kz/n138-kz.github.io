@@ -171,6 +171,7 @@ window.addEventListener('load', ()=>{
 				e.remove();
 			});
 			while (true) {
+				/* 例外(ReferenceError: initAd is not defined)が発生したら、もう一度やり直す。 */
 				try {
 					initAd();
 					break;
