@@ -170,17 +170,18 @@ window.addEventListener('load', ()=>{
 			try {
 				initAd();
 			} catch (error) { console.error(error); }
+
+			/* 1分ごとに広告を更新する */
+			setInterval(() => {
+				document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
+				try {
+					initAd();
+				} catch (error) { console.error(error); }
+			}, 60*1000);
 		}
 		document.head.appendChild(script);
 
 
-		/* 1分ごとに広告を更新する */
-		setInterval(() => {
-			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
-			try {
-				initAd();
-			} catch (error) { console.error(error); }
-		}, 60*1000);
 	}
 });
 window.addEventListener('load', ()=>{
