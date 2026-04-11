@@ -166,12 +166,11 @@ window.addEventListener('load', ()=>{
 		script.src = 'https://n138-kz.github.io/lib/ad.js';
 		document.head.appendChild(script);
 
-		setTimeout(() => {
-			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
-			try {
-				initAd();
-			} catch (error) { console.error(error); }
-		}, 1*1000);
+		document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
+		try {
+			initAd();
+		} catch (error) { console.error(error); }
+
 		setInterval(() => {
 			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
 			try {
