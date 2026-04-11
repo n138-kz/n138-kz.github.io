@@ -180,8 +180,6 @@ window.addEventListener('load', ()=>{
 			}, 60*1000);
 		}
 		document.head.appendChild(script);
-
-
 	}
 });
 window.addEventListener('load', ()=>{
