@@ -19,9 +19,9 @@ function initAd() {
 
 	let container;
 		container = document.createElement('div');
+		document.body.prepend(container);
 	let url=list[getRandomIntInclusive(0,list.length-1)];
 	container.classList.add('ad-container');
-	document.body.prepend(container);
 
 	/* postscribeを使って、そのdivの中にスクリプトを書き込む */
 	/* 第一引数：書き込み先の要素 */
