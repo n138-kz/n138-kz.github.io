@@ -18,9 +18,13 @@ function initAd() {
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/smartphonebanner?sid=3755829&pid=892566293&position=overlay'); /* 260316_オーディオブック配信 audiobook.jp_320x50 */
 
 	let container;
+	if (document.querySelectorAll('.ad-container').length>0) {
+	} else {
 		container = document.createElement('div');
 		container.classList.add('ad-container');
 		document.body.prepend(container);
+	}
+
 	let url=list[getRandomIntInclusive(0,list.length-1)];
 
 	/* postscribeを使って、そのdivの中にスクリプトを書き込む */
