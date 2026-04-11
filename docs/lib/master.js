@@ -157,14 +157,14 @@ window.addEventListener('DOMContentLoaded', (e)=>{
 });
 window.addEventListener('load', ()=>{
 	{
-		let item = null;
-		item = document.createElement('link');
-		item.rel = 'stylesheet';
-		item.href = 'https://n138-kz.github.io/lib/ad.css';
-		document.head.appendChild(item);
-		item = document.createElement('script');
-		item.src = 'https://n138-kz.github.io/lib/ad.js';
-		document.head.appendChild(item);
+		const link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = 'https://n138-kz.github.io/lib/ad.css';
+		document.head.appendChild(link);
+
+		const script = document.createElement('script');
+		script.src = 'https://n138-kz.github.io/lib/ad.js';
+		document.head.appendChild(script);
 
 		setTimeout(() => {
 			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
