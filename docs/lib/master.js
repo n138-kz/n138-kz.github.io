@@ -158,12 +158,12 @@ window.addEventListener('DOMContentLoaded', (e)=>{
 window.addEventListener('load', ()=>{
 	{
 		let item = null;
-		item = document.createElement('script');
-		item.src = 'https://n138-kz.github.io/lib/ad.js';
-		document.head.appendChild(item);
 		item = document.createElement('link');
 		item.rel = 'stylesheet';
 		item.href = 'https://n138-kz.github.io/lib/ad.css';
+		document.head.appendChild(item);
+		item = document.createElement('script');
+		item.src = 'https://n138-kz.github.io/lib/ad.js';
 		document.head.appendChild(item);
 
 		setTimeout(() => {
