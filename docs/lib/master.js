@@ -167,24 +167,16 @@ window.addEventListener('load', ()=>{
 		document.head.appendChild(item);
 
 		setTimeout(() => {
-			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{
-				e.remove();
-			});
+			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
 			try {
 				initAd();
-			} catch (error) {
-				console.error(error);
-			}
+			} catch (error) { console.error(error); }
 		}, 1*1000);
 		setInterval(() => {
-			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{
-				e.remove();
-			});
+			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
 			try {
 				initAd();
-			} catch (error) {
-				console.error(error);
-			}
+			} catch (error) { console.error(error); }
 		}, 60*1000);
 	}
 });
