@@ -166,11 +166,13 @@ window.addEventListener('load', ()=>{
 		script.src = 'https://n138-kz.github.io/lib/ad.js';
 		document.head.appendChild(script);
 
+		/* 広告を表示する */
 		document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
 		try {
 			initAd();
 		} catch (error) { console.error(error); }
 
+		/* 1分ごとに広告を更新する */
 		setInterval(() => {
 			document.querySelectorAll('script[src^="//ad.jp.ap.valuecommerce.com"]+a>img').forEach((e)=>{ e.remove(); });
 			try {
