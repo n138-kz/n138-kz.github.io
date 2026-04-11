@@ -17,8 +17,9 @@ function initAd() {
 	/* list.push('//ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=3755829&pid=892566296'); /* 260316_オーディオブック配信 audiobook.jp_728x90_2 */
 	list.push('//ad.jp.ap.valuecommerce.com/servlet/smartphonebanner?sid=3755829&pid=892566293&position=overlay'); /* 260316_オーディオブック配信 audiobook.jp_320x50 */
 
+	let container;
+		container = document.createElement('div');
 	let url=list[getRandomIntInclusive(0,list.length-1)];
-	const container = document.createElement('div');
 	container.classList.add('ad-container');
 	document.body.prepend(container);
 
