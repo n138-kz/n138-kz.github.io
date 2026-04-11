@@ -19,6 +19,7 @@ function initAd() {
 
 	let container;
 	if (document.querySelectorAll('.ad-container').length>0) {
+		container = document.querySelector('.ad-container');
 	} else {
 		container = document.createElement('div');
 		container.classList.add('ad-container');
