@@ -180,6 +180,7 @@ window.addEventListener('load', ()=>{
 			}, 60*1000);
 		}
 		document.head.appendChild(script);
+		console.debug(script);
 	}
 });
 window.addEventListener('load', ()=>{
