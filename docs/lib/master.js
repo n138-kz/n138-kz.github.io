@@ -179,7 +179,7 @@ window.addEventListener('load', ()=>{
 				} catch (error) { console.error(error); }
 			}, 60*1000);
 		}
-		document.head.appendChild(script);console.debug(script);
+		document.head.appendChild(script);
 	}
 });
 window.addEventListener('load', ()=>{
