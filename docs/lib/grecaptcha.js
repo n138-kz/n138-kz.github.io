@@ -38,6 +38,8 @@ function grecaptcha_init(act = 'homepage'){
 function grecaptcha_pickup(){
 	try {
 		token = localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA' );
+		console.log(token);
+		console.log(typeof token);
 		
 		if( typeof token === 'undefined' || token.length == 0 ){
 			throw 'No token';
