@@ -20,8 +20,8 @@ function grecaptcha_init(act = 'homepage'){
 				console.debug(expire_at)
 				
 				localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA', {
-					expire_at.issued_at,
-					expire_at.expire_at,
+					issued_at: expire_at.issued_at,
+					expire_at: expire_at.expire_at,
 					token: token,
 				} );
 			}).catch((e) => {
