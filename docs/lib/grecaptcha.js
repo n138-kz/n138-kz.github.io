@@ -58,6 +58,7 @@ function grecaptcha_pickup(){
 	}
 }
 /* **********+**********+********** */
+/**
 class googleRecaptcha {
 	constructor(sitekey) {
 		this.client_id = sitekey;
@@ -67,7 +68,7 @@ class googleRecaptcha {
 			expire_at = {
 				issued_at: new Date().getTime(),
 				expire_at: new Date(new Date().getTime()+(5*60*1000)).getTime(),
-				/* expire_at: 5min */
+				/* expire_at: 5min */ /**
 			}
 			console.debug(expire_at);
 			localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA', {
@@ -93,3 +94,4 @@ class googleRecaptcha {
 }
 googleRecaptcha = new googleRecaptcha('6LfCHdcUAAAAAOwkHsW_7W7MfoOrvoIw9CXdLRBA');
 googleRecaptcha.init();
+/* // **/
