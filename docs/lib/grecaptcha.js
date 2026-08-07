@@ -11,18 +11,26 @@ function grecaptcha_init(act = 'homepage'){
 		} catch (e) {}
 
 		try {
-		grecaptcha.execute(client_id, {action: act}).then(function(token) {
-			console.debug('Date of Issue:  ' + new Date().toString());
-			console.debug('Date of Expire: ' + new Date(new Date().getTime()+(5*60*1000)).toString());
-
-			localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA', {issued_at: Date.now(), token: token} );
-		}).catch((e) => {
+			grecaptcha.execute(client_id, {action: act}).then(function(token) {
+				expire_at = {
+					issued_at: new Date().getTime(),
+					expire_at: new Date(new Date().getTime()+(5*60*1000)).getTime(),
+					/* expire_at: 5min */
+				}
+				console.debug(expire_at)
+				
+				localStorage.setItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA', {
+					expire_at.issued_at,
+					expire_at.expire_at,
+					token: token,
+				} );
+			}).catch((e) => {
+				console.error('Error: Google reCAPTCHA Failed.');
+				console.trace(e);
+			});
+		} catch (e) {
 			console.error('Error: Google reCAPTCHA Failed.');
 			console.trace(e);
-		});
-		} catch (e) {
-		console.error('Error: Google reCAPTCHA Failed.');
-		console.trace(e);
 		}
 
 	});
@@ -30,12 +38,14 @@ function grecaptcha_init(act = 'homepage'){
 function grecaptcha_pickup(){
 	try {
 		token = localStorage.getItem( (btoa(location.href)).slice(0, 16) + '.reCAPTCHA' );
-		if( token.length == 0 ) {
-			throw 'Fatal error';
+		
+		if( typeof token === 'undefined' || token.length == 0 ){
+			throw 'No token';
 		}
 		return token;
 	} catch (e) {
 		console.error('Error: Google reCAPTCHA Failed.');
 		console.trace(e);
+		return null;
 	}
 }
