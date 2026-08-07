@@ -41,7 +41,7 @@ function grecaptcha_pickup(){
 		console.log(token);
 		console.log(typeof token);
 		
-		if( typeof token === 'undefined' || token.length == 0 ){
+		if( typeof token === 'undefined' || token === null || token.length == 0 ){
 			throw 'No token';
 		}
 		return token;
